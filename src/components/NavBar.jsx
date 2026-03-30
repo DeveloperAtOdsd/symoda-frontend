@@ -39,10 +39,10 @@ export default function NavBar() {
     >
       <nav className="flex items-center justify-between px-8 py-[10px] rounded-xl backdrop-blur-md bg-white/45 border border-white/30 shadow-sm">
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <a href='/' className="flex items-center gap-3">
           <img src={imgLogoMark} alt="" className="w-10 h-10" />
           <img src={imgWordmark} alt="Symoda Technology group" className="h-10 w-30" />
-        </div>
+        </a>
 
         {/* Hamburger */}
         {/* <button className="w-12 h-12 flex flex-col items-center justify-center gap-[7px]" aria-label="Menu">

@@ -1,4 +1,9 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import imgArrow from '../assets/contact-icon-arrow.svg'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // TODO: Replace with your actual Cal.com links
 const CAL_LINK_30 = 'developer/30min'
@@ -9,11 +14,27 @@ import icon3 from '../assets/contact-card3-icon.png'
 import icon4 from '../assets/contact-card4-icon.png'
 
 export default function ContactOptionsSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.co-header > *', { y: 40, opacity: 0 }, {
+        y: 0, opacity: 1, stagger: 0.15, ease: 'power3.out', duration: 0.7,
+        scrollTrigger: { trigger: '.co-header', start: 'top 85%' },
+      })
+      gsap.fromTo('.co-card', { y: 50, opacity: 0 }, {
+        y: 0, opacity: 1, stagger: 0.12, ease: 'power3.out', duration: 0.6,
+        scrollTrigger: { trigger: '.co-cards', start: 'top 85%' },
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="flex flex-col gap-[32px] md:gap-[42px] items-start px-[16px] md:px-[32px] py-[48px] md:py-[80px] bg-[#f5f5f5] w-full">
+    <div ref={sectionRef} className="flex flex-col gap-[32px] md:gap-[42px] items-start px-[16px] md:px-[32px] py-[48px] md:py-[80px] bg-[#f5f5f5] w-full">
 
       {/* Section header */}
-      <div className="flex flex-col gap-[32px] md:gap-[48px] items-start w-full">
+      <div className="co-header flex flex-col gap-[32px] md:gap-[48px] items-start w-full">
         {/* Tag */}
         <div className="border-[1.5px] border-black/[0.27] flex gap-[12px] items-center justify-center px-[16px] py-[12px] rounded-full shrink-0">
           <p className="font-normal leading-[20px] text-[#171717] text-[14px] tracking-[-0.09px] whitespace-nowrap">
@@ -34,10 +55,10 @@ export default function ContactOptionsSection() {
       </div>
 
       {/* Cards row */}
-      <div className="flex flex-col md:flex-row gap-[24px] items-start w-full md:overflow-x-auto md:scrollbar-hide md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]">
+      <div className="co-cards flex flex-col md:flex-row gap-[24px] items-start w-full md:overflow-x-auto md:scrollbar-hide md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]">
 
         {/* Card 01 */}
-        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
+        <div className="co-card bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 01
           </p>
@@ -65,7 +86,7 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Card 02 */}
-        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
+        <div className="co-card bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 02
           </p>
@@ -97,7 +118,7 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Card 03 */}
-        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
+        <div className="co-card bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 03
           </p>
@@ -124,7 +145,7 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Card 04 */}
-        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
+        <div className="co-card bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 04
           </p>

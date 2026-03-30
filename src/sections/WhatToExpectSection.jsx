@@ -1,5 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import imgArrow from '../assets/arrow.svg'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const steps = [
   {
@@ -53,7 +57,7 @@ function Timeline() {
   return (
     <div className="flex flex-col gap-[32px] lg:gap-[48px] items-start w-full lg:w-[559px] shrink-0">
       {/* Tag */}
-      <div className="border-[0.8px] border-black/[0.27] flex items-center justify-center px-[8px] py-[8px] rounded-full">
+      <div className="wte-tag border-[0.8px] border-black/[0.27] flex items-center justify-center px-[8px] py-[8px] rounded-full">
         <span className="font-medium text-[12px] leading-[16px] tracking-[0.01px] text-black">
           After You Reach Out
         </span>
@@ -61,19 +65,19 @@ function Timeline() {
 
       {/* Heading */}
       <p
-        className="font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
+        className="wte-heading font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
         style={{ fontFeatureSettings: "'zero'" }}
       >
         What to expect.
       </p>
 
       {/* Steps */}
-      <div className="flex flex-col items-start pt-[16px] relative w-full">
+      <div className="wte-steps flex flex-col items-start pt-[16px] relative w-full">
         {/* Vertical line */}
-        <div className="absolute left-[16px] top-[32px] bottom-[88px] w-px bg-[rgba(13,13,13,0.1)]" />
+        <div className="wte-line absolute left-[16px] top-[32px] bottom-[88px] w-px bg-[rgba(13,13,13,0.1)]" />
 
         {steps.map((step) => (
-          <div key={step.num} className="flex gap-[20px] items-start pb-[32px] w-full">
+          <div key={step.num} className="wte-step flex gap-[20px] items-start pb-[32px] w-full">
             {/* Number badge */}
             <div className="bg-[#1a1aff] border border-[#1a1aff] flex items-center justify-center rounded-[16px] size-[32px] shrink-0">
               <span className="font-medium text-[12px] leading-[16px] tracking-[0.01px] text-white">
@@ -108,7 +112,7 @@ function ContactForm() {
   const labelClass = 'text-[#7a7a7a] text-[14px] leading-[20px] tracking-[-0.09px]'
 
   return (
-    <div className="bg-white border-2 border-[rgba(17,17,17,0.13)] flex flex-col gap-[24px] p-[24px] md:p-[48px] rounded-[20px] md:rounded-[28px] shadow-[0px_4px_6px_-2px_rgba(18,18,23,0.05),0px_10px_15px_-3px_rgba(18,18,23,0.08)] w-full lg:w-[676px] shrink-0">
+    <div className="wte-form bg-white border-2 border-[rgba(17,17,17,0.13)] flex flex-col gap-[24px] p-[24px] md:p-[48px] rounded-[20px] md:rounded-[28px] shadow-[0px_4px_6px_-2px_rgba(18,18,23,0.05),0px_10px_15px_-3px_rgba(18,18,23,0.08)] w-full lg:w-[676px] shrink-0">
       {/* Heading */}
       <div className="flex flex-col gap-[16px] md:gap-[20px]">
         <p
@@ -243,8 +247,39 @@ function ContactForm() {
 }
 
 export default function WhatToExpectSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Timeline left side: tag + heading fade up
+      gsap.fromTo('.wte-tag, .wte-heading', { y: 30, opacity: 0 }, {
+        y: 0, opacity: 1, stagger: 0.15, ease: 'power3.out', duration: 0.6,
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
+      })
+
+      // Vertical line grows
+      gsap.fromTo('.wte-line', { scaleY: 0 }, {
+        scaleY: 1, transformOrigin: 'top', ease: 'none',
+        scrollTrigger: { trigger: '.wte-steps', start: 'top 80%', end: 'bottom 60%', scrub: true },
+      })
+
+      // Steps stagger in
+      gsap.fromTo('.wte-step', { y: 40, opacity: 0 }, {
+        y: 0, opacity: 1, stagger: 0.15, ease: 'power3.out', duration: 0.6,
+        scrollTrigger: { trigger: '.wte-steps', start: 'top 80%' },
+      })
+
+      // Form card slides up
+      gsap.fromTo('.wte-form', { y: 60, opacity: 0 }, {
+        y: 0, opacity: 1, ease: 'power3.out', duration: 0.8,
+        scrollTrigger: { trigger: '.wte-form', start: 'top 90%' },
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
+    <section ref={sectionRef} className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
       <div className="mx-auto flex flex-col lg:flex-row gap-[32px] lg:gap-[141px] justify-between">
         <Timeline />
         <ContactForm />

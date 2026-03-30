@@ -1,6 +1,10 @@
 import { getCalApi } from '@calcom/embed-react'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import NavBar from '../components/NavBar'
+
+gsap.registerPlugin(ScrollTrigger)
 import Footer from '../components/Footer'
 import Gred from '../components/Gred'
 import ContactOptionsSection from '../sections/ContactOptionsSection'
@@ -56,8 +60,24 @@ function CirclesVisual() {
 
 /* ── Hero section ── */
 function ContactHero() {
+  const heroRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo('.hero-tag', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 })
+        .fromTo('.hero-heading', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.3')
+        .fromTo('.hero-body', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.3')
+        .fromTo('.hero-buttons', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, '-=0.2')
+        .fromTo('.hero-circles', { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.6')
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="relative min-h-screen bg-white flex items-center overflow-hidden pt-24 pb-16 px-4 md:px-6 lg:px-8">
+    <section ref={heroRef} className="relative min-h-screen bg-white flex items-center overflow-hidden pt-24 pb-16 px-4 md:px-6 lg:px-8">
       <Gred />
 
       <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
@@ -66,7 +86,7 @@ function ContactHero() {
         <div className="flex flex-col gap-6 lg:gap-12 max-w-[760px] w-full">
 
           {/* Tag */}
-          <div className="flex items-center gap-3 px-4 py-3 rounded-full border-[1.5px] border-black/[0.27] w-fit">
+          <div className="hero-tag flex items-center gap-3 px-4 py-3 rounded-full border-[1.5px] border-black/[0.27] w-fit">
             <span className="size-[6px] rounded-full bg-[#29aa49] shrink-0" />
             <span className="text-[14px] leading-[20px] tracking-[-0.09px] text-black">
               CONTACT &amp; NEXT STEPS
@@ -75,7 +95,7 @@ function ContactHero() {
 
           {/* Heading */}
           <div
-            className="font-medium text-[36px] md:text-[56px] lg:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
+            className="hero-heading font-medium text-[36px] md:text-[56px] lg:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
             style={{ fontFeatureSettings: "'zero'" }}
           >
             <p>Let's</p>
@@ -83,12 +103,12 @@ function ContactHero() {
           </div>
 
           {/* Body */}
-          <p className="text-[16px] md:text-[20px] lg:text-[24px] leading-[1.5] tracking-[-0.47px] text-black/80 max-w-[680px]">
+          <p className="hero-body text-[16px] md:text-[20px] lg:text-[24px] leading-[1.5] tracking-[-0.47px] text-black/80 max-w-[680px]">
             Whether you're just exploring automation or ready to scale, we'd like to understand your challenges and see if Symoda is a good fit.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-3 md:gap-6 items-center">
+          <div className="hero-buttons flex flex-wrap gap-3 md:gap-6 items-center">
             <button
               data-cal-link={CAL_LINK}
               data-cal-config='{"layout":"month_view"}'
@@ -105,7 +125,7 @@ function ContactHero() {
         </div>
 
         {/* Right — circles visual (visible on all sizes) */}
-        <div className="flex justify-end">
+        <div className="hero-circles flex justify-end">
           <CirclesVisual />
         </div>
 
