@@ -105,9 +105,9 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 /* ─── Mobile static layout ─── */
 function MobileSteps() {
   return (
-    <section className="bg-[#e8eaff] px-4 py-10">
+    <section className="bg-[#e8eaff] px-4 md:px-6 py-10 md:py-16">
       <h2
-        className="text-black font-medium text-[32px] leading-[40px] tracking-[-0.8px] mb-8"
+        className="text-black font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] tracking-[-0.8px] mb-8 md:mb-12"
         style={{ fontFeatureSettings: "'zero'" }}
       >
         Here's how Symoda works.
@@ -194,7 +194,7 @@ export default function HowSymodaWorksSection() {
   const stepsRef = useRef([])
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
+    const check = () => setIsMobile(window.innerWidth < 1024)
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
