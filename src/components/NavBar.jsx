@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
+import imgLogoMark from '../assets/nav-logomark.svg'
+import imgWordmark from '../assets/nav-wordmark.svg'
+import imgHamburgerLine from '../assets/nav-hamburger-line.svg'
 
 export default function NavBar() {
   const [hidden, setHidden] = useState(false)
@@ -9,12 +12,12 @@ export default function NavBar() {
     // Hide while HowSymodaWorksSection is pinned
     const onSectionActive = (e) => {
       sectionActive.current = e.detail
-      lastY.current = window.scrollY // prevent scroll handler from flipping on re-entry
+      lastY.current = window.scrollY
       setHidden(e.detail)
     }
     window.addEventListener('hsw:active', onSectionActive)
 
-    // Normal hide-on-scroll-down behaviour
+    // Hide on scroll down, show on scroll up
     const onScroll = () => {
       if (sectionActive.current) return
       const y = window.scrollY
@@ -30,29 +33,24 @@ export default function NavBar() {
   }, [])
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 transition-transform duration-300 ${
-        hidden ? '-translate-y-full' : 'translate-y-0'
-      }`}
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-3 transition-transform duration-300 ${hidden ? '-translate-y-full' : 'translate-y-0'
+        }`}
     >
-      <div className="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between">
+      <nav className="flex items-center justify-between px-8 py-[10px] rounded-xl backdrop-blur-md bg-white/45 border border-white/30 shadow-sm">
+        {/* Logo */}
         <div className="flex items-center gap-3">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="40" height="40" rx="8" fill="#3333FF" />
-            <path d="M20 8L28 16L20 24L12 16L20 8Z" fill="white" />
-            <path d="M20 24L28 32H12L20 24Z" fill="white" opacity="0.6" />
-          </svg>
-          <div>
-            <div className="font-bold text-xl text-gray-900 leading-none">Symoda</div>
-            <div className="text-xs text-gray-400">Technology group</div>
-          </div>
+          <img src={imgLogoMark} alt="" className="w-10 h-10" />
+          <img src={imgWordmark} alt="Symoda Technology group" className="h-10 w-30" />
         </div>
-        <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
-          <div className="w-6 h-0.5 bg-gray-800 mb-1.5" />
-          <div className="w-6 h-0.5 bg-gray-800 mb-1.5" />
-          <div className="w-6 h-0.5 bg-gray-800" />
+
+        {/* Hamburger */}
+        <button className="w-12 h-12 flex flex-col items-center justify-center gap-[7px]" aria-label="Menu">
+          <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
+          <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
+          <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
         </button>
-      </div>
-    </nav>
+      </nav>
+    </div>
   )
 }
