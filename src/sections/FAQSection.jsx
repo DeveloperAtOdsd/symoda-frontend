@@ -49,11 +49,11 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="bg-[#eef0ff] px-[32px] py-[80px]">
-      <div className="flex gap-[24px] justify-between w-full">
+    <section className="bg-[#eef0ff] px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
+      <div className="flex flex-col lg:flex-row gap-[32px] lg:gap-[24px] justify-between w-full">
 
         {/* Left — heading */}
-        <div className="flex flex-col gap-[48px] items-start shrink-0 w-[559px]">
+        <div className="flex flex-col gap-[32px] lg:gap-[48px] items-start shrink-0 lg:w-[559px]">
           {/* Tag */}
           <div className="border border-black/[0.27] flex items-center justify-center px-[8px] py-[8px] rounded-full shrink-0">
             <span className="font-medium text-[12px] leading-[16px] text-black tracking-[0.01px] whitespace-nowrap">
@@ -63,16 +63,16 @@ export default function FAQSection() {
 
           {/* Heading */}
           <p
-            className="font-medium text-[56px] leading-[64px] tracking-[-1.25px] text-[#171717] whitespace-pre-wrap"
+            className="font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
             style={{ fontFeatureSettings: "'zero'" }}
           >
-            {'Common \n'}
+            {'Common '}
             <span className="text-[#2132ed]">questions.</span>
           </p>
         </div>
 
         {/* Right — accordion */}
-        <div className="flex flex-col gap-[23px] items-end shrink-0 w-[793px]">
+        <div className="flex flex-col gap-[23px] items-end w-full lg:shrink-0 lg:w-[793px]">
           {FAQS.map((faq, i) => {
             const isOpen = openIndex === i
 
@@ -85,7 +85,7 @@ export default function FAQSection() {
                 {/* Question row */}
                 <div className="flex items-center justify-between w-full">
                   <p
-                    className="font-normal text-[24px] leading-[36px] text-black tracking-[-0.47px]"
+                    className="font-normal text-[18px] md:text-[24px] leading-[28px] md:leading-[36px] text-black tracking-[-0.47px]"
                     style={{ fontFeatureSettings: "'zero'" }}
                   >
                     {faq.q}
@@ -107,7 +107,7 @@ export default function FAQSection() {
               /* Closed item */
               <div key={i} className="bg-white flex items-center justify-between p-[20px] rounded-[12px] w-full">
                 <p
-                  className="font-normal text-[24px] leading-[36px] text-black tracking-[-0.47px]"
+                  className="font-normal text-[18px] md:text-[24px] leading-[28px] md:leading-[36px] text-black tracking-[-0.47px]"
                   style={{ fontFeatureSettings: "'zero'" }}
                 >
                   {faq.q}

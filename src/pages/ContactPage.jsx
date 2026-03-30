@@ -15,12 +15,13 @@ import LetsGetStartedSection from '../sections/LetsGetStartedSection'
 function StatCard({ value, label, className }) {
   return (
     <div
-      className={`absolute bg-white border border-black/10 rounded-xl shadow-[0px_8px_32px_0px_rgba(13,13,13,0.08)] px-[17px] py-[13px] flex flex-col gap-[3px] whitespace-nowrap ${className}`}
+      className={`absolute bg-white border border-black/10 rounded-xl shadow-[0px_8px_32px_0px_rgba(13,13,13,0.08)] flex flex-col gap-[1px] md:gap-[3px] whitespace-nowrap
+        px-[9px] py-[7px] md:px-[17px] md:py-[13px] ${className}`}
     >
-      <span className="font-['DM_Mono',monospace] font-medium text-[22px] leading-[22px] text-[#0d0d0d]">
+      <span className="font-['DM_Mono',monospace] font-medium text-[12px] md:text-[22px] leading-[12px] md:leading-[22px] text-[#0d0d0d]">
         {value}
       </span>
-      <span className="text-[11px] leading-normal tracking-[0.44px] text-[#7a7a7a] font-normal">
+      <span className="text-[8px] md:text-[11px] leading-normal tracking-[0.44px] text-[#7a7a7a] font-normal">
         {label}
       </span>
     </div>
@@ -30,23 +31,23 @@ function StatCard({ value, label, className }) {
 /* ── Concentric circles + stat cards ── */
 function CirclesVisual() {
   return (
-    <div className="relative shrink-0 w-[430px] h-[430px]">
+    <div className="relative shrink-0 w-[247px] h-[215px] md:w-[430px] md:h-[430px]">
       {/* Outer circle */}
-      <img src={imgCirclesOuter} alt="" className="absolute top-[15px] left-[30px] w-[400px] h-[400px]" />
+      <img src={imgCirclesOuter} alt="" className="absolute top-0 left-[16px] w-[215px] h-[215px] md:top-[15px] md:left-[30px] md:w-[400px] md:h-[400px]" />
       {/* Middle ring */}
-      <img src={imgCirclesMid} alt="" className="absolute top-[55px] left-[70px] w-[320px] h-[320px]" />
+      <img src={imgCirclesMid} alt="" className="absolute top-[22px] left-[38px] w-[172px] h-[172px] md:top-[55px] md:left-[70px] md:w-[320px] md:h-[320px]" />
       {/* Inner fill */}
-      <img src={imgCirclesInner} alt="" className="absolute top-[100px] left-[115px] w-[230px] h-[230px]" />
+      <img src={imgCirclesInner} alt="" className="absolute top-[46px] left-[62px] w-[124px] h-[124px] md:top-[100px] md:left-[115px] md:w-[230px] md:h-[230px]" />
 
       {/* Center blue dot */}
-      <div className="absolute top-[191px] left-[206px] size-[48px] bg-[#1a1aff] rounded-2xl">
-        <div className="absolute inset-0 -translate-x-0 rounded-2xl shadow-[0px_0px_0px_8px_rgba(26,26,255,0.12),0px_0px_0px_20px_rgba(26,26,255,0.05)]" />
+      <div className="absolute top-[95px] left-[110px] size-[26px] md:top-[191px] md:left-[206px] md:size-[48px] bg-[#1a1aff] rounded-xl md:rounded-2xl">
+        <div className="absolute inset-0 rounded-xl md:rounded-2xl shadow-[0px_0px_0px_4px_rgba(26,26,255,0.12),0px_0px_0px_10px_rgba(26,26,255,0.05)] md:shadow-[0px_0px_0px_8px_rgba(26,26,255,0.12),0px_0px_0px_20px_rgba(26,26,255,0.05)]" />
       </div>
 
       {/* Stat cards */}
-      <StatCard value="1 day" label="Response time" className="top-[40px] -left-[10px]" />
-      <StatCard value="2 wks" label="Discovery sprint" className="bottom-[50px] left-[48px]" />
-      <StatCard value="60 min" label="Intro session" className="top-[278px] right-[-10px]" />
+      <StatCard value="1 day" label="Response time" className="top-[21px] left-0 md:top-[40px] md:-left-[10px]" />
+      <StatCard value="2 wks" label="Discovery sprint" className="bottom-[-20px] left-[31px] md:bottom-[50px] md:left-[48px]" />
+      <StatCard value="60 min" label="Intro session" className="top-[160px] right-0 md:top-[278px] md:right-[-10px]" />
     </div>
   )
 }
@@ -57,10 +58,10 @@ function ContactHero() {
     <section className="relative min-h-screen bg-white flex items-center overflow-hidden pt-24 pb-16 px-4 md:px-6 lg:px-8">
       <Gred />
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex items-center justify-between gap-12">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
         {/* Left — content */}
-        <div className="flex flex-col gap-12 max-w-[760px]">
+        <div className="flex flex-col gap-6 lg:gap-12 max-w-[760px] w-full">
 
           {/* Tag */}
           <div className="flex items-center gap-3 px-4 py-3 rounded-full border-[1.5px] border-black/[0.27] w-fit">
@@ -72,7 +73,7 @@ function ContactHero() {
 
           {/* Heading */}
           <div
-            className="font-medium text-[56px] md:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
+            className="font-medium text-[36px] md:text-[56px] lg:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
             style={{ fontFeatureSettings: "'zero'" }}
           >
             <p>Let's</p>
@@ -80,25 +81,25 @@ function ContactHero() {
           </div>
 
           {/* Body */}
-          <p className="text-[18px] md:text-[24px] leading-[1.5] tracking-[-0.47px] text-black/80 max-w-[680px]">
+          <p className="text-[16px] md:text-[20px] lg:text-[24px] leading-[1.5] tracking-[-0.47px] text-black/80 max-w-[680px]">
             Whether you're just exploring automation or ready to scale, we'd like to understand your challenges and see if Symoda is a good fit.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4 md:gap-6 items-center">
-            <button className="flex items-center gap-2.5 px-6 py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[18px] md:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors">
+          <div className="flex flex-wrap gap-3 md:gap-6 items-center">
+            <button className="flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors">
               Book a session
               <img src={imgArrow} alt="" className="w-4 h-4" />
             </button>
-            <button className="flex items-center gap-2.5 px-6 py-4 bg-[#f0f1fe] border border-black/[0.27] rounded-xl text-[#666] text-[18px] md:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#e4e5fd] transition-colors">
+            <button className="flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 bg-[#f0f1fe] border border-black/[0.27] rounded-xl text-[#666] text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#e4e5fd] transition-colors">
               Send us details
               <img src={imgSendIcon} alt="" className="w-6 h-4" />
             </button>
           </div>
         </div>
 
-        {/* Right — circles visual (desktop only) */}
-        <div className="hidden lg:block">
+        {/* Right — circles visual (visible on all sizes) */}
+        <div className="flex justify-end">
           <CirclesVisual />
         </div>
 

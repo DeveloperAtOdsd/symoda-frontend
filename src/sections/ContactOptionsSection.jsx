@@ -6,10 +6,10 @@ import icon4 from '../assets/contact-card4-icon.png'
 
 export default function ContactOptionsSection() {
   return (
-    <div className="flex flex-col gap-[42px] items-start px-[32px] py-[80px] bg-[#f5f5f5] w-full">
+    <div className="flex flex-col gap-[32px] md:gap-[42px] items-start px-[16px] md:px-[32px] py-[48px] md:py-[80px] bg-[#f5f5f5] w-full">
 
       {/* Section header */}
-      <div className="flex flex-col gap-[48px] items-start w-full">
+      <div className="flex flex-col gap-[32px] md:gap-[48px] items-start w-full">
         {/* Tag */}
         <div className="border-[1.5px] border-black/[0.27] flex gap-[12px] items-center justify-center px-[16px] py-[12px] rounded-full shrink-0">
           <p className="font-normal leading-[20px] text-[#171717] text-[14px] tracking-[-0.09px] whitespace-nowrap">
@@ -18,22 +18,22 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Text block */}
-        <div className="flex flex-col gap-[24px] items-start text-[#171717] w-full">
-          <div className="font-medium leading-[0] text-[56px] tracking-[-1.25px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
-            <p className="leading-[64px] mb-0">How would you like</p>
-            <p className="leading-[64px]">to connect?</p>
+        <div className="flex flex-col gap-[16px] md:gap-[24px] items-start text-[#171717] w-full">
+          <div className="font-medium leading-[0] text-[36px] md:text-[56px] tracking-[-1.25px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+            <p className="leading-[46px] md:leading-[64px] mb-0">How would you like</p>
+            <p className="leading-[46px] md:leading-[64px]">to connect?</p>
           </div>
-          <p className="font-normal leading-[36px] text-[24px] tracking-[-0.47px] w-full">
+          <p className="font-normal leading-[20px] md:leading-[36px] text-[16px] md:text-[24px] tracking-[-0.47px] w-full">
             Choose the format that fits your stage. There's no wrong answer — we'll meet you where you are.
           </p>
         </div>
       </div>
 
       {/* Cards row */}
-      <div className="flex gap-[24px] items-start w-full overflow-x-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="flex flex-col md:flex-row gap-[24px] items-start w-full md:overflow-x-auto md:scrollbar-hide md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]">
 
         {/* Card 01 */}
-        <div className="bg-white flex flex-col gap-[32px] h-[609px] items-start p-[20px] rounded-[12px] shrink-0 w-[676px]">
+        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 01
           </p>
@@ -61,7 +61,7 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Card 02 */}
-        <div className="bg-white flex flex-col gap-[32px] h-[609px] items-start p-[20px] rounded-[12px] shrink-0 w-[676px]">
+        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 02
           </p>
@@ -93,7 +93,7 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Card 03 */}
-        <div className="bg-white flex flex-col gap-[32px] h-[609px] items-start p-[20px] rounded-[12px] shrink-0 w-[676px]">
+        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 03
           </p>
@@ -120,7 +120,7 @@ export default function ContactOptionsSection() {
         </div>
 
         {/* Card 04 */}
-        <div className="bg-white flex flex-col gap-[32px] h-[609px] items-start p-[20px] rounded-[12px] shrink-0 w-[676px]">
+        <div className="bg-white flex flex-col gap-[32px] min-h-0 md:h-[609px] items-start p-[20px] rounded-[12px] md:shrink-0 w-full md:w-[676px]">
           <p className="font-normal leading-[20px] text-[#2132ed] text-[16px] tracking-[1px] whitespace-nowrap">
             OPTION 04
           </p>

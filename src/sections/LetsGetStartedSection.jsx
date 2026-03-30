@@ -44,7 +44,7 @@ function OptionCard({ subtitle, title, icon }) {
 export default function LetsGetStartedSection() {
     return (
         <section className="bg-[#ededff] w-full px-[32px] py-[80px]">
-            <div className="mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-[48px] lg:gap-[48px]">
+            <div className="mx-auto flex flex-col lg:flex-row items-start lg:justify-between gap-[48px] lg:gap-[48px]">
 
                 {/* Left — heading */}
                 <div className="flex flex-col gap-[48px] items-start lg:w-[769px] shrink-0">

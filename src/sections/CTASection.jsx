@@ -4,61 +4,66 @@ import cta_img3 from '../assets/cta_i3.png'
 
 const ACTIONS = [
   { label: 'SPECIFIC PROJECT OR WORKFLOW', title: 'Book a working session', icon: cta_img1 },
-  { label: '60-MIN INTRO SESSION',          title: 'AI for Business Leaders', icon: cta_img2 },
-  { label: 'Resource',                       title: 'Send us details',         icon: cta_img3 },
+  { label: '60-MIN INTRO SESSION', title: 'AI for Business Leaders', icon: cta_img2 },
+  { label: 'Resource', title: 'Get our latest thinking on AI Adoption', icon: cta_img3 },
 ]
 
 export default function CTASection() {
   return (
-    <section className="bg-[#eef0ff] px-[32px] py-[80px]">
-      <div className="flex gap-[48px] items-start w-full">
+    <section className="bg-[#eef0ff] px-6 md:px-12 lg:px-[32px] py-16 md:py-20">
+      <div className=" mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
 
-        {/* Left — heading */}
-        <div className="flex flex-1 flex-col gap-[48px] items-start">
+        {/* LEFT */}
+        <div className="flex flex-1 flex-col gap-6">
+
           {/* Tag */}
-          <div className="border border-black/[0.27] flex items-center justify-center px-[8px] py-[8px] rounded-full shrink-0">
-            <span className="font-medium text-[12px] leading-[16px] text-black tracking-[0.01px] whitespace-nowrap">
+          <div className="border border-black/20 px-3 py-1 rounded-full w-fit">
+            <span className="text-xs font-medium text-gray-700 tracking-wide">
               READY?
             </span>
           </div>
 
           {/* Heading */}
-          <p
-            className="font-medium text-[56px] leading-[64px] tracking-[-1.25px] text-[#171717]"
-            style={{ fontFeatureSettings: "'zero'" }}
-          >
-            {"Let's get"}
-            <br />
+          <h2 className="text-[36px] md:text-[48px] lg:text-[56px] leading-[1.1] font-semibold text-[#171717] tracking-tight">
+            Let’s get <br />
             <span className="text-[#2132ed]">started.</span>
-          </p>
+          </h2>
+
+          {/* Description */}
+          <div className="text-gray-600 text-sm md:text-base leading-relaxed max-w-[520px] space-y-4">
+            <p>Ready to move from AI experiments to AI impact?</p>
+            <p>
+              Whether you're exploring automation for the first time or scaling workflows across your firm, we'd like to help.
+              Let's map your highest-leverage AI opportunities and design a system your teams will actually use.
+              Pick the conversation that fits your moment.
+            </p>
+          </div>
         </div>
 
-        {/* Right — action cards */}
-        <div className="flex flex-col gap-[24px] items-start shrink-0 w-[559px]">
+        {/* RIGHT */}
+        <div className="flex flex-col gap-4 w-full lg:max-w-[560px]">
           {ACTIONS.map((item) => (
-            <div key={item.title} className="w-full">
-              <div className="bg-white flex gap-[20px] items-center p-[20px] rounded-[12px] w-full cursor-pointer hover:shadow-sm transition-shadow">
-                {/* Text */}
-                <div className="flex flex-1 flex-col gap-[8px] items-start text-black min-w-0">
-                  <p className="font-normal text-[16px] leading-[20px] tracking-[-0.18px] w-full">
-                    {item.label}
-                  </p>
-                  <p
-                    className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] w-full"
-                    style={{ fontFeatureSettings: "'zero'" }}
-                  >
-                    {item.title}
-                  </p>
-                </div>
+            <div
+              key={item.title}
+              className="bg-white flex items-center justify-between gap-4 p-5 rounded-xl hover:shadow-md transition-all cursor-pointer"
+            >
+              {/* Text */}
+              <div className="flex flex-col gap-1 min-w-0">
+                <p className="text-xs uppercase tracking-wide text-gray-500">
+                  {item.label}
+                </p>
+                <p className="text-lg md:text-xl font-medium text-gray-900 leading-snug">
+                  {item.title}
+                </p>
+              </div>
 
-                {/* Icon */}
-                <div className="bg-[#f2f2f2] flex items-center justify-center overflow-hidden rounded-[6px] shrink-0">
-                  <img
-                    alt={item.title}
-                    className="size-[61px] object-cover"
-                    src={item.icon}
-                  />
-                </div>
+              {/* Icon */}
+              <div className="bg-gray-100 rounded-md p-2 shrink-0">
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-10 h-10 object-contain"
+                />
               </div>
             </div>
           ))}
