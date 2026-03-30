@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Gred from '../components/Gred'
@@ -102,7 +102,91 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
 /* ─── Component ─── */
 
+/* ─── Mobile static layout ─── */
+function MobileSteps() {
+  return (
+    <section className="bg-[#e8eaff] px-4 py-10">
+      <h2
+        className="text-black font-medium text-[32px] leading-[40px] tracking-[-0.8px] mb-8"
+        style={{ fontFeatureSettings: "'zero'" }}
+      >
+        Here's how Symoda works.
+      </h2>
+      <div className="flex flex-col gap-12">
+        {STEPS.map((step, i) => (
+          <div key={i} className="flex flex-col gap-6">
+            {/* Tags */}
+            <div className="flex gap-3 flex-wrap">
+              {step.tags.map((tag) => (
+                <div key={tag} className="px-4 py-2 rounded-full border-[1.5px] border-black/[0.27]">
+                  <span className="text-[12px] leading-[16px] tracking-[-0.09px] text-black">{tag}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Title */}
+            <h3
+              className="font-medium text-[24px] leading-[32px] tracking-[-0.6px] text-black"
+              style={{ fontFeatureSettings: "'zero'" }}
+            >
+              {step.titleJsx || step.title}
+            </h3>
+
+            {/* Subtitle */}
+            {step.subtitle && (
+              <p className="font-medium text-[16px] leading-[24px] tracking-[-0.3px] text-black -mt-2">
+                {step.subtitle}
+              </p>
+            )}
+
+            {/* Body */}
+            <div className="text-[15px] leading-[24px] tracking-[-0.2px] text-black/80 flex flex-col gap-4">
+              {step.paragraphs.map((p, pi) => <p key={pi}>{p}</p>)}
+            </div>
+
+            {/* CTA */}
+            <button className="flex items-center gap-2 px-5 py-3 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[16px] leading-[24px] tracking-[-0.2px] hover:bg-[#1a29cc] transition-colors w-fit">
+              {step.cta.label}
+              <img src={step.cta.icon} alt="" className="w-4 h-4" />
+            </button>
+
+            {/* Cards */}
+            {step.panelType === 'list' ? (
+              <div className="flex flex-col gap-3">
+                {step.cards.map((card) => (
+                  <div key={card.text} className="flex gap-4 items-center p-4 bg-white rounded-xl">
+                    <div className="bg-[#f2f2f2] flex items-center justify-center p-2 rounded-xl shrink-0">
+                      <img src={card.img} alt="" className="size-[40px] object-cover" />
+                    </div>
+                    <p className="font-medium text-[14px] leading-[20px] tracking-[-0.3px] text-black whitespace-pre-line">
+                      {card.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-3">
+                {step.cards.map((card) => (
+                  <div key={card.text} className="flex flex-col gap-3 p-4 bg-white rounded-xl">
+                    <div className="bg-[#f2f2f2] flex items-center justify-center p-2 rounded-xl w-fit">
+                      <img src={card.img} alt="" className="size-[40px] object-cover" />
+                    </div>
+                    <p className="font-medium text-[14px] leading-[20px] tracking-[-0.3px] text-black whitespace-pre-line">
+                      {card.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 export default function HowSymodaWorksSection() {
+  const [isMobile, setIsMobile] = useState(false)
   const pinRef = useRef(null)
   const panelsRef = useRef([])
   const textsRef = useRef([])
@@ -110,6 +194,14 @@ export default function HowSymodaWorksSection() {
   const stepsRef = useRef([])
 
   useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
     const ctx = gsap.context(() => {
       const panels = panelsRef.current
       const texts = textsRef.current
@@ -210,7 +302,9 @@ export default function HowSymodaWorksSection() {
     }, pinRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) return <MobileSteps />
 
   return (
     <section

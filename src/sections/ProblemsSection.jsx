@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-
 gsap.registerPlugin(ScrollTrigger)
+
 const problems = [
   {
     num: '01',
@@ -28,7 +28,6 @@ const problems = [
   },
 ]
 
-
 export default function ProblemsSection() {
   const containerRef = useRef(null)
 
@@ -40,7 +39,6 @@ export default function ProblemsSection() {
         const line = item.querySelector('.line')
         const content = item.querySelectorAll('.content > *')
 
-        // 🔵 LINE DRAW (SMOOTH SCRUB)
         gsap.fromTo(
           line,
           { scaleX: 0 },
@@ -57,13 +55,9 @@ export default function ProblemsSection() {
           }
         )
 
-        // 🔼 CONTENT SWIPE (SMOOTH + LINKED TO SCROLL)
         gsap.fromTo(
           content,
-          {
-            y: 60,
-            opacity: 0,
-          },
+          { y: 60, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -84,16 +78,16 @@ export default function ProblemsSection() {
   }, [])
 
   return (
-    <section className="bg-[#e8eaff] py-20" ref={containerRef}>
-      <div className="max-w-[1440px] mx-auto px-8">
+    <section className="bg-[#e8eaff] py-10 md:py-20" ref={containerRef}>
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8">
 
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <PillTag>Problems</PillTag>
-          <h2 className="mt-10 text-5xl font-bold text-gray-950 leading-tight max-w-2xl">
+          <h2 className="mt-6 md:mt-10 text-3xl md:text-5xl font-bold text-gray-950 leading-tight max-w-2xl">
             Here's what most AI initiatives get wrong.
           </h2>
-          <p className="mt-6 text-base text-gray-600 max-w-3xl">
+          <p className="mt-4 md:mt-6 text-sm md:text-base text-gray-600 max-w-3xl">
             From "we should use AI" to "we can't make it stick."<br />
             Most organizations are stuck somewhere between curiosity and chaos.
           </p>
@@ -102,26 +96,21 @@ export default function ProblemsSection() {
         {/* Problems */}
         <div>
           {problems.map((p) => (
-            <div key={p.num} className="problem-item py-16">
-
-              {/* Animated line */}
-              <div className="line h-[4px] bg-[#2132ED] w-full mb-10 scale-x-0 origin-left" />
-
-              {/* Content */}
+            <div key={p.num} className="problem-item py-8 md:py-16">
+              <div className="line h-[4px] bg-[#2132ed] w-full mb-6 md:mb-10 scale-x-0 origin-left" />
               <div className="content">
-                <div className="text-7xl font-semibold text-gray-950 mb-8">
+                <div className="text-5xl md:text-7xl font-semibold text-gray-950 mb-5 md:mb-8">
                   {p.num}
                 </div>
-                <div className="p-4">
-                  <p className="text-xl font-semibold text-gray-900 mb-4">
+                <div className="p-3 md:p-4">
+                  <p className="text-base md:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
                     {p.quote}
                   </p>
-                  <p className="text-base text-gray-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {p.desc}
                   </p>
                 </div>
               </div>
-
             </div>
           ))}
         </div>

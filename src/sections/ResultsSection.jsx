@@ -20,17 +20,19 @@ const testimonials = [
 
 export default function ResultsSection() {
   return (
-    <section className="bg-[#e8eaff] py-24">
-      <div className="max-w-[1440px] mx-auto px-8">
+    <section className="bg-[#e8eaff] py-10 md:py-24">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <PillTag>Results</PillTag>
-        <h2 className="mt-10 text-5xl font-bold text-gray-950 mb-16">Results that speak.</h2>
-        <div className="space-y-8">
+        <h2 className="mt-6 md:mt-10 text-3xl md:text-5xl font-bold text-gray-950 mb-8 md:mb-16">
+          Results that speak.
+        </h2>
+        <div className="space-y-6 md:space-y-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="border-l-4 border-[#3333FF] pl-8 py-2">
-              <p className="text-lg text-gray-900 leading-relaxed mb-6">{t.quote}</p>
+            <div key={i} className="border-l-4 border-[#2132ed] pl-5 md:pl-8 py-2">
+              <p className="text-sm md:text-lg text-gray-900 leading-relaxed mb-4 md:mb-6">{t.quote}</p>
               <div>
-                <p className="font-semibold text-gray-900">{t.role}</p>
-                <p className="text-sm text-gray-500">{t.org}</p>
+                <p className="font-semibold text-gray-900 text-sm md:text-base">{t.role}</p>
+                <p className="text-xs md:text-sm text-gray-500">{t.org}</p>
               </div>
             </div>
           ))}

@@ -6,15 +6,15 @@ const actions = [
 
 export default function CTASection() {
   return (
-    <section className="bg-[#e8eaff] py-24">
-      <div className="max-w-[1440px] mx-auto px-8">
-        <div className="grid grid-cols-2 gap-24 items-start">
+    <section className="bg-[#e8eaff] py-10 md:py-24">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-start">
           <div>
-            <h2 className="text-5xl font-bold text-gray-950 leading-tight mb-8">
-              Let's get <span className="text-[#3333FF]">started</span>.
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-950 leading-tight mb-5 md:mb-8">
+              Let's get <span className="text-[#2132ed]">started</span>.
             </h2>
-            <p className="text-lg text-gray-700 mb-6">Ready to move from AI experiments to AI impact?</p>
-            <p className="text-base text-gray-600 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">Ready to move from AI experiments to AI impact?</p>
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               Whether you're exploring automation for the first time or scaling workflows across
               your firm, we'd like to help. Let's map your highest-leverage AI opportunities and
               design a system your teams will actually use. Pick the conversation that fits your moment.
@@ -24,13 +24,13 @@ export default function CTASection() {
             {actions.map((a) => (
               <div
                 key={a.title}
-                className="flex items-center justify-between p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                className="flex items-center justify-between p-5 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
               >
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{a.label}</p>
-                  <p className="text-lg font-semibold text-gray-900">{a.title}</p>
+                  <p className="text-base md:text-lg font-semibold text-gray-900">{a.title}</p>
                 </div>
-                <div className="text-3xl ml-4 shrink-0">{a.icon}</div>
+                <div className="text-2xl md:text-3xl ml-4 shrink-0">{a.icon}</div>
               </div>
             ))}
           </div>
