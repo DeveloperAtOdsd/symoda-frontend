@@ -10,7 +10,7 @@ const clients = [
 export default function TrustedBySection() {
   return (
     <section className="bg-[#e8eaff] py-8 md:py-12 lg:py-16">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+      <div className="mx-auto px-4 md:px-6 lg:px-8">
 
         {/* Mobile + Tablet: stacked | Desktop: side by side */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">

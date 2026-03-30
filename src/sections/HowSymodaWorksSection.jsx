@@ -302,7 +302,7 @@ export default function HowSymodaWorksSection() {
         {SLIDES.map((slide, i) => (
           <div
             key={i}
-            className="relative w-screen h-screen shrink-0 flex gap-[80px] px-8 pb-8"
+            className="relative  w-screen h-screen shrink-0 flex gap-[80px] px-8 pb-8"
             style={{ paddingTop: '152px' }} /* clear the fixed header */
           >
 
@@ -345,7 +345,7 @@ export default function HowSymodaWorksSection() {
             </div>
 
             {/* Right — cards */}
-            <div className="flex-1 flex flex-col gap-[14px] min-h-0 overflow-y-auto">
+            <div className="flex-1 flex flex-col gap-[12px]  min-h-0 overflow-y-auto no-scrollbar">
               {slide.cards.map((card, ci) => (
                 slide.detail ? (
                   /* Detail card: icon + title + subtitle */

@@ -21,7 +21,7 @@ const testimonials = [
 export default function ResultsSection() {
   return (
     <section className="bg-[#e8eaff] py-10 md:py-16 lg:py-24">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+      <div className="mx-auto px-4 md:px-6 lg:px-8">
         <PillTag>Results</PillTag>
         <h2 className="mt-6 md:mt-8 lg:mt-10 text-3xl md:text-[40px] lg:text-5xl font-bold text-gray-950 mb-8 md:mb-12 lg:mb-16">
           Results that speak.

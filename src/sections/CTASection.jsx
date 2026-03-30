@@ -1,13 +1,17 @@
+import cta_img1 from '../assets/cta_i1.png'
+import cta_img2 from '../assets/cta_i2.png'
+import cta_img3 from '../assets/cta_i3.png'
+
 const actions = [
-  { label: 'SPECIFIC PROJECT OR WORKFLOW', title: 'Book a working session', icon: '🗓️' },
-  { label: '60-MIN INTRO SESSION', title: 'AI for Business Leaders', icon: '📘' },
-  { label: 'Resource', title: 'Get our latest thinking on AI Adoption', icon: '📕' },
+  { label: 'SPECIFIC PROJECT OR WORKFLOW', title: 'Book a working session', icon: cta_img1 },
+  { label: '60-MIN INTRO SESSION', title: 'AI for Business Leaders', icon: cta_img2 },
+  { label: 'Resource', title: 'Get our latest thinking on AI Adoption', icon: cta_img3 },
 ]
 
 export default function CTASection() {
   return (
     <section className="bg-[#e8eaff] py-10 md:py-16 lg:py-24">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+      <div className="mx-auto px-4 md:px-6 lg:px-8">
         {/* Mobile + Tablet: single column | Desktop: two columns */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-24 items-start">
           <div>
@@ -33,7 +37,7 @@ export default function CTASection() {
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{a.label}</p>
                   <p className="text-base md:text-[16px] lg:text-lg font-semibold text-gray-900">{a.title}</p>
                 </div>
-                <div className="text-2xl md:text-2xl lg:text-3xl ml-4 shrink-0">{a.icon}</div>
+                <img className="text-2xl md:text-2xl lg:text-3xl ml-2 w-[61px] h-[61px] shrink-0" src={a.icon} alt={a.title} />
               </div>
             ))}
           </div>

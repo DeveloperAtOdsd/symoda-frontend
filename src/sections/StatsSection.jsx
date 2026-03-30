@@ -8,7 +8,7 @@ const stats = [
 export default function StatsSection() {
   return (
     <section className="bg-[#e8eaff]">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+      <div className="mx-auto px-4 md:px-6 lg:px-8">
         {/* Mobile: 2×2 grid | Tablet+: 4-column row */}
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#2132ed] border-l-2 border-[#2132ed]">
           {stats.map((s) => (

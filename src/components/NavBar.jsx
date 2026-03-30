@@ -45,11 +45,15 @@ export default function NavBar() {
         </div>
 
         {/* Hamburger */}
-        <button className="w-12 h-12 flex flex-col items-center justify-center gap-[7px]" aria-label="Menu">
+        {/* <button className="w-12 h-12 flex flex-col items-center justify-center gap-[7px]" aria-label="Menu">
           <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
           <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
           <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
-        </button>
+        </button> */}
+
+        <a href="/contact" className="text-gray-900 text-[16px] leading-[24px] tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity">
+          Contact
+        </a>
       </nav>
     </div>
   )
