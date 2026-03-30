@@ -51,7 +51,7 @@ function PillGroup({ options, selected, onSelect }) {
 /* ── Left: timeline steps ── */
 function Timeline() {
   return (
-    <div className="flex flex-col gap-[48px] items-start w-full lg:w-[559px] shrink-0">
+    <div className="flex flex-col gap-[32px] lg:gap-[48px] items-start w-full lg:w-[559px] shrink-0">
       {/* Tag */}
       <div className="border-[0.8px] border-black/[0.27] flex items-center justify-center px-[8px] py-[8px] rounded-full">
         <span className="font-medium text-[12px] leading-[16px] tracking-[0.01px] text-black">
@@ -61,7 +61,7 @@ function Timeline() {
 
       {/* Heading */}
       <p
-        className="font-medium text-[56px] leading-[64px] tracking-[-1.25px] text-[#171717]"
+        className="font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
         style={{ fontFeatureSettings: "'zero'" }}
       >
         What to expect.
@@ -108,9 +108,9 @@ function ContactForm() {
   const labelClass = 'text-[#7a7a7a] text-[14px] leading-[20px] tracking-[-0.09px]'
 
   return (
-    <div className="bg-white border-2 border-[rgba(17,17,17,0.13)] flex flex-col gap-[24px] p-[32px] md:p-[48px] rounded-[28px] shadow-[0px_4px_6px_-2px_rgba(18,18,23,0.05),0px_10px_15px_-3px_rgba(18,18,23,0.08)] w-full lg:w-[676px] shrink-0">
+    <div className="bg-white border-2 border-[rgba(17,17,17,0.13)] flex flex-col gap-[24px] p-[24px] md:p-[48px] rounded-[20px] md:rounded-[28px] shadow-[0px_4px_6px_-2px_rgba(18,18,23,0.05),0px_10px_15px_-3px_rgba(18,18,23,0.08)] w-full lg:w-[676px] shrink-0">
       {/* Heading */}
-      <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col gap-[16px] md:gap-[20px]">
         <p
           className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black"
           style={{ fontFeatureSettings: "'zero'" }}
@@ -125,7 +125,7 @@ function ContactForm() {
       {/* Form */}
       <form className="flex flex-col gap-[22px] items-center w-full">
         {/* Row 1: org + name */}
-        <div className="flex flex-col sm:flex-row gap-[24px] w-full">
+        <div className="flex flex-col md:flex-row gap-[22px] md:gap-[24px] w-full">
           <div className="flex flex-col gap-[8px] flex-1">
             <label className={labelClass}>Organization name *</label>
             <input type="text" placeholder="Acme Professional Services" className={inputClass} />
@@ -137,7 +137,7 @@ function ContactForm() {
         </div>
 
         {/* Row 2: email + phone */}
-        <div className="flex flex-col sm:flex-row gap-[24px] w-full">
+        <div className="flex flex-col md:flex-row gap-[22px] md:gap-[24px] w-full">
           <div className="flex flex-col gap-[8px] flex-1">
             <label className={labelClass}>Email *</label>
             <input type="email" placeholder="jane@acmefirm.com" className={inputClass} />
@@ -221,10 +221,10 @@ function ContactForm() {
         </div>
 
         {/* Submit */}
-        <div className="flex gap-[24px] items-center w-full">
+        <div className="flex flex-col md:flex-row gap-[16px] md:gap-[24px] items-start md:items-center w-full">
           <button
             type="submit"
-            className="flex items-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors shrink-0"
+            className="flex items-center justify-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-full md:w-auto md:shrink-0"
             style={{ fontFeatureSettings: "'zero'" }}
           >
             Send message
@@ -244,8 +244,8 @@ function ContactForm() {
 
 export default function WhatToExpectSection() {
   return (
-    <section className="bg-[#ededff] w-full px-[32px] py-[80px]">
-      <div className="mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[141px] justify-between">
+    <section className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
+      <div className="mx-auto flex flex-col lg:flex-row gap-[32px] lg:gap-[141px] justify-between">
         <Timeline />
         <ContactForm />
       </div>
