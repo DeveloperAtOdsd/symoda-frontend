@@ -3,7 +3,7 @@ import SectionTag from '../components/ui/SectionTag'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100vh] md:min-h-[834px] pt-24 md:pt-24 lg:pt-28 bg-white flex flex-col overflow-hidden">
+    <section className="relative min-h-[100vh] md:min-h-[834px] pt-16 md:pt-24 lg:pt-28 bg-white flex flex-col overflow-hidden">
       <Gred />
 
       {/* Content */}
