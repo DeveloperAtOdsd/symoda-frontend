@@ -2,11 +2,14 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Gred from '../components/Gred'
 import ContactOptionsSection from '../sections/ContactOptionsSection'
+import FAQSection from '../sections/FAQSection'
+import WhatToExpectSection from '../sections/WhatToExpectSection'
 import imgArrow from '../assets/arrow.svg'
 import imgSendIcon from '../assets/contact-send-icon.svg'
 import imgCirclesOuter from '../assets/contact-circles-outer.svg'
 import imgCirclesMid from '../assets/contact-circles-mid.svg'
 import imgCirclesInner from '../assets/contact-circles-inner.png'
+import LetsGetStartedSection from '../sections/LetsGetStartedSection'
 
 /* ── Floating stat card ── */
 function StatCard({ value, label, className }) {
@@ -111,6 +114,9 @@ export default function ContactPage() {
       <NavBar />
       <ContactHero />
       <ContactOptionsSection />
+      <FAQSection />
+      <LetsGetStartedSection />
+      <WhatToExpectSection />
       <Footer />
     </>
   )

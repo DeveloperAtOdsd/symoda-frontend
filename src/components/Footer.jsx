@@ -1,6 +1,6 @@
 import imgArrow from '../assets/arrow.svg'
 import imgLogoMark from '../assets/logo.png'
-import imgWordmark from '../assets/wordmark.png'
+import imgWordmark from '../assets/wordmark.svg'
 
 const companyLinks = ['About', 'How We Work', 'Contact']
 const serviceLinks = ['Discovery & AI Opportunity Mapping', 'AI Technical Build', 'AI Managed Enablement']
