@@ -1,12 +1,17 @@
-const imgArrow = 'http://localhost:3845/assets/f754868f179b01cae00131065f78a43c3891f3ae.svg'
+import imgArrow from '../assets/arrow.svg'
+import ts1 from '../assets/s1_1.png'
+import ts2 from '../assets/s1_2.png'
+import ts3 from '../assets/s1_3.png'
+import ts4 from '../assets/s1_4.png'
+import ts5 from '../assets/s1_5.png'
 
 const cards = [
-  { img: 'http://localhost:3845/assets/99f335af31ac685d4bad5f76ca5984fa08a8d182.png', text: 'Quarterly technology strategy sessions' },
-  { img: 'http://localhost:3845/assets/6c239aab523bacdecf56c5ccf0e63378930cf931.png', text: 'Vendor and tool evaluation and selection' },
-  { img: 'http://localhost:3845/assets/d3ac4d0aae2990f43e67680b57a84016c1a682f1.png', text: 'Budget and investment guidance' },
-  { img: 'http://localhost:3845/assets/e4565c0943ac819a4f573afb5b202d6fbd03a99c.png', text: 'Governance framework development' },
-  { img: 'http://localhost:3845/assets/ab5dab66d93fca5f57a0b7f36f8ab5c11b147874.png', text: 'Risk and compliance advisory' },
-  { img: 'http://localhost:3845/assets/b6c7c162c811acd98e39550de143e771133444c9.png', text: 'Long-term technology roadmap planning' },
+  { img: ts1, text: 'Quarterly technology strategy sessions' },
+  { img: ts2, text: 'Vendor and tool evaluation and selection' },
+  { img: ts3, text: 'Budget and investment guidance' },
+  { img: ts4, text: 'Governance framework development' },
+  { img: ts5, text: 'Risk and compliance advisory' },
+  { img: ts1, text: 'Long-term technology roadmap planning' },
 ]
 
 export default function TechStrategySection() {

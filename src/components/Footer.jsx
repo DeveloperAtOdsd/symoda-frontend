@@ -1,6 +1,6 @@
-const imgLogoMark = 'http://localhost:3845/assets/2921cf546addd7eabd37588b4abae783127b1679.svg'
-const imgWordmark = 'http://localhost:3845/assets/b4d06b502cc2e1e23b02b143177691557396dbe3.svg'
-const imgArrow = 'http://localhost:3845/assets/719ae4a745786423f96f3de43521dd3aa2734f51.svg'
+import imgArrow from '../assets/arrow.svg'
+import imgLogoMark from '../assets/logo.png'
+import imgWordmark from '../assets/image.png'
 
 const companyLinks = ['About', 'How We Work', 'Contact']
 const serviceLinks = ['Discovery & AI Opportunity Mapping', 'AI Technical Build', 'AI Managed Enablement']
@@ -13,8 +13,8 @@ export default function Footer() {
     >
       {/* Desktop-only standalone logo (above columns) */}
       <div className="hidden lg:block relative h-[116px] w-[247px]">
-        <img src={imgLogoMark} alt="" className="absolute top-0 right-0 w-[70px] h-[70px]" />
-        <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-0 left-0 w-[247px]" />
+        <img src={imgLogoMark} alt="" className="absolute top-0 -right-12 w-[70px] h-[70px]" />
+        <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-4 left-0 w-[247px]" />
       </div>
 
       {/* Main columns */}
@@ -24,8 +24,8 @@ export default function Footer() {
         <div className="flex-1 flex flex-col gap-8 border-b border-white pb-6 lg:px-6 lg:h-[240px] lg:justify-between">
           {/* Logo — hidden on desktop (shown standalone above) */}
           <div className="relative h-[116px] w-[247px] lg:hidden">
-            <img src={imgLogoMark} alt="" className="absolute top-0 right-0 w-[70px] h-[70px]" />
-            <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-0 left-0 w-[247px]" />
+            <img src={imgLogoMark} alt="" className="absolute top-0 -right-16 w-[70px] h-[70px]" />
+            <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-0 left-4 w-[247px]" />
           </div>
 
           <p className="text-white text-[15px] md:text-[16px] leading-[24px] tracking-[-0.18px] font-medium lg:w-[416px]">

@@ -3,181 +3,142 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Gred from '../components/Gred'
 
+import imgArrow from '../assets/arrow.svg'
+import s1_1 from '../assets/s1_1.png'
+import s1_2 from '../assets/s1_2.png'
+import s1_3 from '../assets/s1_3.png'
+import s1_4 from '../assets/s1_4.png'
+import s1_5 from '../assets/s1_5.png'
+
 gsap.registerPlugin(ScrollTrigger)
 
-/* ─── Figma image assets ─── */
+/* ─── Assets ─── */
+const s1 = [s1_1, s1_2, s1_3, s1_4, s1_5]
+const s2 = s1 // swap for real Phase 02 assets when available
+const s3 = [s1_1, s1_2, s1_3, s1_4] // replace with real Phase 03 assets when available
 
-// Step 1 — Discovery cards (horizontal list)
-const step1Images = [
-  'http://localhost:3845/assets/2c14737b50311658fae86b415a18ab49d32d723a.png',
-  'http://localhost:3845/assets/0e7ca007dcb271225bf7b3f8dd50e5432853c1d7.png',
-  'http://localhost:3845/assets/045f2ac4732ac2eb51423b2b6fbe92a4cf4b4bbd.png',
-  'http://localhost:3845/assets/5d902638e425d50efa6550490ff1d842c921802f.png',
-  'http://localhost:3845/assets/aba7d432534cc8fae5f78921ab014abe4ecebae8.png',
-]
-
-// Step 2 — Build cards (horizontal list, different assets)
-const step2Images = step1Images // reuse — replace with actual phase-02 assets when available
-
-// Step 3 — CIO cards (2×3 grid)
-const step3Images = [
-  'http://localhost:3845/assets/99f335af31ac685d4bad5f76ca5984fa08a8d182.png',
-  'http://localhost:3845/assets/6c239aab523bacdecf56c5ccf0e63378930cf931.png',
-  'http://localhost:3845/assets/d3ac4d0aae2990f43e67680b57a84016c1a682f1.png',
-  'http://localhost:3845/assets/e4565c0943ac819a4f573afb5b202d6fbd03a99c.png',
-  'http://localhost:3845/assets/ab5dab66d93fca5f57a0b7f36f8ab5c11b147874.png',
-  'http://localhost:3845/assets/b6c7c162c811acd98e39550de143e771133444c9.png',
-]
-
-const imgArrow = 'http://localhost:3845/assets/f754868f179b01cae00131065f78a43c3891f3ae.svg'
-
-/* ─── Step data ─── */
-
-const STEPS = [
+/* ─── Slide data ─── */
+const SLIDES = [
   {
     tags: ['DISCOVERY', 'PHASE 01'],
     title: 'Discovery & AI Opportunity Mapping',
     subtitle: 'Find the automation work worth doing in 2 to 4 weeks.',
-    paragraphs: [
+    body: [
       'Evaluate your processes, tools, strategy, and current state against best practices. Get a prioritized roadmap of high-impact AI projects you can implement quickly.',
       "Before you build, you need to know what's possible and what's worth prioritizing. Our Discovery sprint combines workflow research, feasibility analysis, adoption readiness assessment, and governance maturity audit.",
     ],
-    cta: { label: 'Working session', icon: imgArrow },
-    panelType: 'list',
+    cta: 'Working session',
     cards: [
-      { img: step1Images[0], text: 'Prioritized roadmap of automation opportunities' },
-      { img: step1Images[1], text: 'ROI estimates and quick-win\nTechnology recommendations' },
-      { img: step1Images[2], text: 'Technology adoption and\nenablement strategy' },
-      { img: step1Images[3], text: 'Governance and compliance framework roadmap' },
-      { img: step1Images[4], text: 'Executive summary + board-ready business case' },
+      { img: s1[0], title: 'Prioritized roadmap of automation opportunities' },
+      { img: s1[1], title: 'ROI estimates and quick-win Technology recommendations' },
+      { img: s1[2], title: 'Technology adoption and enablement strategy' },
+      { img: s1[3], title: 'Governance and compliance framework roadmap' },
+      { img: s1[4], title: 'Executive summary + board-ready business case' },
     ],
+    detail: false,
   },
   {
     tags: ['BUILD', 'PHASE 02'],
-    title: 'AI Technical Build & Integration',
-    subtitle: 'Ship real AI workflows in 4 to 8 weeks.',
-    paragraphs: [
-      'We design, build, and deploy AI-powered automations that integrate with the tools your teams already use — no rip-and-replace required.',
-      "Our engineering team handles the end-to-end build: workflow design, API integrations, testing, security review, and production deployment. You get working automation, not another slide deck.",
+    title: 'AI Technical Build & Product Development',
+    subtitle: 'Design and build automation that your team will actually use.',
+    body: [
+      'We design, build, and ship custom AI workflows, tools, and agents your teams will actually adopt, with full governance, observability, and integration into existing workflows.',
+      "You've identified the opportunity. Now let's build it. We handle end-to-end automation development: from workflow design and prototyping through technical architecture, implementation, and deployment. We work as your extended team: collaborative, transparent, and focused on shipping.",
     ],
-    cta: { label: 'Working session', icon: imgArrow },
-    panelType: 'list',
+    cta: 'Learn more about Build',
     cards: [
-      { img: step2Images[0], text: 'Custom AI workflow design and build' },
-      { img: step2Images[1], text: 'System integration and API orchestration' },
-      { img: step2Images[2], text: 'Security and compliance review' },
-      { img: step2Images[3], text: 'User acceptance testing and QA' },
-      { img: step2Images[4], text: 'Production deployment and monitoring' },
+      { img: s2[0], title: 'Workflow research and automation design' },
+      { img: s2[1], title: 'Architecture and technical design' },
+      { img: s2[2], title: 'Implementation and integration' },
+      { img: s2[3], title: 'Testing and refinement' },
+      { img: s2[4], title: 'Go-live support' },
+      { img: s2[0], title: 'Handoff documentation' },
     ],
+    detail: false,
   },
   {
-    tags: ['NEW'],
-    titleJsx: (
-      <>
-        Need Technology Strategy?{' '}
-        <span className="text-[#2132ed]">We're Your CIO.</span>
-      </>
-    ),
-    subtitle: null,
-    paragraphs: [
-      'Executive-level guidance on priorities, tools, governance, and roadmaps — without the cost of a full-time hire.',
-      "CIOs are at the core of AI change adoption, and most firms don't have one.",
+    tags: ['ENABLE', 'PHASE 03'],
+    title: 'AI Managed Enablement',
+    subtitle: 'Keep automation reliable, adopted, and governed.',
+    body: [
+      "We don't just build and leave. We stay on to run, monitor, improve, and govern your AI systems while training your team to take ownership over time.",
+      "Launching automation is one thing. Making sure your teams use it, improve it, and govern it responsibly is another. AI Managed Enablement is our ongoing partnership to keep your workflows healthy and your teams capable.",
+      "We monitor performance, train your workforce, build champions networks, establish governance frameworks, manage compliance, and help you scale responsibly across the organization.",
     ],
-    cta: { label: "Let's talk strategy", icon: imgArrow },
-    panelType: 'grid',
+    cta: 'Learn more about AI Managed Enablement',
     cards: [
-      { img: step3Images[0], text: 'Quarterly technology strategy sessions' },
-      { img: step3Images[1], text: 'Vendor and tool evaluation and selection' },
-      { img: step3Images[2], text: 'Budget and investment guidance' },
-      { img: step3Images[3], text: 'Governance framework development' },
-      { img: step3Images[4], text: 'Risk and compliance advisory' },
-      { img: step3Images[5], text: 'Long-term technology\nroadmap planning' },
+      { img: s3[0], title: 'Operations & Performance', sub: 'Monitoring, tuning, optimization, uptime management' },
+      { img: s3[1], title: 'Workforce Enablement', sub: 'Role-specific training, peer coaching, champions programs, adoption tracking' },
+      { img: s3[2], title: 'Governance & Compliance', sub: 'Policy frameworks, risk management, audit trails, regulatory compliance support' },
+      { img: s3[3], title: 'Strategic Scaling', sub: 'Quarterly roadmap reviews, multi-use-case coordination, change management' },
     ],
+    detail: true,
   },
 ]
 
-const TOTAL = STEPS.length
+const TOTAL = SLIDES.length
 const RADIUS = 42
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS
+const CIRC = 2 * Math.PI * RADIUS
 
-/* ─── Component ─── */
-
-/* ─── Mobile static layout ─── */
-function MobileSteps() {
+/* ─────────────────────────────────────────────
+   Mobile / Tablet — static vertical layout
+───────────────────────────────────────────── */
+function StaticSteps() {
   return (
     <section className="bg-[#e8eaff] px-4 md:px-6 py-10 md:py-16">
       <h2
-        className="text-black font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] tracking-[-0.8px] mb-8 md:mb-12"
+        className="text-black font-medium text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.8px] mb-10 md:mb-14"
         style={{ fontFeatureSettings: "'zero'" }}
       >
         Here's how Symoda works.
       </h2>
-      <div className="flex flex-col gap-12">
-        {STEPS.map((step, i) => (
+
+      <div className="flex flex-col gap-14 md:gap-20">
+        {SLIDES.map((slide, i) => (
           <div key={i} className="flex flex-col gap-6">
-            {/* Tags */}
             <div className="flex gap-3 flex-wrap">
-              {step.tags.map((tag) => (
-                <div key={tag} className="px-4 py-2 rounded-full border-[1.5px] border-black/[0.27]">
-                  <span className="text-[12px] leading-[16px] tracking-[-0.09px] text-black">{tag}</span>
+              {slide.tags.map((t) => (
+                <div key={t} className="px-4 py-2 rounded-full border-[1.5px] border-black/[0.27]">
+                  <span className="text-[12px] md:text-[13px] text-black">{t}</span>
                 </div>
               ))}
             </div>
 
-            {/* Title */}
             <h3
-              className="font-medium text-[24px] leading-[32px] tracking-[-0.6px] text-black"
+              className="font-medium text-[24px] md:text-[32px] leading-[1.25] tracking-[-0.6px] text-black"
               style={{ fontFeatureSettings: "'zero'" }}
             >
-              {step.titleJsx || step.title}
+              {slide.title}
             </h3>
 
-            {/* Subtitle */}
-            {step.subtitle && (
-              <p className="font-medium text-[16px] leading-[24px] tracking-[-0.3px] text-black -mt-2">
-                {step.subtitle}
+            {slide.subtitle && (
+              <p className="font-medium text-[16px] md:text-[18px] leading-[26px] text-black">
+                {slide.subtitle}
               </p>
             )}
 
-            {/* Body */}
-            <div className="text-[15px] leading-[24px] tracking-[-0.2px] text-black/80 flex flex-col gap-4">
-              {step.paragraphs.map((p, pi) => <p key={pi}>{p}</p>)}
+            <div className="text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] text-black/75 flex flex-col gap-3">
+              {slide.body.map((p, pi) => <p key={pi}>{p}</p>)}
             </div>
 
-            {/* CTA */}
-            <button className="flex items-center gap-2 px-5 py-3 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[16px] leading-[24px] tracking-[-0.2px] hover:bg-[#1a29cc] transition-colors w-fit">
-              {step.cta.label}
-              <img src={step.cta.icon} alt="" className="w-4 h-4" />
+            <button className="flex items-center gap-2 px-5 py-3 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[15px] hover:bg-[#1a29cc] transition-colors w-fit">
+              {slide.cta}
+              <img src={imgArrow} alt="" className="w-4 h-4" />
             </button>
 
-            {/* Cards */}
-            {step.panelType === 'list' ? (
-              <div className="flex flex-col gap-3">
-                {step.cards.map((card) => (
-                  <div key={card.text} className="flex gap-4 items-center p-4 bg-white rounded-xl">
-                    <div className="bg-[#f2f2f2] flex items-center justify-center p-2 rounded-xl shrink-0">
-                      <img src={card.img} alt="" className="size-[40px] object-cover" />
-                    </div>
-                    <p className="font-medium text-[14px] leading-[20px] tracking-[-0.3px] text-black whitespace-pre-line">
-                      {card.text}
-                    </p>
+            <div className="flex flex-col gap-3 mt-2">
+              {slide.cards.map((card, ci) => (
+                <div key={ci} className="flex gap-4 items-start p-4 bg-white rounded-xl">
+                  <div className="bg-[#f2f2f2] flex items-center justify-center p-2 rounded-xl shrink-0">
+                    <img src={card.img} alt="" className="size-[40px] object-cover" />
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-3">
-                {step.cards.map((card) => (
-                  <div key={card.text} className="flex flex-col gap-3 p-4 bg-white rounded-xl">
-                    <div className="bg-[#f2f2f2] flex items-center justify-center p-2 rounded-xl w-fit">
-                      <img src={card.img} alt="" className="size-[40px] object-cover" />
-                    </div>
-                    <p className="font-medium text-[14px] leading-[20px] tracking-[-0.3px] text-black whitespace-pre-line">
-                      {card.text}
-                    </p>
+                  <div>
+                    <p className="font-medium text-[14px] md:text-[15px] leading-[20px] text-black">{card.title}</p>
+                    {card.sub && <p className="text-[12px] md:text-[13px] leading-[18px] text-black/55 mt-0.5">{card.sub}</p>}
                   </div>
-                ))}
-              </div>
-            )}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -185,304 +146,232 @@ function MobileSteps() {
   )
 }
 
+/* ─────────────────────────────────────────────
+   Desktop — horizontal scroll with GSAP pin
+───────────────────────────────────────────── */
 export default function HowSymodaWorksSection() {
-  const [isMobile, setIsMobile] = useState(false)
-  const pinRef = useRef(null)
-  const panelsRef = useRef([])
-  const textsRef = useRef([])
-  const circleRef = useRef(null)
-  const stepsRef = useRef([])
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 1024)
 
+  const containerRef = useRef(null) // pinned section
+  const trackRef = useRef(null) // horizontally translated flex row
+  const circleRef = useRef(null) // SVG progress arc
+  const dotsRef = useRef([])   // step dot elements
+
+  /* ── Responsive check ── */
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024)
-    check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
   }, [])
 
+  /* ── GSAP setup ── */
   useEffect(() => {
     if (isMobile) return
+
     const ctx = gsap.context(() => {
-      const panels = panelsRef.current
-      const texts = textsRef.current
-      const circle = circleRef.current
-      const steps = stepsRef.current
+      const totalScroll = () => (TOTAL - 1) * window.innerWidth
 
-      if (!panels[0] || !texts[0]) return
+      /* 1. Dedicated trigger — navbar visibility only */
+      const dispatch = (active) =>
+        window.dispatchEvent(new CustomEvent('hsw:active', { detail: active }))
 
-      /* ── Build a master timeline scrubbed by scroll ── */
-      const tl = gsap.timeline()
-
-      STEPS.forEach((_, i) => {
-        const isFirst = i === 0
-        const isLast = i === TOTAL - 1
-
-        if (!isFirst) {
-          // Fade out previous left text
-          tl.to(
-            texts[i - 1],
-            { y: -40, opacity: 0, duration: 0.4, ease: 'power2.in' },
-            `step${i}`
-          )
-          // Slide out previous right panel
-          tl.to(
-            panels[i - 1],
-            { x: '-100%', opacity: 0, duration: 0.5, ease: 'power2.in' },
-            `step${i}`
-          )
-          // Deactivate previous step dot
-          tl.to(
-            steps[i - 1],
-            { scale: 1, backgroundColor: 'rgba(0,0,0,0.15)', duration: 0.3 },
-            `step${i}`
-          )
-
-          // Fade in current left text
-          tl.fromTo(
-            texts[i],
-            { y: 40, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' },
-            `step${i}+=0.2`
-          )
-          // Slide in current right panel
-          tl.fromTo(
-            panels[i],
-            { x: '100%', opacity: 0 },
-            { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' },
-            `step${i}+=0.2`
-          )
-          // Activate current step dot
-          tl.to(
-            steps[i],
-            { scale: 1.4, backgroundColor: '#2132ed', duration: 0.3 },
-            `step${i}+=0.2`
-          )
-        }
-
-        // Hold each step for a beat so the user can read
-        if (!isLast) {
-          tl.to({}, { duration: 0.3 }, `step${i}+=0.7`)
-        }
-      })
-
-      /* ── Pin & scrub ── */
       ScrollTrigger.create({
-        trigger: pinRef.current,
+        trigger: containerRef.current,
         start: 'top top',
-        end: `+=${TOTAL * 100}%`,
-        pin: true,
-        scrub: 1,
-        animation: tl,
+        end: () => '+=' + totalScroll(),
+        invalidateOnRefresh: true,
+        onEnter: () => dispatch(true),
+        onLeave: () => dispatch(false),
+        onEnterBack: () => dispatch(true),
+        onLeaveBack: () => dispatch(false),
       })
 
-      /* ── Progress circle ── */
-      if (circle) {
-        gsap.to(circle, {
+      /* 2. Pin + horizontal translate */
+      gsap.to(trackRef.current, {
+        x: () => -((TOTAL - 1) * window.innerWidth),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          pin: true,
+          scrub: 1,
+          invalidateOnRefresh: true,
+          snap: {
+            snapTo: 1 / (TOTAL - 1),
+            duration: { min: 0.2, max: 0.45 },
+            delay: 0.05,
+            ease: 'power1.inOut',
+          },
+          end: () => '+=' + totalScroll(),
+          /* 3. Update step dots on scroll */
+          onUpdate(self) {
+            const active = Math.round(self.progress * (TOTAL - 1))
+            dotsRef.current.forEach((dot, i) => {
+              if (!dot) return
+              dot.style.backgroundColor = i === active ? '#2132ed' : 'rgba(0,0,0,0.15)'
+              dot.style.transform = i === active ? 'scale(1.4)' : 'scale(1)'
+            })
+          },
+        },
+      })
+
+      /* 3. Progress circle */
+      gsap.fromTo(
+        circleRef.current,
+        { strokeDashoffset: CIRC },
+        {
           strokeDashoffset: 0,
           ease: 'none',
           scrollTrigger: {
-            trigger: pinRef.current,
+            trigger: containerRef.current,
             start: 'top top',
-            end: `+=${TOTAL * 100}%`,
-            scrub: 1,
+            end: () => '+=' + totalScroll(),
+            scrub: true,
+            invalidateOnRefresh: true,
           },
-        })
-      }
+        }
+      )
 
-      /* ── Initial state ── */
-      // First step visible, rest hidden
-      gsap.set(texts[0], { y: 0, opacity: 1 })
-      gsap.set(panels[0], { x: '0%', opacity: 1 })
-      gsap.set(steps[0], { scale: 1.4, backgroundColor: '#2132ed' })
-      for (let i = 1; i < TOTAL; i++) {
-        gsap.set(texts[i], { y: 40, opacity: 0 })
-        gsap.set(panels[i], { x: '100%', opacity: 0 })
-        gsap.set(steps[i], { scale: 1, backgroundColor: 'rgba(0,0,0,0.15)' })
-      }
-    }, pinRef)
+      /* 4. Initial dot state */
+      dotsRef.current.forEach((dot, i) => {
+        if (!dot) return
+        dot.style.backgroundColor = i === 0 ? '#2132ed' : 'rgba(0,0,0,0.15)'
+        dot.style.transform = i === 0 ? 'scale(1.4)' : 'scale(1)'
+      })
+    }, containerRef)
 
     return () => ctx.revert()
   }, [isMobile])
 
-  if (isMobile) return <MobileSteps />
+  if (isMobile) return <StaticSteps />
 
   return (
     <section
-      ref={pinRef}
+      ref={containerRef}
       className="relative h-screen overflow-hidden bg-[#e8eaff]"
     >
       <Gred />
 
-      <div className="relative z-10 flex flex-col h-full px-8 pt-12 pb-8 max-w-[1200px] mx-auto">
+      {/* ── Fixed overlay: title + progress (sits above the sliding track) ── */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-start justify-between px-8 pt-10 pb-0 pointer-events-none">
+        <h2
+          className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]"
+          style={{ fontFeatureSettings: "'zero'" }}
+        >
+          Here's how Symoda works.
+        </h2>
 
-        {/* ── Header row ── */}
-        <div className="flex items-center justify-between mb-12 shrink-0">
-          <h2
-            className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]"
-            style={{ fontFeatureSettings: "'zero'" }}
+        {/* Dots + circle */}
+        <div className="flex flex-col items-center gap-3 pointer-events-auto">
+          <div className="flex items-center gap-2.5 ">
+            {SLIDES.map((_, i) => (
+              <div
+                key={i}
+                ref={(el) => (dotsRef.current[i] = el)}
+                style={{
+                  backgroundColor: i === 0 ? '#2132ed' : 'rgba(0,0,0,0.15)',
+                  transform: i === 0 ? 'scale(1.4)' : 'scale(1)',
+                }}
+              />
+            ))}
+          </div>
+          <div className="relative size-[92px]">
+            <svg
+              width="92" height="92" viewBox="0 0 92 92" fill="none"
+              className="rotate-[-90deg]"
+            >
+              <circle cx="46" cy="46" r={RADIUS} stroke="rgba(0,0,0,0.08)" strokeWidth="3" fill="none" />
+              <circle
+                ref={circleRef}
+                cx="46" cy="46" r={RADIUS}
+                stroke="#4ade80" strokeWidth="3" fill="none"
+                strokeLinecap="round"
+                strokeDasharray={CIRC}
+                strokeDashoffset={CIRC}
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Horizontal track ── */}
+      <div
+        ref={trackRef}
+        className="absolute top-0 left-0 bottom-0 flex will-change-transform"
+        style={{ width: `${TOTAL * 100}vw` }}
+      >
+        {SLIDES.map((slide, i) => (
+          <div
+            key={i}
+            className="relative w-screen h-screen shrink-0 flex gap-[80px] px-8 pb-8"
+            style={{ paddingTop: '152px' }} /* clear the fixed header */
           >
-            Here's how Symoda works.
-          </h2>
 
-          {/* Progress circle + step dots */}
-          <div className="flex items-center gap-6">
-            {/* Step dots */}
-            <div className="flex items-center gap-3">
-              {STEPS.map((_, i) => (
-                <div
-                  key={i}
-                  ref={(el) => (stepsRef.current[i] = el)}
-                  className="size-3 rounded-full transition-colors"
-                  style={{ backgroundColor: i === 0 ? '#2132ed' : 'rgba(0,0,0,0.15)' }}
-                />
+            {/* Left — step info */}
+            <div className="w-[44%] shrink-0 flex flex-col gap-6 min-h-0 overflow-y-auto pr-1">
+              {/* Tags */}
+              <div className="flex gap-3 flex-wrap shrink-0">
+                {slide.tags.map((tag) => (
+                  <div key={tag} className="px-4 py-[10px] rounded-full border-[1.5px] border-black/[0.27]">
+                    <span className="text-[14px] leading-[20px] tracking-[-0.09px] text-black">{tag}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Title */}
+              <h3
+                className="font-medium text-[40px] leading-[48px] tracking-[-0.89px] text-black shrink-0"
+                style={{ fontFeatureSettings: "'zero'" }}
+              >
+                {slide.title}
+              </h3>
+
+              {/* Subtitle */}
+              {slide.subtitle && (
+                <p className="font-medium text-[20px] leading-[30px] tracking-[-0.47px] text-black shrink-0">
+                  {slide.subtitle}
+                </p>
+              )}
+
+              {/* Body */}
+              <div className="text-[17px] leading-[28px] tracking-[-0.3px] text-black/75 flex flex-col gap-4">
+                {slide.body.map((p, pi) => <p key={pi}>{p}</p>)}
+              </div>
+
+              {/* CTA */}
+              <button className="flex items-center gap-2.5 px-6 py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[18px] leading-[26px] tracking-[-0.3px] hover:bg-[#1a29cc] transition-colors w-fit mt-auto shrink-0">
+                {slide.cta}
+                <img src={imgArrow} alt="" className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Right — cards */}
+            <div className="flex-1 flex flex-col gap-[14px] min-h-0 overflow-y-auto">
+              {slide.cards.map((card, ci) => (
+                slide.detail ? (
+                  /* Detail card: icon + title + subtitle */
+                  <div key={ci} className="flex gap-5 items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow shrink-0">
+                    <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
+                      <img src={card.img} alt="" className="size-[52px] object-cover" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <p className="font-medium text-[20px] leading-[28px] tracking-[-0.5px] text-black">{card.title}</p>
+                      <p className="text-[15px] leading-[22px] tracking-[-0.2px] text-black/55">{card.sub}</p>
+                    </div>
+                  </div>
+                ) : (
+                  /* List card: icon + title */
+                  <div key={ci} className="flex gap-5 items-center p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow shrink-0">
+                    <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
+                      <img src={card.img} alt="" className="size-[56px] object-cover" />
+                    </div>
+                    <p className="font-medium text-[20px] leading-[28px] tracking-[-0.5px] text-black">{card.title}</p>
+                  </div>
+                )
               ))}
             </div>
 
-            {/* Circle */}
-            <div className="relative shrink-0 size-[92px]">
-              <svg
-                width="92"
-                height="92"
-                viewBox="0 0 92 92"
-                fill="none"
-                className="rotate-[-90deg]"
-              >
-                <circle
-                  cx="46" cy="46" r={RADIUS}
-                  stroke="rgba(0,0,0,0.08)"
-                  strokeWidth="3"
-                  fill="none"
-                />
-                <circle
-                  ref={circleRef}
-                  cx="46" cy="46" r={RADIUS}
-                  stroke="#4ade80"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeDasharray={CIRCUMFERENCE}
-                  strokeDashoffset={CIRCUMFERENCE}
-                />
-              </svg>
-            </div>
           </div>
-        </div>
-
-        {/* ── Two-column body ── */}
-        <div className="flex gap-[100px] flex-1 min-h-0 items-start overflow-hidden">
-
-          {/* Left column — text blocks stacked, absolutely positioned so they animate independently */}
-          <div className="relative w-[580px] shrink-0 flex-none">
-            {STEPS.map((step, i) => (
-              <div
-                key={i}
-                ref={(el) => (textsRef.current[i] = el)}
-                className="absolute inset-0 flex flex-col gap-10"
-                style={i === 0 ? {} : { opacity: 0 }}
-              >
-                {/* Tags */}
-                <div className="flex gap-4 items-center">
-                  {step.tags.map((tag) => (
-                    <div
-                      key={tag}
-                      className="px-4 py-3 rounded-full border-[1.5px] border-black/[0.27]"
-                    >
-                      <span className="text-[14px] leading-[20px] tracking-[-0.09px] text-black">
-                        {tag}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Title */}
-                <h3
-                  className="font-medium text-[40px] leading-[48px] tracking-[-0.89px] text-black"
-                  style={{ fontFeatureSettings: "'zero'" }}
-                >
-                  {step.titleJsx || step.title}
-                </h3>
-
-                {/* Subtitle */}
-                {step.subtitle && (
-                  <p
-                    className="font-medium text-[24px] leading-[32px] tracking-[-0.89px] text-black -mt-4"
-                    style={{ fontFeatureSettings: "'zero'" }}
-                  >
-                    {step.subtitle}
-                  </p>
-                )}
-
-                {/* Body */}
-                <div className="text-[20px] leading-[32px] tracking-[-0.47px] text-black/80 font-normal flex flex-col gap-5 -mt-2">
-                  {step.paragraphs.map((p, pi) => (
-                    <p key={pi}>{p}</p>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <button className="flex items-center gap-2.5 px-6 py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-fit mt-auto">
-                  {step.cta.label}
-                  <img src={step.cta.icon} alt="" className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* Right column — panels stacked, animate in/out */}
-          <div className="relative flex-1 min-h-0 overflow-hidden">
-            {STEPS.map((step, i) => (
-              <div
-                key={i}
-                ref={(el) => (panelsRef.current[i] = el)}
-                className="absolute inset-0 overflow-y-auto pr-2"
-                style={i === 0 ? {} : { opacity: 0 }}
-              >
-                {step.panelType === 'list' ? (
-                  /* Vertical card list */
-                  <div className="flex flex-col gap-[20px]">
-                    {step.cards.map((card) => (
-                      <div
-                        key={card.text}
-                        className="flex gap-5 items-center p-5 bg-white rounded-xl"
-                      >
-                        <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                          <img src={card.img} alt="" className="size-[61px] object-cover" />
-                        </div>
-                        <p
-                          className="font-medium text-[20px] leading-[32px] tracking-[-0.69px] text-black whitespace-pre-line"
-                          style={{ fontFeatureSettings: "'zero'" }}
-                        >
-                          {card.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  /* 2×3 card grid */
-                  <div className="grid grid-cols-2 gap-[20px]">
-                    {step.cards.map((card) => (
-                      <div
-                        key={card.text}
-                        className="flex flex-col gap-5 items-start p-5 bg-white rounded-xl hover:shadow-lg transition-shadow"
-                      >
-                        <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                          <img src={card.img} alt="" className="size-[61px] object-cover" />
-                        </div>
-                        <p
-                          className="font-medium text-[20px] leading-[32px] tracking-[-0.69px] text-black whitespace-pre-line"
-                          style={{ fontFeatureSettings: "'zero'" }}
-                        >
-                          {card.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-        </div>
+        ))}
       </div>
     </section>
   )

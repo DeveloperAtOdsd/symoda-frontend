@@ -3,7 +3,18 @@
     "allow": [
       "mcp__figma__get_design_context",
       "mcp__figma__get_screenshot",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(curl -o s1_1.png \"http://localhost:3845/assets/2c14737b50311658fae86b415a18ab49d32d723a.png\")",
+      "Bash(curl -o s1_2.png \"http://localhost:3845/assets/0e7ca007dcb271225bf7b3f8dd50e5432853c1d7.png\")",
+      "Bash(curl -o s1_3.png \"http://localhost:3845/assets/045f2ac4732ac2eb51423b2b6fbe92a4cf4b4bbd.png\")",
+      "Bash(curl -o s1_4.png \"http://localhost:3845/assets/5d902638e425d50efa6550490ff1d842c921802f.png\")",
+      "Bash(curl -o s1_5.png \"http://localhost:3845/assets/aba7d432534cc8fae5f78921ab014abe4ecebae8.png\")",
+      "Bash(curl -o s3_1.png \"http://localhost:3845/assets/99f335af31ac685d4bad5f76ca5984fa08a8d182.png\")",
+      "Bash(curl -o s3_2.png \"http://localhost:3845/assets/6c239aab523bacdecf56c5ccf0e63378930cf931.png\")",
+      "Bash(curl -o s3_3.png \"http://localhost:3845/assets/d3ac4d0aae2990f43e67680b57a84016c1a682f1.png\")",
+      "Bash(curl -o s3_4.png \"http://localhost:3845/assets/e4565c0943ac819a4f573afb5b202d6fbd03a99c.png\")",
+      "Bash(curl -o ts_5.png \"http://localhost:3845/assets/ab5dab66d93fca5f57a0b7f36f8ab5c11b147874.png\")",
+      "Bash(curl -o ts_6.png \"http://localhost:3845/assets/b6c7c162c811acd98e39550de143e771133444c9.png\")"
     ]
   }
 }
