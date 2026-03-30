@@ -3,18 +3,18 @@ import SectionTag from '../components/ui/SectionTag'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[80vh] md:min-h-[834px] pt-20 md:pt-24 lg:pt-28 bg-white flex flex-col overflow-hidden">
+    <section className="relative min-h-[100vh] md:min-h-[834px] pt-24 md:pt-24 lg:pt-28 bg-white flex flex-col overflow-hidden">
       <Gred />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1440px] px-4 md:px-6 lg:px-8 flex flex-col">
-        <div className="max-w-[860px] py-8 md:py-12 lg:py-16">
+        <div className="max-w-[860px] py-24 md:py-12 lg:py-16">
 
           <SectionTag>
             Practical AI &amp; Technology for Business
           </SectionTag>
 
-          <h1 className="mt-6 md:mt-8 lg:mt-10 text-[40px] md:text-[56px] lg:text-[72px] font-bold text-gray-950 leading-[1.15] md:leading-[1.1] lg:leading-[1.05] tracking-tight">
+          <h1 className="mt-6 md:mt-8 lg:mt-10 text-[32px] md:text-[56px] lg:text-[72px] font-bold text-gray-950 leading-[1.15] md:leading-[1.1] lg:leading-[1.05] tracking-tight">
             {['Cut busy work.', 'Speed up decisions.', 'Scale operations.'].map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <span
@@ -51,7 +51,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="relative z-10 flex justify-center mt-6 pb-6">
+      <div className="relative z-10 flex justify-center mt-16 pb-6 ">
         <div className="w-8 h-14 rounded-full border-2 border-gray-400 flex items-start justify-center pt-2">
           <div className="w-1 h-3 rounded-full bg-gray-400 animate-drop" />
         </div>

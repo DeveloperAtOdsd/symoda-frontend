@@ -1,4 +1,8 @@
 import imgArrow from '../assets/contact-icon-arrow.svg'
+
+// TODO: Replace with your actual Cal.com links
+const CAL_LINK_30 = 'developer/30min'
+const CAL_LINK_60 = 'developer/60min'
 import icon1 from '../assets/contact-card1-icon.png'
 import icon2 from '../assets/contact-card2-icon.png'
 import icon3 from '../assets/contact-card3-icon.png'
@@ -54,7 +58,7 @@ export default function ContactOptionsSection() {
               <br />A focused 30-minute call — 15 min intro, 15 min understanding your specific workflow and what automation could look like.
             </p>
           </div>
-          <button className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
+          <button data-cal-link={CAL_LINK_30} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
             <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Book 30-min call</span>
             <img alt="" className="size-[16px]" src={imgArrow} />
           </button>
@@ -86,7 +90,7 @@ export default function ContactOptionsSection() {
               <li className="ms-[30px]"><span className="leading-[36px]">A framework for thinking about ROI and adoption</span></li>
             </ul>
           </div>
-          <button className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
+          <button data-cal-link={CAL_LINK_60} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
             <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Book 60-min session</span>
             <img alt="" className="size-[16px]" src={imgArrow} />
           </button>

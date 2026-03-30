@@ -75,11 +75,6 @@ export default function LetsGetStartedSection() {
                         </p>
                     </div>
 
-                    {/* CTA button — visible on mobile */}
-                    <button className="flex lg:hidden items-center gap-2.5 px-4 py-3 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[14px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors">
-                        Book a session
-                        <img src={imgArrow} alt="" className="w-4 h-4" />
-                    </button>
                 </div>
 
                 {/* Right — option cards */}

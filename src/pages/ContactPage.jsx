@@ -1,3 +1,5 @@
+import { getCalApi } from '@calcom/embed-react'
+import { useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Gred from '../components/Gred'
@@ -87,7 +89,11 @@ function ContactHero() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-3 md:gap-6 items-center">
-            <button className="flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors">
+            <button
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view"}'
+              className="flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors"
+            >
               Book a session
               <img src={imgArrow} alt="" className="w-4 h-4" />
             </button>
@@ -108,8 +114,21 @@ function ContactHero() {
   )
 }
 
+// TODO: Replace with your actual Cal.com link (e.g. "your-username/30min")
+const CAL_LINK = 'developer/30min'
+
 /* ── Page ── */
 export default function ContactPage() {
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi()
+      cal('ui', {
+        theme: 'light',
+        styles: { branding: { brandColor: '#2132ed' } },
+      })
+    })()
+  }, [])
+
   return (
     <>
       <NavBar />
