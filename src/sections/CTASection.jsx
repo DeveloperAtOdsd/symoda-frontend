@@ -11,11 +11,12 @@ const ACTIONS = [
 export default function CTASection() {
   return (
     <section className="bg-[#eef0ff] px-6 md:px-12 lg:px-[32px] py-16 md:py-20 lg:py-20">
+      <div className="max-w-[1440px] mx-auto">
       <h2 className=" text-[36px] md:text-[48px] lg:text-5xl mb-[48px] leading-[1.1] font-semibold text-[#171717] tracking-tight">
         Let’s get <br />
         <span className="text-[#2132ed]">started.</span>
       </h2>
-      <div className=" mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
         {/* LEFT */}
         <div className="flex flex-1 flex-col gap-6">
           {/* Description */}
@@ -58,6 +59,7 @@ export default function CTASection() {
           ))}
         </div>
 
+      </div>
       </div>
     </section>
   )

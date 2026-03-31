@@ -71,7 +71,7 @@ export default function ProblemsSection() {
 
   return (
     <section className="bg-[#e8eaff] py-10 md:py-16 lg:py-20" ref={containerRef}>
-      <div className="mx-auto px-4 md:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
 
         <div className="mb-8 md:mb-12 lg:mb-16">
           <PillTag>Problems</PillTag>

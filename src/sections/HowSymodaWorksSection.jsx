@@ -94,6 +94,7 @@ const CIRC = 2 * Math.PI * RADIUS
 function StaticSteps() {
   return (
     <section className="bg-[#e8eaff] px-4 md:px-6 py-10 md:py-16">
+      <div className="max-w-[1440px] mx-auto">
       <h2
         className="text-black font-medium text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.8px] mb-10 md:mb-14"
       >
@@ -148,6 +149,7 @@ function StaticSteps() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   )
@@ -236,31 +238,34 @@ export default function HowSymodaWorksSection() {
     >
       <Gred />
 
-      {/* ── Progress circle (fixed overlay) ── */}
-      <div className="absolute top-[48px] right-[32px] z-20 pointer-events-none">
-        <div className="relative size-[92px]">
-          <svg
-            width="92" height="92" viewBox="0 0 92 92" fill="none"
-            className="rotate-[-90deg]"
-          >
-            <circle cx="46" cy="46" r={RADIUS} stroke="rgba(0,0,0,0.08)" strokeWidth="3" fill="none" />
-            <circle
-              ref={circleRef}
-              cx="46" cy="46" r={RADIUS}
-              stroke="#4ade80" strokeWidth="3" fill="none"
-              strokeLinecap="round"
-              strokeDasharray={CIRC}
-              strokeDashoffset={CIRC}
-            />
-          </svg>
+      {/* ── Fixed overlays constrained to 1440px ── */}
+      <div className="absolute inset-0 max-w-[1440px] mx-auto z-10 pointer-events-none">
+        {/* Progress circle */}
+        <div className="absolute top-[48px] right-[32px] z-20">
+          <div className="relative size-[92px]">
+            <svg
+              width="92" height="92" viewBox="0 0 92 92" fill="none"
+              className="rotate-[-90deg]"
+            >
+              <circle cx="46" cy="46" r={RADIUS} stroke="rgba(0,0,0,0.08)" strokeWidth="3" fill="none" />
+              <circle
+                ref={circleRef}
+                cx="46" cy="46" r={RADIUS}
+                stroke="#4ade80" strokeWidth="3" fill="none"
+                strokeLinecap="round"
+                strokeDasharray={CIRC}
+                strokeDashoffset={CIRC}
+              />
+            </svg>
+          </div>
         </div>
-      </div>
 
-      {/* ── Fixed heading (stays in place during horizontal scroll) ── */}
-      <div className="absolute top-[48px] left-[32px] z-10 pointer-events-none">
-        <h2 className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]">
-          Here's how Symoda works.
-        </h2>
+        {/* Heading */}
+        <div className="absolute top-[48px] left-[32px]">
+          <h2 className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]">
+            Here's how Symoda works.
+          </h2>
+        </div>
       </div>
 
       {/* ── Horizontal track ── */}
@@ -272,8 +277,9 @@ export default function HowSymodaWorksSection() {
         {SLIDES.map((slide, i) => (
           <div
             key={i}
-            className="relative w-screen h-screen shrink-0 flex flex-col px-[32px] pt-[200px] pb-[48px]"
+            className="relative w-screen h-screen shrink-0 flex justify-center"
           >
+            <div className="max-w-[1440px] w-full flex flex-col px-[32px] pt-[200px] pb-[48px]">
             {/* ── Main content: left + right ── */}
             <div className="flex flex-1 gap-[141px] justify-start min-h-0">
               {/* Left — step info */}
@@ -356,6 +362,7 @@ export default function HowSymodaWorksSection() {
                 ))}
               </div>
 
+            </div>
             </div>
           </div>
         ))}

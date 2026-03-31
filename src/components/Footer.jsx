@@ -7,10 +7,8 @@ const serviceLinks = ['Discovery & AI Opportunity Mapping', 'AI Technical Build'
 
 export default function Footer() {
   return (
-    <footer
-      className="flex flex-col gap-6 pt-12 pb-8 px-4 md:px-6 lg:px-8 w-full"
-      style={{ background: 'linear-gradient(to bottom, #0f1ec3, #000000)' }}
-    >
+    <footer style={{ background: 'linear-gradient(to bottom, #0f1ec3, #000000)' }}>
+    <div className="flex flex-col gap-6 pt-12 pb-8 px-4 md:px-6 lg:px-8 w-full max-w-[1440px] mx-auto">
       {/* Desktop-only standalone logo (above columns) */}
       <div className="hidden lg:block relative h-[116px] w-[247px]">
         <img src={imgLogoMark} alt="" className="absolute top-0 -right-12 w-[70px] h-[70px] object-contain" />
@@ -78,6 +76,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
+    </div>
     </footer>
   )
 }
