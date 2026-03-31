@@ -66,7 +66,6 @@ function Timeline() {
       {/* Heading */}
       <p
         className="wte-heading font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
-        style={{ fontFeatureSettings: "'zero'" }}
       >
         What to expect.
       </p>
@@ -117,7 +116,6 @@ function ContactForm() {
       <div className="flex flex-col gap-[16px] md:gap-[20px]">
         <p
           className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black"
-          style={{ fontFeatureSettings: "'zero'" }}
         >
           Tell us about you.
         </p>
@@ -229,14 +227,12 @@ function ContactForm() {
           <button
             type="submit"
             className="flex items-center justify-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-full md:w-auto md:shrink-0"
-            style={{ fontFeatureSettings: "'zero'" }}
           >
             Send message
             <img src={imgArrow} alt="" className="size-[16px] brightness-0 invert" />
           </button>
           <p
             className="text-[#7a7a7a] text-[12px] leading-[16px] tracking-[0.01px] flex-1"
-            style={{ fontFeatureSettings: "'zero'" }}
           >
             We respect your privacy. Your information is only used to respond to your inquiry.
           </p>

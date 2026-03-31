@@ -96,7 +96,6 @@ function ContactHero() {
           {/* Heading */}
           <div
             className="hero-heading font-medium text-[36px] md:text-[56px] lg:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
-            style={{ fontFeatureSettings: "'zero'" }}
           >
             <p>Let's</p>
             <p className="text-[#2132ed]">talk.</p>

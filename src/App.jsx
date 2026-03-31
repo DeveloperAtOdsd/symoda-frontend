@@ -1,6 +1,8 @@
 import './App.css'
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import NavBar from './components/NavBar'
@@ -15,13 +17,15 @@ import ResultsSection from './sections/ResultsSection'
 import CTASection from './sections/CTASection'
 import ContactPage from './pages/ContactPage'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function HomePage() {
   return (
     <>
       <NavBar />
       <HeroSection />
-      <StatsSection />
-      <TrustedBySection />
+      {/* <StatsSection />
+      <TrustedBySection /> */}
       <ProblemsSection />
       <HowSymodaWorksSection />
       <TechStrategySection />
@@ -35,24 +39,34 @@ function HomePage() {
 export default function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.6,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
+      autoRaf: false,
     })
 
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
+    // Connect Lenis scroll events to ScrollTrigger so they stay in sync
+    lenis.on('scroll', ScrollTrigger.update)
 
-    return () => lenis.destroy()
+    // Drive Lenis from GSAP's ticker instead of a raw rAF loop
+    const onTick = (time) => {
+      lenis.raf(time * 1000)
+    }
+    gsap.ticker.add(onTick)
+    gsap.ticker.lagSmoothing(0)
+
+    return () => {
+      gsap.ticker.remove(onTick)
+      lenis.destroy()
+    }
   }, [])
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/contact" element={<ContactPage />} />
-    </Routes>
+    <div className="max-w-[1440px] mx-auto">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </div>
   )
 }

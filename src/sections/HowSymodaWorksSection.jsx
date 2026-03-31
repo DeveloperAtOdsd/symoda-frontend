@@ -88,7 +88,6 @@ function StaticSteps() {
     <section className="bg-[#e8eaff] px-4 md:px-6 py-10 md:py-16">
       <h2
         className="text-black font-medium text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.8px] mb-10 md:mb-14"
-        style={{ fontFeatureSettings: "'zero'" }}
       >
         Here's how Symoda works.
       </h2>
@@ -106,7 +105,6 @@ function StaticSteps() {
 
             <h3
               className="font-medium text-[24px] md:text-[32px] leading-[1.25] tracking-[-0.6px] text-black"
-              style={{ fontFeatureSettings: "'zero'" }}
             >
               {slide.title}
             </h3>
@@ -193,14 +191,8 @@ export default function HowSymodaWorksSection() {
         scrollTrigger: {
           trigger: containerRef.current,
           pin: true,
-          scrub: 1,
+          scrub: true,
           invalidateOnRefresh: true,
-          snap: {
-            snapTo: 1 / (TOTAL - 1),
-            duration: { min: 0.2, max: 0.45 },
-            delay: 0.05,
-            ease: 'power1.inOut',
-          },
           end: () => '+=' + totalScroll(),
           /* 3. Update step dots on scroll */
           onUpdate(self) {
@@ -255,7 +247,7 @@ export default function HowSymodaWorksSection() {
       <div className="absolute top-0 left-0 right-0 z-20 flex items-start justify-between px-8 pt-10 pb-0 pointer-events-none">
         <h2
           className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]"
-          style={{ fontFeatureSettings: "'zero'" }}
+
         >
           Here's how Symoda works.
         </h2>
@@ -320,7 +312,7 @@ export default function HowSymodaWorksSection() {
               {/* Title */}
               <h3
                 className="font-medium text-[40px] leading-[48px] tracking-[-0.89px] text-black shrink-0"
-                style={{ fontFeatureSettings: "'zero'" }}
+
               >
                 {slide.title}
               </h3>

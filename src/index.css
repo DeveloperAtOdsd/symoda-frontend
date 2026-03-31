@@ -2,6 +2,14 @@
 
 * {
   font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-variant-numeric: slashed-zero;
+  font-feature-settings: 'zero';
+}
+
+.slashed-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'zero' 1;
 }
 
 @keyframes slideUp {
@@ -9,6 +17,7 @@
     transform: translateY(100%);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;

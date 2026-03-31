@@ -79,7 +79,7 @@ function FAQItem({ faq, isOpen, onToggle }) {
       >
         <p
           className="font-normal text-[18px] md:text-[24px] leading-[28px] md:leading-[36px] text-black tracking-[-0.47px] pr-4"
-          style={{ fontFeatureSettings: "'zero'" }}
+
         >
           {faq.q}
         </p>
@@ -144,7 +144,7 @@ export default function FAQSection() {
           {/* Heading */}
           <p
             className="font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
-            style={{ fontFeatureSettings: "'zero'" }}
+  
           >
             {'Common '}
             <span className="text-[#2132ed]">questions.</span>

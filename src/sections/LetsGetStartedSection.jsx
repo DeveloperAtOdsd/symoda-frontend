@@ -35,7 +35,6 @@ function OptionCard({ subtitle, title, icon }) {
                 </p>
                 <p
                     className="font-medium leading-[24px] md:leading-[36px] text-black text-[18px] md:text-[24px] tracking-[-0.69px]"
-                    style={{ fontFeatureSettings: "'zero'" }}
                 >
                     {title}
                 </p>
@@ -80,8 +79,7 @@ export default function LetsGetStartedSection() {
                     {/* Title */}
                     <div
                         className="font-medium text-[36px] md:text-[56px] lg:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
-                        style={{ fontFeatureSettings: "'zero'" }}
-                    >
+                        >
                         <p>Let's get</p>
                         <p className="text-[#2132ed]">started.</p>
                     </div>

@@ -44,7 +44,7 @@ export default function ContactOptionsSection() {
 
         {/* Text block */}
         <div className="flex flex-col gap-[16px] md:gap-[24px] items-start text-[#171717] w-full">
-          <div className="font-medium leading-[0] text-[36px] md:text-[56px] tracking-[-1.25px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+          <div className="font-medium leading-[0] text-[36px] md:text-[56px] tracking-[-1.25px] w-full">
             <p className="leading-[46px] md:leading-[64px] mb-0">How would you like</p>
             <p className="leading-[46px] md:leading-[64px]">to connect?</p>
           </div>
@@ -67,10 +67,10 @@ export default function ContactOptionsSection() {
               <img alt="" className="size-[61px] object-cover" src={icon1} />
             </div>
             <div className="flex flex-col gap-[12px] items-start text-black w-full">
-              <p className="font-medium leading-[36px] text-[24px] tracking-[-0.69px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-medium leading-[36px] text-[24px] tracking-[-0.69px] w-full">
                 Book a Working Session
               </p>
-              <p className="font-normal leading-[20px] text-[16px] tracking-[-0.89px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-normal leading-[20px] text-[16px] tracking-[-0.89px] w-full">
                 FOR: SPECIFIC AUTOMATION PROJECTS
               </p>
             </div>
@@ -79,7 +79,7 @@ export default function ContactOptionsSection() {
               <br />A focused 30-minute call — 15 min intro, 15 min understanding your specific workflow and what automation could look like.
             </p>
           </div>
-          <button data-cal-link={CAL_LINK_30} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
+          <button data-cal-link={CAL_LINK_30} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
             <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Book 30-min call</span>
             <img alt="" className="size-[16px]" src={imgArrow} />
           </button>
@@ -95,10 +95,10 @@ export default function ContactOptionsSection() {
               <img alt="" className="size-[61px] object-cover" src={icon2} />
             </div>
             <div className="flex flex-col gap-[12px] items-start text-black w-full">
-              <p className="font-medium leading-[36px] text-[24px] tracking-[-0.69px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-medium leading-[36px] text-[24px] tracking-[-0.69px] w-full">
                 AI for Business Leaders
               </p>
-              <p className="font-normal leading-[20px] text-[16px] tracking-[-0.89px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-normal leading-[20px] text-[16px] tracking-[-0.89px] w-full">
                 FOR: LEADERS EXPLORING AUTOMATION POSSIBILITIES
               </p>
             </div>
@@ -111,7 +111,7 @@ export default function ContactOptionsSection() {
               <li className="ms-[30px]"><span className="leading-[36px]">A framework for thinking about ROI and adoption</span></li>
             </ul>
           </div>
-          <button data-cal-link={CAL_LINK_60} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
+          <button data-cal-link={CAL_LINK_60} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
             <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Book 60-min session</span>
             <img alt="" className="size-[16px]" src={imgArrow} />
           </button>
@@ -127,10 +127,10 @@ export default function ContactOptionsSection() {
               <img alt="" className="size-[61px] object-cover" src={icon3} />
             </div>
             <div className="flex flex-col gap-[12px] items-start text-black w-full">
-              <p className="font-medium leading-[36px] text-[24px] tracking-[-0.69px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-medium leading-[36px] text-[24px] tracking-[-0.69px] w-full">
                 Send Us Details
               </p>
-              <p className="font-normal leading-[20px] text-[16px] tracking-[-0.89px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-normal leading-[20px] text-[16px] tracking-[-0.89px] w-full">
                 FOR: THOSE WHO PREFER ASYNC COMMUNICATION
               </p>
             </div>
@@ -138,7 +138,7 @@ export default function ContactOptionsSection() {
               Not ready to book a call? Tell us about your situation. We'll review your details and follow up within 1 business day with a thoughtful response.
             </p>
           </div>
-          <button className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
+          <button className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
             <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Fill out the form</span>
             <img alt="" className="size-[16px]" src={imgArrow} />
           </button>
@@ -154,7 +154,7 @@ export default function ContactOptionsSection() {
               <img alt="" className="size-[61px] object-cover" src={icon4} />
             </div>
             <div className="flex flex-col items-start w-full">
-              <p className="font-medium leading-[36px] text-[24px] text-black tracking-[-0.69px] w-full" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className="font-medium leading-[36px] text-[24px] text-black tracking-[-0.69px] w-full">
                 EMAIL US DIRECTLY
               </p>
             </div>
@@ -162,7 +162,7 @@ export default function ContactOptionsSection() {
               Wayne@symoda.com
             </a>
           </div>
-          <button className="bg-[#f0f1fe] border-2 border-[#999ff7] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors" style={{ fontFeatureSettings: "'zero'" }}>
+          <button className="bg-[#f0f1fe] border-2 border-[#999ff7] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
             <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Send mail</span>
             <img alt="" className="size-[16px]" src={imgArrow} />
           </button>

@@ -28,7 +28,6 @@ export default function TechStrategySection() {
           <div className="flex flex-col gap-5 lg:gap-6">
             <h2
               className="font-medium text-[32px] md:text-[40px] lg:text-[40px] leading-[1.2] lg:leading-[48px] tracking-[-0.89px] text-black"
-              style={{ fontFeatureSettings: "'zero'" }}
             >
               Need Technology Strategy?{' '}
               <span className="text-[#2132ed]">We're Your CIO.</span>
@@ -59,8 +58,7 @@ export default function TechStrategySection() {
                   </div>
                   <p
                     className="font-medium text-[13px] md:text-[16px] lg:text-[24px] leading-[18px] md:leading-[24px] lg:leading-[36px] tracking-[-0.69px] text-black"
-                    style={{ fontFeatureSettings: "'zero'" }}
-                  >
+                        >
                     {card.text}
                   </p>
                 </div>
