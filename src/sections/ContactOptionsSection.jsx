@@ -57,7 +57,7 @@ export default function ContactOptionsSection() {
   }, [])
 
   return (
-    <div ref={sectionRef} className="bg-[#f5f5f5] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px] overflow-hidden">
+    <div ref={sectionRef} className="bg-[#f5f5f5] w-full px-[16px] md:px-[32px] py-[48px] md:py-[60px] lg:py-[60px] overflow-hidden">
       <div className="max-w-[1440px] mx-auto flex flex-col gap-[32px] md:gap-[42px] items-start">
 
         {/* Section header */}
@@ -71,11 +71,11 @@ export default function ContactOptionsSection() {
 
           {/* Text block */}
           <div className="flex flex-col gap-[16px] md:gap-[24px] items-start text-[#171717] w-full">
-            <div className="font-medium leading-[0] text-[36px] md:text-[56px] tracking-[-1.25px] w-full">
+            <div className="font-medium leading-[0] text-[36px] md:text-5xl tracking-[-1.25px] w-full">
               <p className="leading-[46px] md:leading-[64px] mb-0">How would you like</p>
               <p className="leading-[46px] md:leading-[64px]">to connect?</p>
             </div>
-            <p className="font-normal leading-[20px] md:leading-[36px] text-[16px] md:text-[24px] tracking-[-0.47px] w-full">
+            <p className="font-normal leading-[20px] md:leading-[36px] text-[16px] md:text-2xl tracking-[-0.47px] w-full">
               Choose the format that fits your stage. There's no wrong answer — we'll meet you where you are.
             </p>
           </div>
