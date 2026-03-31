@@ -34,7 +34,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-3 transition-transform duration-300 ${hidden ? '-translate-y-full' : 'translate-y-0'
+      className={`fixed top-0 left-0 right-0 z-50 max-w-[1440px] mx-auto px-4 md:px-6 pt-3 transition-transform duration-300 ${hidden ? '-translate-y-full' : 'translate-y-0'
         }`}
     >
       <nav className="flex items-center justify-between px-8 py-[10px] rounded-xl backdrop-blur-md bg-white/45 border border-white/30 shadow-sm">
