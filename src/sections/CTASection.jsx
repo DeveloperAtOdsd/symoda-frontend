@@ -10,27 +10,16 @@ const ACTIONS = [
 
 export default function CTASection() {
   return (
-    <section className="bg-[#eef0ff] px-6 md:px-12 lg:px-[32px] py-16 md:py-20">
+    <section className="bg-[#eef0ff] px-6 md:px-12 lg:px-[32px] py-16 md:py-20 lg:py-20">
+      <h2 className=" text-[36px] md:text-[48px] lg:text-5xl mb-[48px] leading-[1.1] font-semibold text-[#171717] tracking-tight">
+        Let’s get <br />
+        <span className="text-[#2132ed]">started.</span>
+      </h2>
       <div className=" mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
-
         {/* LEFT */}
         <div className="flex flex-1 flex-col gap-6">
-
-          {/* Tag */}
-          <div className="border border-black/20 px-3 py-1 rounded-full w-fit">
-            <span className="text-xs font-medium text-gray-700 tracking-wide">
-              READY?
-            </span>
-          </div>
-
-          {/* Heading */}
-          <h2 className="text-[36px] md:text-[48px] lg:text-[56px] leading-[1.1] font-semibold text-[#171717] tracking-tight">
-            Let’s get <br />
-            <span className="text-[#2132ed]">started.</span>
-          </h2>
-
           {/* Description */}
-          <div className="text-gray-600 text-sm md:text-base leading-relaxed max-w-[520px] space-y-4">
+          <div className="text-gray-600 text-sm md:text-base lg:text-2xl leading-relaxed max-w-[520px] space-y-4">
             <p>Ready to move from AI experiments to AI impact?</p>
             <p>
               Whether you're exploring automation for the first time or scaling workflows across your firm, we'd like to help.
@@ -45,7 +34,7 @@ export default function CTASection() {
           {ACTIONS.map((item) => (
             <div
               key={item.title}
-              className="bg-white flex items-center justify-between gap-4 p-5 rounded-xl hover:shadow-md transition-all cursor-pointer"
+              className="bg-white flex items-center justify-between gap-4 p-5 rounded-xl hover:shadow-md transition-all"
             >
               {/* Text */}
               <div className="flex flex-col gap-1 min-w-0">
