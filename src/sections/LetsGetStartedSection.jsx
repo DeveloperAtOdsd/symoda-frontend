@@ -65,7 +65,7 @@ export default function LetsGetStartedSection() {
 
     return (
         <section ref={sectionRef} className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
-            <div className="mx-auto flex flex-col lg:flex-row items-start lg:justify-between gap-[32px] lg:gap-[48px]">
+            <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-start lg:justify-between gap-[32px] lg:gap-[48px]">
 
                 {/* Left — heading */}
                 <div className="lgs-left flex flex-col gap-[32px] lg:gap-[48px] items-start lg:w-[769px] shrink-0">

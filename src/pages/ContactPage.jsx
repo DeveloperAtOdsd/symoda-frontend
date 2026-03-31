@@ -13,8 +13,8 @@ import WhatToExpectSection from '../sections/WhatToExpectSection'
 import imgArrow from '../assets/arrow.svg'
 import imgSendIcon from '../assets/contact-send-icon.svg'
 import imgCirclesOuter from '../assets/contact-circles-outer.svg'
-import imgCirclesMid from '../assets/contact-circles-mid.svg'
-import imgCirclesInner from '../assets/contact-circles-inner.png'
+import imgCirclesInner from '../assets/contact-circles-mid.svg'
+import imgCirclesMid from '../assets/contact-circles-inner.png'
 import LetsGetStartedSection from '../sections/LetsGetStartedSection'
 
 /* ── Floating stat card ── */
@@ -45,9 +45,33 @@ function CirclesVisual() {
       {/* Inner fill */}
       <img src={imgCirclesInner} alt="" className="absolute top-[46px] left-[62px] w-[124px] h-[124px] md:top-[100px] md:left-[115px] md:w-[230px] md:h-[230px]" />
 
+
+      <div className="absolute inset-0 flex items-center md:left-[32px] justify-center">
+
+        {/* Ring 1 */}
+        <div className="absolute size-[120px] md:size-[220px]  rounded-full bg-[#1a1aff]/5" />
+
+        {/* Ring 2 */}
+        <div className="absolute size-[80px] md:size-[160px] rounded-full bg-[#1a1aff]/10" />
+
+        {/* Ring 3 */}
+        <div className="absolute size-[50px] md:size-[100px] rounded-full bg-[#1a1aff]/15" />
+
+      </div>
       {/* Center blue dot */}
-      <div className="absolute top-[95px] left-[110px] size-[26px] md:top-[191px] md:left-[206px] md:size-[48px] bg-[#1a1aff] rounded-xl md:rounded-2xl">
-        <div className="absolute inset-0 rounded-xl md:rounded-2xl shadow-[0px_0px_0px_4px_rgba(26,26,255,0.12),0px_0px_0px_10px_rgba(26,26,255,0.05)] md:shadow-[0px_0px_0px_8px_rgba(26,26,255,0.12),0px_0px_0px_20px_rgba(26,26,255,0.05)]" />
+      <div className="absolute top-[95px] left-[110px] md:top-[191px] md:left-[206px]">
+
+        {/* Wrapper with fixed size */}
+        <div className="relative size-[26px] md:size-[48px]">
+
+          {/* Wave */}
+          <span className="wave absolute inset-0 rounded-full bg-[#1a1aff]/20" />
+
+          {/* Core */}
+          <div className="absolute inset-0 bg-[#1a1aff] rounded-xl md:rounded-3xl z-10" />
+
+        </div>
+
       </div>
 
       {/* Stat cards */}
@@ -154,7 +178,7 @@ export default function ContactPage() {
       <ContactHero />
       <ContactOptionsSection />
       <FAQSection />
-      <LetsGetStartedSection />
+      {/* <LetsGetStartedSection /> */}
       <WhatToExpectSection />
       <Footer />
     </>

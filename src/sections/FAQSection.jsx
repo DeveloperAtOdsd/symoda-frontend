@@ -130,7 +130,7 @@ export default function FAQSection() {
 
   return (
     <section ref={sectionRef} className="bg-[#eef0ff] px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
-      <div className="flex flex-col lg:flex-row gap-[32px] lg:gap-[24px] justify-between w-full">
+      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-[32px] lg:gap-[24px] justify-between w-full">
 
         {/* Left — heading */}
         <div className="faq-left flex flex-col gap-[32px] lg:gap-[48px] items-start shrink-0 lg:w-[559px]">

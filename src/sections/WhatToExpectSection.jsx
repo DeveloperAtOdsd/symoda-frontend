@@ -224,18 +224,24 @@ function ContactForm() {
 
         {/* Submit */}
         <div className="flex flex-col md:flex-row gap-[16px] md:gap-[24px] items-start md:items-center w-full">
-          <button
-            type="submit"
-            className="flex items-center justify-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-full md:w-auto md:shrink-0"
+
+          <a
+            href="mailto:wayne@symoda.com"
+            className="w-full md:w-auto"
           >
-            Send message
-            <img src={imgArrow} alt="" className="size-[16px] brightness-0 invert" />
-          </button>
-          <p
-            className="text-[#7a7a7a] text-[12px] leading-[16px] tracking-[0.01px] flex-1"
-          >
+            <button
+              type="button"
+              className="flex items-center justify-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-full md:w-auto md:shrink-0"
+            >
+              Send message
+              <img src={imgArrow} alt="" className="size-[16px] brightness-0 invert" />
+            </button>
+          </a>
+
+          <p className="text-[#7a7a7a] text-[12px] leading-[16px] tracking-[0.01px] flex-1">
             We respect your privacy. Your information is only used to respond to your inquiry.
           </p>
+
         </div>
       </form>
     </div>
@@ -275,8 +281,8 @@ export default function WhatToExpectSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
-      <div className="mx-auto flex flex-col lg:flex-row gap-[32px] lg:gap-[141px] justify-between">
+    <section id="contact-form" ref={sectionRef} className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
+      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-[32px] lg:gap-[141px] justify-between">
         <Timeline />
         <ContactForm />
       </div>
