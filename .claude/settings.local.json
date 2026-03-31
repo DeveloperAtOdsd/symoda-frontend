@@ -14,7 +14,8 @@
       "Bash(curl -o s3_3.png \"http://localhost:3845/assets/d3ac4d0aae2990f43e67680b57a84016c1a682f1.png\")",
       "Bash(curl -o s3_4.png \"http://localhost:3845/assets/e4565c0943ac819a4f573afb5b202d6fbd03a99c.png\")",
       "Bash(curl -o ts_5.png \"http://localhost:3845/assets/ab5dab66d93fca5f57a0b7f36f8ab5c11b147874.png\")",
-      "Bash(curl -o ts_6.png \"http://localhost:3845/assets/b6c7c162c811acd98e39550de143e771133444c9.png\")"
+      "Bash(curl -o ts_6.png \"http://localhost:3845/assets/b6c7c162c811acd98e39550de143e771133444c9.png\")",
+      "mcp__figma__get_metadata"
     ]
   }
 }

@@ -13,7 +13,7 @@ export default function Footer() {
     >
       {/* Desktop-only standalone logo (above columns) */}
       <div className="hidden lg:block relative h-[116px] w-[247px]">
-        <img src={imgLogoMark} alt="" className="absolute top-0 -right-12 w-[70px] h-[70px]" />
+        <img src={imgLogoMark} alt="" className="absolute top-0 -right-12 w-[70px] h-[70px] object-contain" />
         <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-4 left-0 w-[247px]" />
       </div>
 
@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="flex-1 flex flex-col gap-8 border-b border-white pb-6 lg:px-6 lg:h-[240px] lg:justify-between">
           {/* Logo — hidden on desktop (shown standalone above) */}
           <div className="relative h-[116px] w-[247px] lg:hidden">
-            <img src={imgLogoMark} alt="" className="absolute top-0 -right-16 w-[70px] h-[70px]" />
+            <img src={imgLogoMark} alt="" className="absolute top-0 -right-16 w-[70px] h-[70px] object-contain" />
             <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-0 left-4 w-[247px]" />
           </div>
 

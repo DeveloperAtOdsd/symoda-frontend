@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger)
 /* ─── Assets ─── */
 const s1 = [s1_1, s1_2, s1_3, s1_4, s1_5]
 const s2 = s1 // swap for real Phase 02 assets when available
-const s3 = [s1_1, s1_2, s1_3, s1_4] // replace with real Phase 03 assets when available
+const s3 = s1// replace with real Phase 03 assets when available
 
 /* ─── Slide data ─── */
 const SLIDES = [
@@ -76,6 +76,14 @@ const SLIDES = [
   },
 ]
 
+const getIcon = (index, isPhase3) => {
+  const iconsPhase2 = ['🔧', '🏗', '⚡', '✅', '🚀', '📑']
+  const iconsPhase3 = ['⚙️', '🛠️', '📋', '📈']
+
+  return isPhase3
+    ? iconsPhase3[index] || '✨'
+    : iconsPhase2[index] || '✨'
+}
 const TOTAL = SLIDES.length
 const RADIUS = 42
 const CIRC = 2 * Math.PI * RADIUS
@@ -94,6 +102,7 @@ function StaticSteps() {
 
       <div className="flex flex-col gap-14 md:gap-20">
         {SLIDES.map((slide, i) => (
+
           <div key={i} className="flex flex-col gap-6">
             <div className="flex gap-3 flex-wrap">
               {slide.tags.map((t) => (
@@ -127,7 +136,7 @@ function StaticSteps() {
             <div className="flex flex-col gap-3 mt-2">
               {slide.cards.map((card, ci) => (
                 <div key={ci} className="flex gap-4 items-start p-4 bg-white rounded-xl">
-                  <div className="bg-[#f2f2f2] flex items-center justify-center p-2 rounded-xl shrink-0">
+                  <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
                     <img src={card.img} alt="" className="size-[40px] object-cover" />
                   </div>
                   <div>
@@ -247,6 +256,13 @@ export default function HowSymodaWorksSection() {
         </div>
       </div>
 
+      {/* ── Fixed heading (stays in place during horizontal scroll) ── */}
+      <div className="absolute top-[48px] left-[32px] z-10 pointer-events-none">
+        <h2 className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]">
+          Here's how Symoda works.
+        </h2>
+      </div>
+
       {/* ── Horizontal track ── */}
       <div
         ref={trackRef}
@@ -256,43 +272,44 @@ export default function HowSymodaWorksSection() {
         {SLIDES.map((slide, i) => (
           <div
             key={i}
-            className="relative w-screen h-screen shrink-0 flex flex-col gap-[48px] px-[32px] py-[48px]"
+            className="relative w-screen h-screen shrink-0 flex flex-col px-[32px] pt-[200px] pb-[48px]"
           >
-            {/* ── Header ── */}
-            <div className="flex items-center justify-between shrink-0">
-              <h2 className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]">
-                Here's how Symoda works.
-              </h2>
-            </div>
-
             {/* ── Main content: left + right ── */}
-            <div className="flex flex-1 gap-[141px] justify-between min-h-0">
-
+            <div className="flex flex-1 gap-[141px] justify-start min-h-0">
               {/* Left — step info */}
-              <div className="shrink-0 flex flex-col gap-[48px] min-h-0 w-[756px]">
+              <div className="shrink-0 flex flex-col gap-[40px] min-h-0 w-[620px] mr-[60px]">
                 {/* Tags */}
                 <div className="flex gap-[24px] flex-wrap shrink-0">
                   {slide.tags.map((tag) => (
-                    <div key={tag} className="px-[16px] py-[12px] rounded-full border-[1.5px] border-black/[0.27]">
+                    <div key={tag} className="p-[12px] rounded-full border-[1.5px] border-black/[0.27]">
                       <span className="font-normal text-[14px] leading-[20px] tracking-[-0.09px] text-black">{tag}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Title + Subtitle + Body */}
-                <div className="flex flex-col gap-[24px] text-black">
-                  <h3 className="font-medium text-[40px] leading-[48px] tracking-[-0.89px]">
+                <div className="flex flex-col gap-[20px] text-black">
+                  <h3 className="font-medium text-[40px] leading-[48px] tracking-[-0.8px]">
                     {slide.title}
                   </h3>
 
                   {slide.subtitle && (
-                    <p className="font-medium text-[24px] leading-[32px] tracking-[-0.89px]">
+                    <p className="font-medium text-[22px] leading-[30px] tracking-[-0.5px]">
                       {slide.subtitle}
                     </p>
                   )}
 
-                  <div className="font-normal text-[24px] leading-[36px] tracking-[-0.47px] flex flex-col gap-4">
-                    {slide.body.map((p, pi) => <p key={pi}>{p}</p>)}
+                  <div className="font-normal text-[20px] leading-[32px] tracking-[-0.47px]">
+                    {slide.body.map((p, pi) => (
+                      <span key={pi}>
+                        {pi > 0 && (
+                          slide.tags.includes('PHASE 03')
+                            ? <br />
+                            : <><br /><br /></>
+                        )}
+                        {p}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
@@ -304,12 +321,18 @@ export default function HowSymodaWorksSection() {
               </div>
 
               {/* Right — cards */}
-              <div className="flex-1 flex flex-col gap-[26px] min-h-0 overflow-y-auto no-scrollbar w-[76px]">
+              <div className={`flex flex-col ${slide.cards.length > 5 ? 'gap-[10px]' : 'gap-[20px]'} min-h-0 overflow-y-auto no-scrollbar w-[559px] shrink-0`}>
                 {slide.cards.map((card, ci) => (
                   slide.detail ? (
-                    <div key={ci} className="flex gap-5 items-start p-[16px] bg-white rounded-xl shrink-0">
+                    <div key={ci} className="flex gap-5 items-start p-[20px] bg-white rounded-xl shrink-0">
                       <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                        <img src={card.img} alt="" className="size-[61px] object-cover" />
+                        {slide.tags.includes('PHASE 01') ? (
+                          <img src={card.img} alt="" className="size-[61px] object-cover" />
+                        ) : (
+                          <div className="flex items-center justify-center text-[27px]">
+                            {getIcon(ci, slide.tags.includes('PHASE 03'))}
+                          </div>
+                        )}
                       </div>
                       <div className="flex flex-col gap-1">
                         <p className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black">{card.title}</p>
@@ -317,9 +340,15 @@ export default function HowSymodaWorksSection() {
                       </div>
                     </div>
                   ) : (
-                    <div key={ci} className="flex gap-5 items-center p-[16px] bg-white rounded-xl shrink-0">
+                    <div key={ci} className={`flex gap-5 items-center p-[18px] bg-white rounded-xl shrink-0`}>
                       <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                        <img src={card.img} alt="" className="size-[61px] object-cover" />
+                        {slide.tags.includes('PHASE 01') ? (
+                          <img src={card.img} alt="" className="size-[61px] object-cover" />
+                        ) : (
+                          <div className="flex items-center justify-center text-[27px]">
+                            {getIcon(ci, slide.tags.includes('PHASE 03'))}
+                          </div>
+                        )}
                       </div>
                       <p className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black">{card.title}</p>
                     </div>
