@@ -39,12 +39,12 @@ export default function HeroSection() {
           </div>
 
           <div className="mt-8 md:mt-10 lg:mt-12 flex items-center gap-3 md:gap-4 lg:gap-6">
-            <button className="inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 bg-[#2132ed] hover:bg-[#1a29cc] text-white font-semibold rounded-lg transition-colors text-sm md:text-base">
-              Working session <span>→</span>
+            <button className="group inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 bg-[#2132ed] hover:bg-[#1a29cc] hover:pr-6 md:hover:pr-8 lg:hover:pr-10 text-white font-semibold rounded-lg transition-all duration-300 text-sm md:text-base">
+              Working session <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left">→</span>
             </button>
 
-            <button className="inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 border border-gray-300 hover:border-gray-400 text-gray-800 font-semibold rounded-lg transition-colors bg-white/60 text-sm md:text-base">
-              Book intro <span>→</span>
+            <button className="group inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 border border-gray-300 hover:border-gray-400 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 text-gray-800 font-semibold rounded-lg transition-all duration-300 bg-white/60 text-sm md:text-base">
+              Book intro <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left">→</span>
             </button>
           </div>
         </div>

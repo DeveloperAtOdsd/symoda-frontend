@@ -231,10 +231,10 @@ function ContactForm() {
           >
             <button
               type="button"
-              className="flex items-center justify-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-full md:w-auto md:shrink-0"
+              className="group flex items-center justify-center gap-[10px] bg-[#2132ed] border border-white/[0.27] px-[24px] py-[16px] hover:pr-[32px] rounded-[12px] text-white text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-all duration-300 w-full md:w-auto md:shrink-0"
             >
               Send message
-              <img src={imgArrow} alt="" className="size-[16px] brightness-0 invert" />
+              <img src={imgArrow} alt="" className="size-[16px] brightness-0 invert transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
             </button>
           </a>
 

@@ -135,14 +135,14 @@ function ContactHero() {
             <button
               data-cal-link={CAL_LINK}
               data-cal-config='{"layout":"month_view"}'
-              className="flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors"
+              className="group flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-all duration-300"
             >
               Book a session
-              <img src={imgArrow} alt="" className="w-4 h-4" />
+              <img src={imgArrow} alt="" className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
             </button>
-            <button className="flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 bg-[#f0f1fe] border border-black/[0.27] rounded-xl text-[#666] text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#e4e5fd] transition-colors">
+            <button className="group flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 bg-[#f0f1fe] border border-black/[0.27] rounded-xl text-[#666] text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#e4e5fd] transition-all duration-300">
               Send us details
-              <img src={imgSendIcon} alt="" className="w-6 h-4" />
+              <img src={imgSendIcon} alt="" className="w-6 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
             </button>
           </div>
         </div>

@@ -106,9 +106,9 @@ export default function ContactOptionsSection() {
                 <br />A focused 30-minute call — 15 min intro, 15 min understanding your specific workflow and what automation could look like.
               </p>
             </div>
-            <button data-cal-link={CAL_LINK_30} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
+            <button data-cal-link={CAL_LINK_30} data-cal-config='{"layout":"month_view"}' className="group bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] hover:pr-[32px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-all duration-300">
               <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Book 30-min call</span>
-              <img alt="" className="size-[16px]" src={imgArrow} />
+              <img alt="" className="size-[16px] transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" src={imgArrow} />
             </button>
           </div>
 
@@ -138,9 +138,9 @@ export default function ContactOptionsSection() {
                 <li className="ms-[30px]"><span className="leading-[36px]">A framework for thinking about ROI and adoption</span></li>
               </ul>
             </div>
-            <button data-cal-link={CAL_LINK_60} data-cal-config='{"layout":"month_view"}' className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
+            <button data-cal-link={CAL_LINK_60} data-cal-config='{"layout":"month_view"}' className="group bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] hover:pr-[32px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-all duration-300">
               <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Book 60-min session</span>
-              <img alt="" className="size-[16px]" src={imgArrow} />
+              <img alt="" className="size-[16px] transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" src={imgArrow} />
             </button>
           </div>
 
@@ -165,9 +165,9 @@ export default function ContactOptionsSection() {
                 Not ready to book a call? Tell us about your situation. We'll review your details and follow up within 1 business day with a thoughtful response.
               </p>
             </div>
-            <button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
+            <button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="group bg-[#f0f1fe] border border-black/[0.17] flex gap-[10px] items-center justify-center px-[24px] py-[16px] hover:pr-[32px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-all duration-300">
               <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Fill out the form</span>
-              <img alt="" className="size-[16px]" src={imgArrow} />
+              <img alt="" className="size-[16px] transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" src={imgArrow} />
             </button>
           </div>
 
@@ -189,9 +189,9 @@ export default function ContactOptionsSection() {
                 Wayne@symoda.com
               </a>
             </div>
-            <button className="bg-[#f0f1fe] border-2 border-[#999ff7] flex gap-[10px] items-center justify-center px-[24px] py-[16px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-colors">
+            <button className="group bg-[#f0f1fe] border-2 border-[#999ff7] flex gap-[10px] items-center justify-center px-[24px] py-[16px] hover:pr-[32px] rounded-[12px] shrink-0 w-full hover:bg-[#e4e5fd] transition-all duration-300">
               <span className="font-normal leading-[28px] text-[#2132ed] text-[20px] tracking-[-0.33px] whitespace-nowrap">Send mail</span>
-              <img alt="" className="size-[16px]" src={imgArrow} />
+              <img alt="" className="size-[16px] transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" src={imgArrow} />
             </button>
           </div>
 

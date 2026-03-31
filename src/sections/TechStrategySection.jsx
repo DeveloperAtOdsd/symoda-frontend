@@ -38,9 +38,9 @@ export default function TechStrategySection() {
             </div>
           </div>
 
-          <button className="flex items-center gap-2.5 px-5 py-3 lg:px-6 lg:py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[16px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-fit">
+          <button className="group flex items-center gap-2.5 px-5 py-3 lg:px-6 lg:py-4 hover:pr-8 lg:hover:pr-10 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[16px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-all duration-300 w-fit">
             Let's talk strategy
-            <img src={imgArrow} alt="" className="w-4 h-4" />
+            <img src={imgArrow} alt="" className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
           </button>
         </div>
 
