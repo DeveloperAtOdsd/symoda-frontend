@@ -7,7 +7,7 @@ export default function HeroSection() {
       <Gred />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] px-4 md:px-6 lg:px-8 flex flex-col">
+      <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 md:px-6 lg:px-8 flex flex-col">
         <div className="max-w-[860px] py-24 md:py-12 lg:py-16">
 
           <SectionTag>

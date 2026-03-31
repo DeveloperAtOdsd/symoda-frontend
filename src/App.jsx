@@ -27,7 +27,7 @@ function HomePage() {
       {/* <StatsSection />
       <TrustedBySection /> */}
       <ProblemsSection />
-      <HowSymodaWorksSection />
+      {/* <HowSymodaWorksSection /> */}
       <TechStrategySection />
       <ResultsSection />
       <CTASection />
@@ -62,11 +62,9 @@ export default function App() {
   }, [])
 
   return (
-    <div className="max-w-[1440px] mx-auto">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
   )
 }
