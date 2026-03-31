@@ -54,6 +54,16 @@ export default function ProblemsSection() {
           scrollTrigger: { trigger: item, start: 'top 85%', end: 'top 40%', scrub: true },
         })
       })
+
+      const bottomLine = containerRef.current.querySelector('.bottom-line')
+      if (bottomLine) {
+        gsap.fromTo(bottomLine, { scaleX: 0 }, {
+          scaleX: 1,
+          transformOrigin: 'left',
+          ease: 'none',
+          scrollTrigger: { trigger: bottomLine, start: 'top 85%', end: 'top 40%', scrub: true },
+        })
+      }
     }, containerRef)
 
     return () => ctx.revert()
@@ -96,6 +106,7 @@ export default function ProblemsSection() {
               </div>
             </div>
           ))}
+          <div className="bottom-line h-[4px] bg-[#2132ed] w-full mt-6 md:mt-8 lg:mt-10 scale-x-0 origin-left" />
         </div>
 
       </div>

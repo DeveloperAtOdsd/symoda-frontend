@@ -62,11 +62,11 @@ export default function App() {
   }, [])
 
   return (
-    <div className="max-w-[1440px] mx-auto">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-    </div>
+    // <div className="max-w-[1440px] mx-auto">
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
+    // </div>
   )
 }

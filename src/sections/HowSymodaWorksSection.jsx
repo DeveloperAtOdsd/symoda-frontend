@@ -153,7 +153,6 @@ export default function HowSymodaWorksSection() {
   const containerRef = useRef(null) // pinned section
   const trackRef = useRef(null) // horizontally translated flex row
   const circleRef = useRef(null) // SVG progress arc
-  const dotsRef = useRef([])   // step dot elements
 
   /* ── Responsive check ── */
   useEffect(() => {
@@ -194,15 +193,6 @@ export default function HowSymodaWorksSection() {
           scrub: true,
           invalidateOnRefresh: true,
           end: () => '+=' + totalScroll(),
-          /* 3. Update step dots on scroll */
-          onUpdate(self) {
-            const active = Math.round(self.progress * (TOTAL - 1))
-            dotsRef.current.forEach((dot, i) => {
-              if (!dot) return
-              dot.style.backgroundColor = i === active ? '#2132ed' : 'rgba(0,0,0,0.15)'
-              dot.style.transform = i === active ? 'scale(1.4)' : 'scale(1)'
-            })
-          },
         },
       })
 
@@ -223,12 +213,6 @@ export default function HowSymodaWorksSection() {
         }
       )
 
-      /* 4. Initial dot state */
-      dotsRef.current.forEach((dot, i) => {
-        if (!dot) return
-        dot.style.backgroundColor = i === 0 ? '#2132ed' : 'rgba(0,0,0,0.15)'
-        dot.style.transform = i === 0 ? 'scale(1.4)' : 'scale(1)'
-      })
     }, containerRef)
 
     return () => ctx.revert()
@@ -243,45 +227,23 @@ export default function HowSymodaWorksSection() {
     >
       <Gred />
 
-      {/* ── Fixed overlay: title + progress (sits above the sliding track) ── */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex items-start justify-between px-8 pt-10 pb-0 pointer-events-none">
-        <h2
-          className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]"
-
-        >
-          Here's how Symoda works.
-        </h2>
-
-        {/* Dots + circle */}
-        <div className="flex flex-col items-center gap-3 pointer-events-auto">
-          <div className="flex items-center gap-2.5 ">
-            {SLIDES.map((_, i) => (
-              <div
-                key={i}
-                ref={(el) => (dotsRef.current[i] = el)}
-                style={{
-                  backgroundColor: i === 0 ? '#2132ed' : 'rgba(0,0,0,0.15)',
-                  transform: i === 0 ? 'scale(1.4)' : 'scale(1)',
-                }}
-              />
-            ))}
-          </div>
-          <div className="relative size-[92px]">
-            <svg
-              width="92" height="92" viewBox="0 0 92 92" fill="none"
-              className="rotate-[-90deg]"
-            >
-              <circle cx="46" cy="46" r={RADIUS} stroke="rgba(0,0,0,0.08)" strokeWidth="3" fill="none" />
-              <circle
-                ref={circleRef}
-                cx="46" cy="46" r={RADIUS}
-                stroke="#4ade80" strokeWidth="3" fill="none"
-                strokeLinecap="round"
-                strokeDasharray={CIRC}
-                strokeDashoffset={CIRC}
-              />
-            </svg>
-          </div>
+      {/* ── Progress circle (fixed overlay) ── */}
+      <div className="absolute top-[48px] right-[32px] z-20 pointer-events-none">
+        <div className="relative size-[92px]">
+          <svg
+            width="92" height="92" viewBox="0 0 92 92" fill="none"
+            className="rotate-[-90deg]"
+          >
+            <circle cx="46" cy="46" r={RADIUS} stroke="rgba(0,0,0,0.08)" strokeWidth="3" fill="none" />
+            <circle
+              ref={circleRef}
+              cx="46" cy="46" r={RADIUS}
+              stroke="#4ade80" strokeWidth="3" fill="none"
+              strokeLinecap="round"
+              strokeDasharray={CIRC}
+              strokeDashoffset={CIRC}
+            />
+          </svg>
         </div>
       </div>
 
@@ -294,74 +256,78 @@ export default function HowSymodaWorksSection() {
         {SLIDES.map((slide, i) => (
           <div
             key={i}
-            className="relative  w-screen h-screen shrink-0 flex gap-[80px] px-8 pb-8"
-            style={{ paddingTop: '152px' }} /* clear the fixed header */
+            className="relative w-screen h-screen shrink-0 flex flex-col gap-[48px] px-[32px] py-[48px]"
           >
+            {/* ── Header ── */}
+            <div className="flex items-center justify-between shrink-0">
+              <h2 className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]">
+                Here's how Symoda works.
+              </h2>
+            </div>
 
-            {/* Left — step info */}
-            <div className="w-[44%] shrink-0 flex flex-col gap-6 min-h-0 overflow-y-auto pr-1">
-              {/* Tags */}
-              <div className="flex gap-3 flex-wrap shrink-0">
-                {slide.tags.map((tag) => (
-                  <div key={tag} className="px-4 py-[10px] rounded-full border-[1.5px] border-black/[0.27]">
-                    <span className="text-[14px] leading-[20px] tracking-[-0.09px] text-black">{tag}</span>
+            {/* ── Main content: left + right ── */}
+            <div className="flex flex-1 gap-[141px] justify-between min-h-0">
+
+              {/* Left — step info */}
+              <div className="shrink-0 flex flex-col gap-[48px] min-h-0 w-[756px]">
+                {/* Tags */}
+                <div className="flex gap-[24px] flex-wrap shrink-0">
+                  {slide.tags.map((tag) => (
+                    <div key={tag} className="px-[16px] py-[12px] rounded-full border-[1.5px] border-black/[0.27]">
+                      <span className="font-normal text-[14px] leading-[20px] tracking-[-0.09px] text-black">{tag}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Title + Subtitle + Body */}
+                <div className="flex flex-col gap-[24px] text-black">
+                  <h3 className="font-medium text-[40px] leading-[48px] tracking-[-0.89px]">
+                    {slide.title}
+                  </h3>
+
+                  {slide.subtitle && (
+                    <p className="font-medium text-[24px] leading-[32px] tracking-[-0.89px]">
+                      {slide.subtitle}
+                    </p>
+                  )}
+
+                  <div className="font-normal text-[24px] leading-[36px] tracking-[-0.47px] flex flex-col gap-4">
+                    {slide.body.map((p, pi) => <p key={pi}>{p}</p>)}
                   </div>
+                </div>
+
+                {/* CTA */}
+                <button className="flex items-center gap-[10px] px-[24px] py-[16px] bg-[#2132ed] border border-white/[0.27] rounded-xl text-white font-normal text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-fit shrink-0">
+                  {slide.cta}
+                  <img src={imgArrow} alt="" className="size-4" />
+                </button>
+              </div>
+
+              {/* Right — cards */}
+              <div className="flex-1 flex flex-col gap-[26px] min-h-0 overflow-y-auto no-scrollbar w-[76px]">
+                {slide.cards.map((card, ci) => (
+                  slide.detail ? (
+                    <div key={ci} className="flex gap-5 items-start p-[16px] bg-white rounded-xl shrink-0">
+                      <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
+                        <img src={card.img} alt="" className="size-[61px] object-cover" />
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <p className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black">{card.title}</p>
+                        <p className="text-[15px] leading-[22px] tracking-[-0.2px] text-black/55">{card.sub}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div key={ci} className="flex gap-5 items-center p-[16px] bg-white rounded-xl shrink-0">
+                      <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
+                        <img src={card.img} alt="" className="size-[61px] object-cover" />
+                      </div>
+                      <p className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black">{card.title}</p>
+                    </div>
+                  )
                 ))}
               </div>
 
-              {/* Title */}
-              <h3
-                className="font-medium text-[40px] leading-[48px] tracking-[-0.89px] text-black shrink-0"
-
-              >
-                {slide.title}
-              </h3>
-
-              {/* Subtitle */}
-              {slide.subtitle && (
-                <p className="font-medium text-[20px] leading-[30px] tracking-[-0.47px] text-black shrink-0">
-                  {slide.subtitle}
-                </p>
-              )}
-
-              {/* Body */}
-              <div className="text-[17px] leading-[28px] tracking-[-0.3px] text-black/75 flex flex-col gap-4">
-                {slide.body.map((p, pi) => <p key={pi}>{p}</p>)}
-              </div>
-
-              {/* CTA */}
-              <button className="flex items-center gap-2.5 px-6 py-4 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[18px] leading-[26px] tracking-[-0.3px] hover:bg-[#1a29cc] transition-colors w-fit mt-auto shrink-0">
-                {slide.cta}
-                <img src={imgArrow} alt="" className="w-4 h-4" />
-              </button>
             </div>
-
-            {/* Right — cards */}
-            <div className="flex-1 flex flex-col gap-[12px]  min-h-0 overflow-y-auto no-scrollbar">
-              {slide.cards.map((card, ci) => (
-                slide.detail ? (
-                  /* Detail card: icon + title + subtitle */
-                  <div key={ci} className="flex gap-5 items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow shrink-0">
-                    <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                      <img src={card.img} alt="" className="size-[52px] object-cover" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <p className="font-medium text-[20px] leading-[28px] tracking-[-0.5px] text-black">{card.title}</p>
-                      <p className="text-[15px] leading-[22px] tracking-[-0.2px] text-black/55">{card.sub}</p>
-                    </div>
-                  </div>
-                ) : (
-                  /* List card: icon + title */
-                  <div key={ci} className="flex gap-5 items-center p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow shrink-0">
-                    <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                      <img src={card.img} alt="" className="size-[56px] object-cover" />
-                    </div>
-                    <p className="font-medium text-[20px] leading-[28px] tracking-[-0.5px] text-black">{card.title}</p>
-                  </div>
-                )
-              ))}
-            </div>
-
           </div>
         ))}
       </div>
