@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { getCalApi } from '@calcom/embed-react'
 import imgArrow from '../assets/arrow.svg'
 import ts1 from '../assets/s1_1.png'
 import ts2 from '../assets/s1_2.png'
@@ -15,6 +17,12 @@ const cards = [
 ]
 
 export default function TechStrategySection() {
+  useEffect(() => {
+    ;(async () => {
+      const cal = await getCalApi()
+      cal('ui', { theme: 'light', styles: { branding: { brandColor: '#2132ed' } } })
+    })()
+  }, [])
   return (
     <section className="bg-[#eaecf5] py-10 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8">
       <div className="max-w-[1440px] mx-auto flex flex-col pl-6 pr-6 lg:flex-row lg:items-center lg:gap-[141px]">
@@ -38,7 +46,11 @@ export default function TechStrategySection() {
             </div>
           </div>
 
-          <button className="group flex items-center gap-2.5 px-5 py-3 lg:px-6 lg:py-4 hover:pr-8 lg:hover:pr-10 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[16px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-all duration-300 w-fit">
+          <button
+            data-cal-link="developer/30min"
+            data-cal-config='{"layout":"month_view"}'
+            className="group flex items-center gap-2.5 px-5 py-3 lg:px-6 lg:py-4 hover:pr-8 lg:hover:pr-10 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[16px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-all duration-300 w-fit cursor-pointer"
+          >
             Let's talk strategy
             <img src={imgArrow} alt="" className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
           </button>
