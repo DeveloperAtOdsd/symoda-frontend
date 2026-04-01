@@ -1,14 +1,25 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { getCalApi } from '@calcom/embed-react'
 import Gred from '../components/Gred'
 import SectionTag from '../components/ui/SectionTag'
 
+const CAL_LINK = 'developer/30min'
+
 export default function HeroSection() {
+  useEffect(() => {
+    ; (async () => {
+      const cal = await getCalApi()
+      cal('ui', { theme: 'light', styles: { branding: { brandColor: '#2132ed' } } })
+    })()
+  }, [])
   return (
     <section className="relative min-h-[100vh] md:min-h-[834px] pt-16 md:pt-24 lg:pt-28 bg-white flex flex-col overflow-hidden">
       <Gred />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 md:px-6 lg:px-8 flex flex-col">
-        <div className="max-w-[860px] py-24 md:py-12 lg:py-16">
+        <div className="max-w-[860px] pt-34 md:py-12 lg:py-16">
 
           <SectionTag>
             Practical AI &amp; Technology for Business
@@ -39,13 +50,21 @@ export default function HeroSection() {
           </div>
 
           <div className="mt-8 md:mt-10 lg:mt-12 flex items-center gap-3 md:gap-4 lg:gap-6">
-            <button className="group inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 bg-[#2132ed] hover:bg-[#1a29cc] hover:pr-6 md:hover:pr-8 lg:hover:pr-10 text-white font-semibold rounded-lg transition-all duration-300 text-sm md:text-base">
+            <button
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view"}'
+              className="group inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 bg-[#2132ed] hover:bg-[#1a29cc] hover:pr-6 md:hover:pr-8 lg:hover:pr-10 text-white font-semibold rounded-lg transition-all duration-300 text-sm md:text-base cursor-pointer"
+            >
               Working session <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left">→</span>
             </button>
 
-            <button className="group inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 border border-gray-300 hover:border-gray-400 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 text-gray-800 font-semibold rounded-lg transition-all duration-300 bg-white/60 text-sm md:text-base">
+            <Link
+              to="/contact#contact-form"
+              reloadDocument
+              className="group inline-flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 border border-gray-300 hover:border-gray-400 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 text-gray-800 font-semibold rounded-lg transition-all duration-300 bg-white/60 text-sm md:text-base cursor-pointer"
+            >
               Book intro <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left">→</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

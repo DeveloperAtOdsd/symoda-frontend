@@ -1,5 +1,6 @@
 import { getCalApi } from '@calcom/embed-react'
 import { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import NavBar from '../components/NavBar'
@@ -162,6 +163,17 @@ const CAL_LINK = 'developer/30min'
 
 /* ── Page ── */
 export default function ContactPage() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 300)
+    }
+  }, [hash])
+
   useEffect(() => {
     (async () => {
       const cal = await getCalApi()

@@ -383,9 +383,13 @@ export default function HowSymodaWorksSection() {
               return (
                 <div
                   key={i}
-                  className={`flex items-center gap-6 py-6 transition-all duration-300 ${isActive ? 'border-b-2 border-[#2132ed]' : ''
-                    }`}
+                  className="relative flex items-center gap-6 py-6"
                 >
+                  {/* Animated bottom border — slides left to right */}
+                  <span
+                    className="absolute bottom-0 left-0 h-[2px] bg-[#2132ed] transition-all duration-500 ease-out"
+                    style={{ width: isActive ? '100%' : '0%' }}
+                  />
                   <p
                     className={`text-base leading-5 tracking-[1px] w-10 text-center transition-colors duration-300 ${isActive ? 'text-[#2132ed]' : 'text-[#171717]'
                       }`}
