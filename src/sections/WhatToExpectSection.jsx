@@ -64,11 +64,12 @@ function Timeline() {
       </div>
 
       {/* Heading */}
-      <p
-        className="wte-heading font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
+      <div
+        className="font-medium text-[36px] md:text-[56px] lg:text-[72px] leading-[1.2] tracking-[-1.61px] text-black"
       >
-        What to expect.
-      </p>
+        <p>Let's get</p>
+        <p className="text-[#2132ed]">started.</p>
+      </div>
 
       {/* Steps */}
       <div className="wte-steps flex flex-col items-start pt-[16px] relative w-full">

@@ -30,8 +30,8 @@ function HomePage() {
       <ProblemsSection />
       <HowSymodaWorksSection />
       <TechStrategySection />
-      <ResultsSection />
       <WhatToExpectSection />
+      <ResultsSection />
       <Footer />
     </>
   )

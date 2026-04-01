@@ -16,7 +16,6 @@ import imgSendIcon from '../assets/contact-send-icon.svg'
 import imgCirclesOuter from '../assets/contact-circles-outer.svg'
 import imgCirclesInner from '../assets/contact-circles-mid.svg'
 import imgCirclesMid from '../assets/contact-circles-inner.png'
-import LetsGetStartedSection from '../sections/LetsGetStartedSection'
 
 /* ── Floating stat card ── */
 function StatCard({ value, label, className }) {
@@ -105,7 +104,7 @@ function ContactHero() {
     <section ref={heroRef} className="relative min-h-screen bg-white flex items-center overflow-hidden pt-24 pb-16 px-4 md:px-6 lg:px-8">
       <Gred />
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col-reverse lg:flex-row items-center lg:pl-8 justify-between gap-8 lg:gap-12">
 
         {/* Left — content */}
         <div className="flex flex-col gap-6 lg:gap-12 max-w-[760px] w-full">
@@ -193,7 +192,6 @@ export default function ContactPage() {
       <ContactHero />
       <ContactOptionsSection />
       <FAQSection />
-      {/* <LetsGetStartedSection /> */}
       <WhatToExpectSection />
       <Footer />
     </>
