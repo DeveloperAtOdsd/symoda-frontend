@@ -385,7 +385,8 @@ export default function HowSymodaWorksSection() {
               return (
                 <div
                   key={i}
-                  className={`relative flex items-center py-6 ${isCompact ? 'gap-4' : 'gap-6'}`}
+                  onClick={() => setActivePhase(i)}
+                  className={`relative flex items-center py-6 cursor-pointer ${isCompact ? 'gap-4' : 'gap-6'}`}
                 >
                   {/* Animated bottom border — slides left to right */}
                   <span
