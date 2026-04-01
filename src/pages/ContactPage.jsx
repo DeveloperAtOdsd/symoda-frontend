@@ -141,7 +141,10 @@ function ContactHero() {
               Book a session
               <img src={imgArrow} alt="" className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
             </button>
-            <button className="group flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 bg-[#f0f1fe] border border-black/[0.27] rounded-xl text-[#666] text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#e4e5fd] transition-all duration-300">
+            <button
+              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group flex items-center gap-2.5 px-4 py-3 md:px-6 md:py-4 hover:pr-6 md:hover:pr-8 lg:hover:pr-10 bg-[#f0f1fe] border border-black/[0.27] rounded-xl text-[#666] text-[14px] md:text-[18px] lg:text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#e4e5fd] transition-all duration-300 cursor-pointer"
+            >
               Send us details
               <img src={imgSendIcon} alt="" className="w-6 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left" />
             </button>

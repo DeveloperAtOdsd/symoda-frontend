@@ -51,8 +51,21 @@ export default function NavBar() {
           <img src={imgHamburgerLine} alt="" className="w-[35px] h-[3px]" />
         </button> */}
 
-        <a href="/contact" className="text-gray-900 text-[16px] leading-[24px] tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity">
-          Contact
+        <a
+          href="/contact"
+          className="
+    inline-flex items-center justify-center gap-[10px]
+    px-[16px] py-[12px]
+    rounded-[12px]
+    border border-white/[0.27]
+    bg-[#2132ED]
+    text-white text-[16px] leading-[24px] tracking-[-0.18px] font-medium
+    transition-all duration-200
+    hover:opacity-90 hover:scale-[0.98]
+    active:scale-[0.96]
+  "
+        >
+          Contact <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:scale-x-150 origin-left">→</span>
         </a>
       </nav>
     </div>
