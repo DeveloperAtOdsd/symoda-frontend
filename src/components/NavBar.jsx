@@ -6,20 +6,10 @@ import imgHamburgerLine from '../assets/nav-hamburger-line.svg'
 export default function NavBar() {
   const [hidden, setHidden] = useState(false)
   const lastY = useRef(0)
-  const sectionActive = useRef(false)
 
   useEffect(() => {
-    // Hide while HowSymodaWorksSection is pinned
-    const onSectionActive = (e) => {
-      sectionActive.current = e.detail
-      lastY.current = window.scrollY
-      setHidden(e.detail)
-    }
-    window.addEventListener('hsw:active', onSectionActive)
-
     // Hide on scroll down, show on scroll up
     const onScroll = () => {
-      if (sectionActive.current) return
       const y = window.scrollY
       setHidden(y > lastY.current && y > 80)
       lastY.current = y
@@ -27,7 +17,6 @@ export default function NavBar() {
     window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('hsw:active', onSectionActive)
       window.removeEventListener('scroll', onScroll)
     }
   }, [])
