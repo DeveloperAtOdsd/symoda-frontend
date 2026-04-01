@@ -16,6 +16,7 @@ import TechStrategySection from './sections/TechStrategySection'
 import ResultsSection from './sections/ResultsSection'
 import CTASection from './sections/CTASection'
 import ContactPage from './pages/ContactPage'
+import WhatToExpectSection from './sections/WhatToExpectSection'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,7 +31,7 @@ function HomePage() {
       <HowSymodaWorksSection />
       <TechStrategySection />
       <ResultsSection />
-      <CTASection />
+      <WhatToExpectSection />
       <Footer />
     </>
   )
