@@ -11,23 +11,23 @@ const FAQS = [
   },
   {
     q: 'How long does this take?',
-    a: null,
+    a: "Discovery typically takes around 2 weeks. Build projects usually take 6–12 weeks depending on complexity. AI Managed Enablement is ongoing, with most clients engaging for at least 3–6 months to see meaningful results.",
   },
   {
     q: 'How do you measure success?',
-    a: null,
+    a: "We measure success across three areas: technical performance (uptime, quality, system reliability), business impact (time saved, throughput, ROI, margin improvement), and adoption (usage rates, team engagement, and behavioral change). These metrics are defined early in the engagement.",
   },
   {
     q: 'Can you work with our existing team?',
-    a: null,
+    a: "Absolutely. We work as a collaborative partner alongside your team, not as a replacement. Our goal is to complement your internal capabilities, share knowledge, and help your team build long-term ownership.",
   },
   {
     q: "What if this isn't the right fit?",
-    a: null,
+    a: "We’ll be upfront with you. If it’s not the right fit, we’ll say so and may suggest alternative approaches or introduce you to someone better suited to your needs. We prioritize long-term trust over short-term work.",
   },
   {
     q: `Is "AI for Business Leaders" just sales talk?`,
-    a: null,
+    a: "No — it’s a genuine 60-minute educational session. We walk through real-world examples, explain how automation creates value, and share frameworks for ROI and adoption. Whether you work with us or not, you’ll leave with clear, practical insights.",
   },
 ]
 
@@ -144,7 +144,7 @@ export default function FAQSection() {
           {/* Heading */}
           <p
             className="font-medium text-[36px] md:text-[56px] leading-[46px] md:leading-[64px] tracking-[-1.25px] text-[#171717]"
-  
+
           >
             {'Common '}
             <span className="text-[#2132ed]">questions.</span>
