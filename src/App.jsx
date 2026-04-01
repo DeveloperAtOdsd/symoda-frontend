@@ -27,7 +27,7 @@ function HomePage() {
       {/* <StatsSection />
       <TrustedBySection /> */}
       <ProblemsSection />
-      {/* <HowSymodaWorksSection /> */}
+      <HowSymodaWorksSection />
       <TechStrategySection />
       <ResultsSection />
       <CTASection />
