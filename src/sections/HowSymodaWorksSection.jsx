@@ -369,7 +369,7 @@ export default function HowSymodaWorksSection() {
                 Here's how<br />
                 <span className="text-[#2132ed]">Symoda works.</span>
               </p>
-              <p className="text-xl leading-9 tracking-[-0.47px]">
+              <p className="text-[20px] leading-9 tracking-[-0.47px]">
                 Discover → Build → Enable.<br />
                 Start anywhere, follow the journey.
               </p>
@@ -393,10 +393,10 @@ export default function HowSymodaWorksSection() {
                     {phase.number}
                   </p>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-xl leading-7 tracking-[-0.89px] text-black whitespace-nowrap">
+                    <p className="font-medium text-[20px] leading-7 tracking-[-0.89px] text-black whitespace-nowrap">
                       {phase.navTitle}
                     </p>
-                    <p className="text-base leading-6 tracking-[-0.47px] text-[#171717] whitespace-nowrap">
+                    <p className="text-[16px] leading-6 tracking-[-0.47px] text-[#171717] whitespace-nowrap">
                       {phase.navDesc}
                     </p>
                   </div>
