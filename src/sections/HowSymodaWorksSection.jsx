@@ -67,29 +67,29 @@ function PhaseCard({ phase, index }) {
   return (
     <div
       data-card={index}
-      className="absolute inset-0 flex flex-col gap-8 justify-center p-6"
+      className="absolute inset-0 flex flex-col gap-4 justify-center p-6 overflow-hidden"
       style={{ opacity: index === 0 ? 1 : 0, y: index === 0 ? 0 : 20 }}
     >
       <p className="text-[#2132ed] text-base leading-5 tracking-[1px] font-normal whitespace-nowrap">
         {phase.label}
       </p>
-      <div className="flex flex-1 flex-col gap-8">
-        <div className="flex flex-col gap-3 text-black">
-          <p className="font-medium text-2xl leading-9 tracking-[-0.69px]" style={{ fontFeatureSettings: "'zero'" }}>
+      <div className="flex flex-1 flex-col gap-4">
+        <div className="flex flex-col gap-2 text-black">
+          <p className="font-medium text-xl xl:text-2xl leading-7 xl:leading-9 tracking-[-0.69px]" style={{ fontFeatureSettings: "'zero'" }}>
             {phase.cardTitle}
           </p>
           <p className="font-normal text-base leading-5 tracking-[-0.89px]" style={{ fontFeatureSettings: "'zero'" }}>
             {phase.cardSubtitle}
           </p>
         </div>
-        <div className="flex flex-wrap gap-[14px_18px]">
+        <div className="flex flex-wrap gap-[10px_14px]">
           {phase.tags.map((tag) => (
-            <div key={tag} className="border-[1.5px] border-black/[0.27] rounded-full px-3 py-2 flex items-center justify-center">
-              <span className="text-sm leading-5 tracking-[-0.09px] text-[#171717] whitespace-nowrap">{tag}</span>
+            <div key={tag} className="border-[1.5px] border-black/[0.27] rounded-full px-3 py-1.5 flex items-center justify-center">
+              <span className="text-xs xl:text-sm leading-5 tracking-[-0.09px] text-[#171717] whitespace-nowrap">{tag}</span>
             </div>
           ))}
         </div>
-        <p className="font-normal text-xl leading-8 tracking-[-0.89px] text-black whitespace-pre-wrap">
+        <p className="font-normal text-sm xl:text-base leading-6 xl:leading-7 tracking-[-0.89px] text-black whitespace-pre-wrap">
           {phase.body}
         </p>
       </div>
@@ -260,6 +260,7 @@ export default function HowSymodaWorksSection() {
   const [breakpoint, setBreakpoint] = useState(() =>
     window.innerWidth >= 1024 ? 'desktop' : window.innerWidth >= 768 ? 'tablet' : 'mobile'
   )
+  const [isCompact, setIsCompact] = useState(() => window.innerWidth < 1440)
   const [activePhase, setActivePhase] = useState(0)
 
   const containerRef = useRef(null)
@@ -271,6 +272,7 @@ export default function HowSymodaWorksSection() {
     const check = () => {
       const w = window.innerWidth
       setBreakpoint(w >= 1024 ? 'desktop' : w >= 768 ? 'tablet' : 'mobile')
+      setIsCompact(w < 1440)
     }
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
@@ -354,7 +356,7 @@ export default function HowSymodaWorksSection() {
       className="relative h-screen overflow-hidden bg-[#f5f5f5]"
     >
       <Gred />
-      <div className="h-full max-w-[1440px] mx-auto flex items-center gap-8 px-8 py-20">
+      <div className={`h-full max-w-[1440px] mx-auto flex items-center px-8 py-20 ${isCompact ? 'gap-6' : 'gap-8'}`}>
         {/* ── Left Section ── */}
         <div className="flex-1 flex flex-col gap-8 min-w-0 z-100">
           {/* Header — stays fully visible */}
@@ -365,11 +367,11 @@ export default function HowSymodaWorksSection() {
               </span>
             </div>
             <div className="flex flex-col gap-6 text-black">
-              <p className="font-medium text-[40px] leading-[48px] tracking-[-0.89px]" style={{ fontFeatureSettings: "'zero'" }}>
+              <p className={`font-medium tracking-[-0.89px] ${isCompact ? 'text-[32px] leading-[40px]' : 'text-[40px] leading-[48px]'}`} style={{ fontFeatureSettings: "'zero'" }}>
                 Here's how<br />
                 <span className="text-[#2132ed]">Symoda works.</span>
               </p>
-              <p className="text-[20px] leading-9 tracking-[-0.47px]">
+              <p className={`tracking-[-0.47px] ${isCompact ? 'text-[16px] leading-7' : 'text-[20px] leading-9'}`}>
                 Discover → Build → Enable.<br />
                 Start anywhere, follow the journey.
               </p>
@@ -383,7 +385,7 @@ export default function HowSymodaWorksSection() {
               return (
                 <div
                   key={i}
-                  className="relative flex items-center gap-6 py-6"
+                  className={`relative flex items-center py-6 ${isCompact ? 'gap-4' : 'gap-6'}`}
                 >
                   {/* Animated bottom border — slides left to right */}
                   <span
@@ -397,10 +399,10 @@ export default function HowSymodaWorksSection() {
                     {phase.number}
                   </p>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-[20px] leading-7 tracking-[-0.89px] text-black whitespace-nowrap">
+                    <p className={`font-medium tracking-[-0.89px] text-black ${isCompact ? 'text-[16px] leading-6' : 'text-[20px] leading-7'}`}>
                       {phase.navTitle}
                     </p>
-                    <p className="text-[16px] leading-6 tracking-[-0.47px] text-[#171717] whitespace-nowrap">
+                    <p className={`tracking-[-0.47px] text-[#171717] ${isCompact ? 'text-[14px] leading-5' : 'text-[16px] leading-6'}`}>
                       {phase.navDesc}
                     </p>
                   </div>
@@ -416,8 +418,8 @@ export default function HowSymodaWorksSection() {
         {/* ── Right Card Container ── */}
         <div
           ref={cardContainerRef}
-          className="relative bg-white/50 border-2 border-black/[0.08] rounded-xl overflow-hidden shrink-0"
-          style={{ width: 676, height: 609 }}
+          className={`relative bg-white/50 border-2 border-black/[0.08] rounded-xl overflow-hidden ${isCompact ? 'w-[45%] min-h-[500px]' : 'w-[676px] min-h-[609px]'}`}
+          style={{ flexShrink: 0 }}
         >
           {PHASES.map((phase, i) => (
             <PhaseCard key={i} phase={phase} index={i} />

@@ -55,7 +55,7 @@ function PillGroup({ options, selected, onSelect }) {
 /* ── Left: timeline steps ── */
 function Timeline() {
   return (
-    <div className="flex flex-col gap-[32px] lg:gap-[48px] items-start w-full lg:w-[559px] shrink-0">
+    <div className="flex flex-col gap-[32px] lg:gap-[48px] items-start w-full lg:max-w-[559px] lg:flex-1 lg:min-w-[320px]">
       {/* Tag */}
       <div className="wte-tag border-[0.8px] border-black/[0.27] flex items-center justify-center px-[8px] py-[8px] rounded-full">
         <span className="font-medium text-[12px] leading-[16px] tracking-[0.01px] text-black">
@@ -112,7 +112,7 @@ function ContactForm() {
   const labelClass = 'text-[#7a7a7a] text-[14px] leading-[20px] tracking-[-0.09px]'
 
   return (
-    <div className="wte-form bg-white border-2 border-[rgba(17,17,17,0.13)] flex flex-col gap-[24px] p-[24px] md:p-[48px] rounded-[20px] md:rounded-[28px] shadow-[0px_4px_6px_-2px_rgba(18,18,23,0.05),0px_10px_15px_-3px_rgba(18,18,23,0.08)] w-full lg:w-[676px] shrink-0">
+    <div className="wte-form bg-white border-2 border-[rgba(17,17,17,0.13)] flex flex-col gap-[24px] p-[24px] md:p-[48px] rounded-[20px] md:rounded-[28px] shadow-[0px_4px_6px_-2px_rgba(18,18,23,0.05),0px_10px_15px_-3px_rgba(18,18,23,0.08)] w-full lg:max-w-[676px] lg:flex-1 lg:min-w-[400px]">
       {/* Heading */}
       <div className="flex flex-col gap-[16px] md:gap-[20px]">
         <p
@@ -283,7 +283,7 @@ export default function WhatToExpectSection() {
 
   return (
     <section id="contact-form" ref={sectionRef} className="bg-[#ededff] w-full px-[16px] md:px-[32px] py-[48px] md:py-[80px]">
-      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-[32px] lg:gap-[141px] justify-between">
+      <div className="max-w-[1440px] mx-auto flex flex-col pl-6 pr-6 lg:flex-row gap-[32px] lg:gap-[48px] xl:gap-[100px] 2xl:gap-[141px] justify-between">
         <Timeline />
         <ContactForm />
       </div>

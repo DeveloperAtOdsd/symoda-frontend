@@ -17,7 +17,7 @@ const cards = [
 export default function TechStrategySection() {
   return (
     <section className="bg-[#eaecf5] py-10 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8">
-      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row lg:items-center lg:gap-[141px]">
+      <div className="max-w-[1440px] mx-auto flex flex-col pl-6 pr-6 lg:flex-row lg:items-center lg:gap-[141px]">
 
         {/* Left */}
         <div className="flex flex-col gap-8 lg:gap-12 w-full lg:w-[559px] lg:shrink-0 mb-8 lg:mb-0">
@@ -58,7 +58,7 @@ export default function TechStrategySection() {
                   </div>
                   <p
                     className="font-medium text-[13px] md:text-[16px] lg:text-[24px] leading-[18px] md:leading-[24px] lg:leading-[36px] tracking-[-0.69px] text-black"
-                        >
+                  >
                     {card.text}
                   </p>
                 </div>
