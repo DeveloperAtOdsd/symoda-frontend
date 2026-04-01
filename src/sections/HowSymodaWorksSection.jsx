@@ -1,190 +1,333 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Gred from '../components/Gred'
 
-import imgArrow from '../assets/arrow.svg'
-import s1_1 from '../assets/s1_1.png'
-import s1_2 from '../assets/s1_2.png'
-import s1_3 from '../assets/s1_3.png'
-import s1_4 from '../assets/s1_4.png'
-import s1_5 from '../assets/s1_5.png'
-
 gsap.registerPlugin(ScrollTrigger)
 
-/* ─── Assets ─── */
-const s1 = [s1_1, s1_2, s1_3, s1_4, s1_5]
-const s2 = s1 // swap for real Phase 02 assets when available
-const s3 = s1// replace with real Phase 03 assets when available
-
-/* ─── Slide data ─── */
-const SLIDES = [
+/* ─── Phase data ─── */
+const PHASES = [
   {
-    tags: ['DISCOVERY', 'PHASE 01'],
-    title: 'Discovery & AI Opportunity Mapping',
-    subtitle: 'Find the automation work worth doing in 2 to 4 weeks.',
-    body: [
-      'Evaluate your processes, tools, strategy, and current state against best practices. Get a prioritized roadmap of high-impact AI projects you can implement quickly.',
-      "Before you build, you need to know what's possible and what's worth prioritizing. Our Discovery sprint combines workflow research, feasibility analysis, adoption readiness assessment, and governance maturity audit.",
-    ],
-    cta: 'Working session',
-    cards: [
-      { img: s1[0], title: 'Prioritized roadmap of automation opportunities' },
-      { img: s1[1], title: 'ROI estimates and quick-win Technology recommendations' },
-      { img: s1[2], title: 'Technology adoption and enablement strategy' },
-      { img: s1[3], title: 'Governance and compliance framework roadmap' },
-      { img: s1[4], title: 'Executive summary + board-ready business case' },
-    ],
-    detail: false,
+    number: '01',
+    label: 'PHASE 01 · DISCOVERY',
+    navTitle: 'Discovery & AI Opportunity Mapping',
+    navDesc: 'Find the automation worth doing in 2–4 weeks',
+    cardTitle: "Find what's worth building",
+    cardSubtitle: '2–4 week sprint',
+    tags: ['Workflow', 'AuditROI', 'Readiness Score', 'Roadmap', 'Business Case'],
+    body: "Evaluate your processes, tools, strategy, and current state against best practices. Get a prioritized roadmap of high-impact AI projects you can implement quickly.\n\nBefore you build, you need to know what's possible and what's worth prioritizing. Our Discovery sprint combines workflow research, feasibility analysis, adoption readiness assessment, and governance maturity audit.",
   },
   {
-    tags: ['BUILD', 'PHASE 02'],
-    title: 'AI Technical Build & Product Development',
-    subtitle: 'Design and build automation that your team will actually use.',
-    body: [
-      'We design, build, and ship custom AI workflows, tools, and agents your teams will actually adopt, with full governance, observability, and integration into existing workflows.',
-      "You've identified the opportunity. Now let's build it. We handle end-to-end automation development: from workflow design and prototyping through technical architecture, implementation, and deployment. We work as your extended team: collaborative, transparent, and focused on shipping.",
-    ],
-    cta: 'Learn more about Build',
-    cards: [
-      { img: s2[0], title: 'Workflow research and automation design' },
-      { img: s2[1], title: 'Architecture and technical design' },
-      { img: s2[2], title: 'Implementation and integration' },
-      { img: s2[3], title: 'Testing and refinement' },
-      { img: s2[4], title: 'Go-live support' },
-      { img: s2[0], title: 'Handoff documentation' },
-    ],
-    detail: false,
+    number: '02',
+    label: 'PHASE 02 · BUILD',
+    navTitle: 'AI Technical Build & Product Development',
+    navDesc: 'Design and build automation your team will actually use.',
+    cardTitle: "Find what's worth building",
+    cardSubtitle: '2–4 week sprint',
+    tags: ['Custom Workflows', 'Architecture', 'Integration', 'Testing', 'Go-live Support'],
+    body: "We design, build, and ship custom AI workflows, tools, and agents your teams will actually adopt, with full governance, observability, and integration into existing workflows.\n\nYou've identified the opportunity. Now let's build it. We handle end-to-end automation development: from workflow design and prototyping through technical architecture, implementation, and deployment. We work as your extended team: collaborative, transparent, and focused on shipping.",
   },
   {
-    tags: ['ENABLE', 'PHASE 03'],
-    title: 'AI Managed Enablement',
-    subtitle: 'Keep automation reliable, adopted, and governed.',
-    body: [
-      "We don't just build and leave. We stay on to run, monitor, improve, and govern your AI systems while training your team to take ownership over time.",
-      "Launching automation is one thing. Making sure your teams use it, improve it, and govern it responsibly is another. AI Managed Enablement is our ongoing partnership to keep your workflows healthy and your teams capable.",
-      "We monitor performance, train your workforce, build champions networks, establish governance frameworks, manage compliance, and help you scale responsibly across the organization.",
-    ],
-    cta: 'Learn more about AI Managed Enablement',
-    cards: [
-      { img: s3[0], title: 'Operations & Performance', sub: 'Monitoring, tuning, optimization, uptime management' },
-      { img: s3[1], title: 'Workforce Enablement', sub: 'Role-specific training, peer coaching, champions programs, adoption tracking' },
-      { img: s3[2], title: 'Governance & Compliance', sub: 'Policy frameworks, risk management, audit trails, regulatory compliance support' },
-      { img: s3[3], title: 'Strategic Scaling', sub: 'Quarterly roadmap reviews, multi-use-case coordination, change management' },
-    ],
-    detail: true,
+    number: '03',
+    label: 'PHASE 03 · ENABLE',
+    navTitle: 'AI Managed Enablement',
+    navDesc: 'Keep automation reliable, adopted, and governed.',
+    cardTitle: 'Scale with confidence',
+    cardSubtitle: 'Ongoing partnership',
+    tags: ['Monitoring', 'Role Training', 'Champions', 'Governance', 'Compliance'],
+    body: "We don't just build and leave. We stay on to run, monitor, improve, and govern your AI systems while training your team to take ownership over time.\n\nLaunching automation is one thing. Making sure your teams use it, improve it, and govern it responsibly is another. AI Managed Enablement is our ongoing partnership to keep your workflows healthy and your teams capable. We monitor performance, train your workforce, build champions networks, establish governance frameworks, manage compliance, and help you scale responsibly across the organization.",
   },
 ]
 
-const getIcon = (index, isPhase3) => {
-  const iconsPhase2 = ['🔧', '🏗', '⚡', '✅', '🚀', '📑']
-  const iconsPhase3 = ['⚙️', '🛠️', '📋', '📈']
+const TOTAL = PHASES.length
 
-  return isPhase3
-    ? iconsPhase3[index] || '✨'
-    : iconsPhase2[index] || '✨'
-}
-const TOTAL = SLIDES.length
-const RADIUS = 42
-const CIRC = 2 * Math.PI * RADIUS
-
-/* ─────────────────────────────────────────────
-   Mobile / Tablet — static vertical layout
-───────────────────────────────────────────── */
-function StaticSteps() {
+/* ─── Arrow icon — rotates based on active state ─── */
+function PhaseArrow({ isActive }) {
   return (
-    <section className="bg-[#e8eaff] px-4 md:px-6 py-10 md:py-16">
-      <div className="max-w-[1440px] mx-auto">
-      <h2
-        className="text-black font-medium text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.8px] mb-10 md:mb-14"
-      >
-        Here's how Symoda works.
-      </h2>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      className={`transition-transform duration-300 ${isActive ? 'rotate-0' : 'rotate-90'}`}
+    >
+      <path
+        d="M5 12H19M19 12L13 6M19 12L13 18"
+        stroke={isActive ? '#2132ed' : '#171717'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
 
-      <div className="flex flex-col gap-14 md:gap-20">
-        {SLIDES.map((slide, i) => (
-
-          <div key={i} className="flex flex-col gap-6">
-            <div className="flex gap-3 flex-wrap">
-              {slide.tags.map((t) => (
-                <div key={t} className="px-4 py-2 rounded-full border-[1.5px] border-black/[0.27]">
-                  <span className="text-[12px] md:text-[13px] text-black">{t}</span>
-                </div>
-              ))}
+/* ─── Phase detail card ─── */
+function PhaseCard({ phase, index }) {
+  return (
+    <div
+      data-card={index}
+      className="absolute inset-0 flex flex-col gap-8 justify-center p-6"
+      style={{ opacity: index === 0 ? 1 : 0, y: index === 0 ? 0 : 20 }}
+    >
+      <p className="text-[#2132ed] text-base leading-5 tracking-[1px] font-normal whitespace-nowrap">
+        {phase.label}
+      </p>
+      <div className="flex flex-1 flex-col gap-8">
+        <div className="flex flex-col gap-3 text-black">
+          <p className="font-medium text-2xl leading-9 tracking-[-0.69px]" style={{ fontFeatureSettings: "'zero'" }}>
+            {phase.cardTitle}
+          </p>
+          <p className="font-normal text-base leading-5 tracking-[-0.89px]" style={{ fontFeatureSettings: "'zero'" }}>
+            {phase.cardSubtitle}
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-[14px_18px]">
+          {phase.tags.map((tag) => (
+            <div key={tag} className="border-[1.5px] border-black/[0.27] rounded-full px-3 py-2 flex items-center justify-center">
+              <span className="text-sm leading-5 tracking-[-0.09px] text-[#171717] whitespace-nowrap">{tag}</span>
             </div>
+          ))}
+        </div>
+        <p className="font-normal text-xl leading-8 tracking-[-0.89px] text-black whitespace-pre-wrap">
+          {phase.body}
+        </p>
+      </div>
+    </div>
+  )
+}
 
-            <h3
-              className="font-medium text-[24px] md:text-[32px] leading-[1.25] tracking-[-0.6px] text-black"
-            >
-              {slide.title}
-            </h3>
+/* ─── Mobile layout ─── */
+function MobileLayout() {
+  return (
+    <section className="relative px-4 py-6 bg-[#f5f5f5] overflow-hidden">
+      <Gred />
+      <div className="relative flex flex-col gap-[38px]">
+        {/* Header */}
+        <div className="flex flex-col gap-8">
+          <div>
+            <span className="inline-block px-6 py-3 rounded-full border-[1.5px] border-black/[0.27] text-xs font-medium leading-4 tracking-[0.01px] text-black">
+              How we work
+            </span>
+          </div>
+          <div className="flex flex-col gap-6 text-black">
+            <p className="font-medium text-[32px] leading-[45px] tracking-[-0.85px]" style={{ fontFeatureSettings: "'zero'" }}>
+              Here's how<br />
+              <span className="text-[#2132ed]">Symoda works.</span>
+            </p>
+            <p className="text-base leading-[25.6px] tracking-[-0.25px]">
+              Discover → Build → Enable.<br />
+              Start anywhere, follow the journey.
+            </p>
+          </div>
+        </div>
 
-            {slide.subtitle && (
-              <p className="font-medium text-[16px] md:text-[18px] leading-[26px] text-black">
-                {slide.subtitle}
+        {/* Phase sections */}
+        {PHASES.map((phase, i) => (
+          <div
+            key={i}
+            className="border-l-2 border-[#2132ed] pl-6 flex flex-col gap-6"
+          >
+            {/* Phase header */}
+            <div className="flex flex-col gap-6">
+              <p className="text-[#2132ed] text-base leading-5 tracking-[1px]">
+                {phase.label}
               </p>
-            )}
-
-            <div className="text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] text-black/75 flex flex-col gap-3">
-              {slide.body.map((p, pi) => <p key={pi}>{p}</p>)}
+              <div className="flex flex-col gap-1 text-black">
+                <p className="font-medium text-xl leading-7 tracking-[-0.89px]">
+                  {phase.navTitle}
+                </p>
+                <p className="text-[15px] leading-[19px] tracking-[-0.25px]">
+                  {phase.navDesc}
+                </p>
+              </div>
             </div>
 
-            <button className="flex items-center gap-2 px-5 py-3 bg-[#2132ed] border border-white/[0.27] rounded-xl text-white text-[15px] hover:bg-[#1a29cc] transition-colors w-fit">
-              {slide.cta}
-              <img src={imgArrow} alt="" className="w-4 h-4" />
-            </button>
-
-            <div className="flex flex-col gap-3 mt-2">
-              {slide.cards.map((card, ci) => (
-                <div key={ci} className="flex gap-4 items-start p-4 bg-white rounded-xl">
-                  <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                    <img src={card.img} alt="" className="size-[40px] object-cover" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-[14px] md:text-[15px] leading-[20px] text-black">{card.title}</p>
-                    {card.sub && <p className="text-[12px] md:text-[13px] leading-[18px] text-black/55 mt-0.5">{card.sub}</p>}
-                  </div>
+            {/* Phase card */}
+            <div className="bg-white/50 border-2 border-black/[0.08] rounded-xl overflow-hidden p-4">
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-3 text-black tracking-[-0.89px]">
+                  <p className="font-medium text-xl leading-7" style={{ fontFeatureSettings: "'zero'" }}>
+                    {phase.cardTitle}
+                  </p>
+                  <p className="font-normal text-base leading-5" style={{ fontFeatureSettings: "'zero'" }}>
+                    {phase.cardSubtitle}
+                  </p>
                 </div>
-              ))}
+                <div className="flex flex-wrap gap-[14px_18px]">
+                  {phase.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border-[1.5px] border-black/[0.27] rounded-full px-3 py-2 text-xs font-medium leading-4 tracking-[0.01px] text-black whitespace-nowrap"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm leading-[22px] tracking-[-0.25px] text-black whitespace-pre-wrap">
+                  {phase.body}
+                </p>
+              </div>
             </div>
           </div>
         ))}
-      </div>
       </div>
     </section>
   )
 }
 
-/* ─────────────────────────────────────────────
-   Desktop — horizontal scroll with GSAP pin
-───────────────────────────────────────────── */
-export default function HowSymodaWorksSection() {
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 1024)
+/* ─── Tablet layout (md–lg) ─── */
+function TabletLayout() {
+  return (
+    <section className="relative px-8 py-10 bg-[#f5f5f5] overflow-hidden">
+      <Gred />
+      <div className="relative flex flex-col gap-12 max-w-[1440px] mx-auto">
+        {/* Header */}
+        <div className="flex flex-col gap-8">
+          <div>
+            <span className="inline-block px-6 py-3 rounded-full border-[1.5px] border-black/[0.27] text-sm font-medium leading-5 tracking-[0.01px] text-black">
+              How we work
+            </span>
+          </div>
+          <div className="flex flex-col gap-6 text-black">
+            <p className="font-medium text-[40px] leading-[48px] tracking-[-0.89px]" style={{ fontFeatureSettings: "'zero'" }}>
+              Here's how<br />
+              <span className="text-[#2132ed]">Symoda works.</span>
+            </p>
+            <p className="text-xl leading-9 tracking-[-0.47px]">
+              Discover → Build → Enable.<br />
+              Start anywhere, follow the journey.
+            </p>
+          </div>
+        </div>
 
-  const containerRef = useRef(null) // pinned section
-  const trackRef = useRef(null) // horizontally translated flex row
-  const circleRef = useRef(null) // SVG progress arc
+        {/* Phase sections */}
+        {PHASES.map((phase, i) => (
+          <div
+            key={i}
+            className="border-l-2 border-[#2132ed] pl-8 flex flex-col gap-6"
+          >
+            {/* Phase header */}
+            <div className="flex flex-col gap-6">
+              <p className="text-[#2132ed] text-base leading-5 tracking-[1px]">
+                {phase.label}
+              </p>
+              <div className="flex flex-col gap-1 text-black">
+                <p className="font-medium text-xl leading-7 tracking-[-0.89px]">
+                  {phase.navTitle}
+                </p>
+                <p className="text-base leading-6 tracking-[-0.47px] text-[#171717]">
+                  {phase.navDesc}
+                </p>
+              </div>
+            </div>
+
+            {/* Phase card */}
+            <div className="bg-white/50 border-2 border-black/[0.08] rounded-xl overflow-hidden p-6">
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-3 text-black tracking-[-0.89px]">
+                  <p className="font-medium text-2xl leading-7" style={{ fontFeatureSettings: "'zero'" }}>
+                    {phase.cardTitle}
+                  </p>
+                  <p className="font-normal text-base leading-5" style={{ fontFeatureSettings: "'zero'" }}>
+                    {phase.cardSubtitle}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-[14px_18px]">
+                  {phase.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border-[1.5px] border-black/[0.27] rounded-full px-3 py-2 text-sm font-medium leading-5 tracking-[-0.09px] text-[#171717] whitespace-nowrap"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-base leading-[26px] tracking-[-0.25px] text-black whitespace-pre-wrap">
+                  {phase.body}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+/* ─── Desktop — pinned section, scroll changes right card content ─── */
+export default function HowSymodaWorksSection() {
+  const [breakpoint, setBreakpoint] = useState(() =>
+    window.innerWidth >= 1024 ? 'desktop' : window.innerWidth >= 768 ? 'tablet' : 'mobile'
+  )
+  const [activePhase, setActivePhase] = useState(0)
+
+  const containerRef = useRef(null)
+  const cardContainerRef = useRef(null)
+  const prevPhaseRef = useRef(0)
 
   /* ── Responsive check ── */
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024)
+    const check = () => {
+      const w = window.innerWidth
+      setBreakpoint(w >= 1024 ? 'desktop' : w >= 768 ? 'tablet' : 'mobile')
+    }
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
   }, [])
 
+  /* ── GSAP card fade animation on phase change ── */
+  const animateCardTransition = useCallback((from, to) => {
+    if (from === to || !cardContainerRef.current) return
+    const cards = cardContainerRef.current.querySelectorAll('[data-card]')
+    const outgoing = cards[from]
+    const incoming = cards[to]
+    if (!outgoing || !incoming) return
+
+    // Fade out old card (slide up + fade)
+    gsap.to(outgoing, {
+      opacity: 0,
+      y: -20,
+      duration: 0.35,
+      ease: 'power2.in',
+      onComplete: () => {
+        gsap.set(outgoing, { pointerEvents: 'none' })
+      },
+    })
+
+    // Fade in new card (slide up from below + fade)
+    gsap.set(incoming, { y: 20, opacity: 0, pointerEvents: 'auto' })
+    gsap.to(incoming, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      ease: 'power2.out',
+      delay: 0.15,
+    })
+  }, [])
+
+  useEffect(() => {
+    if (prevPhaseRef.current !== activePhase) {
+      animateCardTransition(prevPhaseRef.current, activePhase)
+      prevPhaseRef.current = activePhase
+    }
+  }, [activePhase, animateCardTransition])
+
   /* ── GSAP setup ── */
   useEffect(() => {
-    if (isMobile) return
+    if (breakpoint !== 'desktop') return
 
     const ctx = gsap.context(() => {
-      const totalScroll = () => (TOTAL - 1) * window.innerWidth
+      const totalScroll = () => (TOTAL - 1) * window.innerHeight
 
-      /* 1. Dedicated trigger — navbar visibility only */
+      /* Navbar visibility dispatch */
       const dispatch = (active) =>
         window.dispatchEvent(new CustomEvent('hsw:active', { detail: active }))
 
+      /* Pin section + track scroll progress to switch active phase */
       ScrollTrigger.create({
         trigger: containerRef.current,
+        pin: true,
         start: 'top top',
         end: () => '+=' + totalScroll(),
         invalidateOnRefresh: true,
@@ -192,180 +335,90 @@ export default function HowSymodaWorksSection() {
         onLeave: () => dispatch(false),
         onEnterBack: () => dispatch(true),
         onLeaveBack: () => dispatch(false),
-      })
-
-      /* 2. Pin + horizontal translate */
-      gsap.to(trackRef.current, {
-        x: () => -((TOTAL - 1) * window.innerWidth),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          pin: true,
-          scrub: true,
-          invalidateOnRefresh: true,
-          end: () => '+=' + totalScroll(),
+        onUpdate: (self) => {
+          const phase = Math.round(self.progress * (TOTAL - 1))
+          setActivePhase(phase)
         },
       })
-
-      /* 3. Progress circle */
-      gsap.fromTo(
-        circleRef.current,
-        { strokeDashoffset: CIRC },
-        {
-          strokeDashoffset: 0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top top',
-            end: () => '+=' + totalScroll(),
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        }
-      )
-
     }, containerRef)
 
     return () => ctx.revert()
-  }, [isMobile])
+  }, [breakpoint])
 
-  if (isMobile) return <StaticSteps />
+  if (breakpoint === 'mobile') return <MobileLayout />
+  if (breakpoint === 'tablet') return <TabletLayout />
 
   return (
     <section
       ref={containerRef}
-      className="relative h-screen overflow-hidden bg-[#e8eaff]"
+      className="relative h-screen overflow-hidden bg-[#f5f5f5]"
     >
       <Gred />
-
-      {/* ── Fixed overlays constrained to 1440px ── */}
-      <div className="absolute inset-0 max-w-[1440px] mx-auto z-10 pointer-events-none">
-        {/* Progress circle */}
-        <div className="absolute top-[48px] right-[32px] z-20">
-          <div className="relative size-[92px]">
-            <svg
-              width="92" height="92" viewBox="0 0 92 92" fill="none"
-              className="rotate-[-90deg]"
-            >
-              <circle cx="46" cy="46" r={RADIUS} stroke="rgba(0,0,0,0.08)" strokeWidth="3" fill="none" />
-              <circle
-                ref={circleRef}
-                cx="46" cy="46" r={RADIUS}
-                stroke="#4ade80" strokeWidth="3" fill="none"
-                strokeLinecap="round"
-                strokeDasharray={CIRC}
-                strokeDashoffset={CIRC}
-              />
-            </svg>
+      <div className="h-full max-w-[1440px] mx-auto flex items-center gap-8 px-8 py-20">
+        {/* ── Left Section ── */}
+        <div className="flex-1 flex flex-col gap-8 min-w-0 z-100">
+          {/* Header — stays fully visible */}
+          <div>
+            <div className="mb-8">
+              <span className="inline-block px-6 py-3 rounded-full border-[1.5px] border-black/[0.27] text-sm leading-5 tracking-[-0.09px] text-black">
+                How we work
+              </span>
+            </div>
+            <div className="flex flex-col gap-6 text-black">
+              <p className="font-medium text-[40px] leading-[48px] tracking-[-0.89px]" style={{ fontFeatureSettings: "'zero'" }}>
+                Here's how<br />
+                <span className="text-[#2132ed]">Symoda works.</span>
+              </p>
+              <p className="text-xl leading-9 tracking-[-0.47px]">
+                Discover → Build → Enable.<br />
+                Start anywhere, follow the journey.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Heading */}
-        <div className="absolute top-[48px] left-[32px]">
-          <h2 className="text-black font-medium text-[56px] leading-[64px] tracking-[-1.25px]">
-            Here's how Symoda works.
-          </h2>
-        </div>
-      </div>
-
-      {/* ── Horizontal track ── */}
-      <div
-        ref={trackRef}
-        className="absolute top-0 left-0 bottom-0 flex will-change-transform"
-        style={{ width: `${TOTAL * 100}vw` }}
-      >
-        {SLIDES.map((slide, i) => (
-          <div
-            key={i}
-            className="relative w-screen h-screen shrink-0 flex justify-center"
-          >
-            <div className="max-w-[1440px] w-full flex flex-col px-[32px] pt-[200px] pb-[48px]">
-            {/* ── Main content: left + right ── */}
-            <div className="flex flex-1 gap-[141px] justify-start min-h-0">
-              {/* Left — step info */}
-              <div className="shrink-0 flex flex-col gap-[40px] min-h-0 w-[620px] mr-[60px]">
-                {/* Tags */}
-                <div className="flex gap-[24px] flex-wrap shrink-0">
-                  {slide.tags.map((tag) => (
-                    <div key={tag} className="p-[12px] rounded-full border-[1.5px] border-black/[0.27]">
-                      <span className="font-normal text-[14px] leading-[20px] tracking-[-0.09px] text-black">{tag}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Title + Subtitle + Body */}
-                <div className="flex flex-col gap-[20px] text-black">
-                  <h3 className="font-medium text-[40px] leading-[48px] tracking-[-0.8px]">
-                    {slide.title}
-                  </h3>
-
-                  {slide.subtitle && (
-                    <p className="font-medium text-[22px] leading-[30px] tracking-[-0.5px]">
-                      {slide.subtitle}
+          {/* Phase navigation list */}
+          <div className="flex flex-col">
+            {PHASES.map((phase, i) => {
+              const isActive = i === activePhase
+              return (
+                <div
+                  key={i}
+                  className={`flex items-center gap-6 py-6 transition-all duration-300 ${isActive ? 'border-b-2 border-[#2132ed]' : ''
+                    }`}
+                >
+                  <p
+                    className={`text-base leading-5 tracking-[1px] w-10 text-center transition-colors duration-300 ${isActive ? 'text-[#2132ed]' : 'text-[#171717]'
+                      }`}
+                  >
+                    {phase.number}
+                  </p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-xl leading-7 tracking-[-0.89px] text-black whitespace-nowrap">
+                      {phase.navTitle}
                     </p>
-                  )}
-
-                  <div className="font-normal text-[20px] leading-[32px] tracking-[-0.47px]">
-                    {slide.body.map((p, pi) => (
-                      <span key={pi}>
-                        {pi > 0 && (
-                          slide.tags.includes('PHASE 03')
-                            ? <br />
-                            : <><br /><br /></>
-                        )}
-                        {p}
-                      </span>
-                    ))}
+                    <p className="text-base leading-6 tracking-[-0.47px] text-[#171717] whitespace-nowrap">
+                      {phase.navDesc}
+                    </p>
+                  </div>
+                  <div className="shrink-0">
+                    <PhaseArrow isActive={isActive} />
                   </div>
                 </div>
-
-                {/* CTA */}
-                <button className="flex items-center gap-[10px] px-[24px] py-[16px] bg-[#2132ed] border border-white/[0.27] rounded-xl text-white font-normal text-[20px] leading-[28px] tracking-[-0.33px] hover:bg-[#1a29cc] transition-colors w-fit shrink-0">
-                  {slide.cta}
-                  <img src={imgArrow} alt="" className="size-4" />
-                </button>
-              </div>
-
-              {/* Right — cards */}
-              <div className={`flex flex-col ${slide.cards.length > 5 ? 'gap-[10px]' : 'gap-[20px]'} min-h-0 overflow-y-auto no-scrollbar w-[559px] shrink-0`}>
-                {slide.cards.map((card, ci) => (
-                  slide.detail ? (
-                    <div key={ci} className="flex gap-5 items-start p-[20px] bg-white rounded-xl shrink-0">
-                      <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                        {slide.tags.includes('PHASE 01') ? (
-                          <img src={card.img} alt="" className="size-[61px] object-cover" />
-                        ) : (
-                          <div className="flex items-center justify-center text-[27px]">
-                            {getIcon(ci, slide.tags.includes('PHASE 03'))}
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        <p className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black">{card.title}</p>
-                        <p className="text-[15px] leading-[22px] tracking-[-0.2px] text-black/55">{card.sub}</p>
-                      </div>
-                    </div>
-                  ) : (
-                    <div key={ci} className={`flex gap-5 items-center p-[18px] bg-white rounded-xl shrink-0`}>
-                      <div className="bg-[#f2f2f2] flex items-center justify-center p-[10px] rounded-xl shrink-0">
-                        {slide.tags.includes('PHASE 01') ? (
-                          <img src={card.img} alt="" className="size-[61px] object-cover" />
-                        ) : (
-                          <div className="flex items-center justify-center text-[27px]">
-                            {getIcon(ci, slide.tags.includes('PHASE 03'))}
-                          </div>
-                        )}
-                      </div>
-                      <p className="font-medium text-[24px] leading-[36px] tracking-[-0.69px] text-black">{card.title}</p>
-                    </div>
-                  )
-                ))}
-              </div>
-
-            </div>
-            </div>
+              )
+            })}
           </div>
-        ))}
+        </div>
+
+        {/* ── Right Card Container ── */}
+        <div
+          ref={cardContainerRef}
+          className="relative bg-white/50 border-2 border-black/[0.08] rounded-xl overflow-hidden shrink-0"
+          style={{ width: 676, height: 609 }}
+        >
+          {PHASES.map((phase, i) => (
+            <PhaseCard key={i} phase={phase} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   )
