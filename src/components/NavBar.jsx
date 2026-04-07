@@ -30,7 +30,7 @@ export default function Navbar() {
         />
       </Link>
       <Link to="/contact" className="navbar__contact">
-        <span>Contact us</span>
+        <span>Contact us </span>
         <span className="arrow">→</span>
       </Link>
     </nav>
