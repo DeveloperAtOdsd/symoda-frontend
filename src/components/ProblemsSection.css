@@ -1,13 +1,12 @@
 .problems {
   width: 100%;
   font-family: 'Work Sans', sans-serif;
-}
-
-.problems {
+  /* for blob */
   position: relative;
   /* REQUIRED */
   overflow: hidden;
 }
+
 
 .problems__layout {
   display: flex;

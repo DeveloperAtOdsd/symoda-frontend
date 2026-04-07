@@ -2,6 +2,43 @@
 .contact-options {
   width: 100%;
   font-family: 'Work Sans', sans-serif;
+
+  position: relative;
+  overflow: visible;
+  /* ✅ CHANGE THIS */
+}
+
+@media (max-width: 768px) {
+  .contact-faq__blob-left {
+    width: 300px;
+    height: 300px;
+
+    top: 0;
+    left: 0;
+
+    transform: translate(-70%, -20%);
+    /* push mostly outside */
+    filter: blur(60px);
+    opacity: 0.1;
+  }
+}
+
+.contact-faq__blob {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+
+  right: -300px;
+  /* 👈 push outside right */
+  bottom: -400px;
+  /* 👈 push downward (half in next section) */
+
+  background: linear-gradient(180deg, #34B8F9 0%, #1143F8 100%);
+  filter: blur(92px);
+  opacity: 0.2;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .contact-options__inner {

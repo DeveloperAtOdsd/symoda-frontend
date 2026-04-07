@@ -1,7 +1,16 @@
 /* ── Contact FAQ Section ── */
 .contact-faq {
-  width: 100%;
-  font-family: 'Work Sans', sans-serif;
+  position: relative;
+  overflow: visible;
+  /* or visible if you want overflow outside */
+}
+
+.contact-faq__blob-left {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .contact-faq__inner {

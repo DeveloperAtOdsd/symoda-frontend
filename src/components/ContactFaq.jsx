@@ -43,6 +43,19 @@ export default function ContactFaq() {
 
   return (
     <section className="contact-faq">
+      {/* 👇 LEFT SIDE BLOB */}
+      <div
+        className="contact-faq__blob-left"
+        style={{
+          width: '1003px',
+          height: '1003px',
+          top: '227px',
+          left: '-196px',
+          background: 'linear-gradient(180deg, #F93F08 0%, #1143F8 100%)',
+          filter: 'blur(110px)',
+        }}
+      />
+
       <div className="container contact-faq__inner">
         {/* Left Column */}
         <div className="contact-faq__left">
@@ -92,6 +105,7 @@ export default function ContactFaq() {
           })}
         </div>
       </div>
+
     </section>
   )
 }
