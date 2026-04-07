@@ -9,7 +9,7 @@ const msalConfig = {
 }
 
 const SENDER_EMAIL = process.env.SENDER_EMAIL
-const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL
+const RECIPIENT_EMAILS = process.env.RECIPIENT_EMAIL.split(',').map((e) => e.trim())
 
 async function getAccessToken() {
   const cca = new ConfidentialClientApplication(msalConfig)
@@ -75,7 +75,7 @@ export default async function handler(req, res) {
           contentType: 'HTML',
           content: buildEmailHtml(data),
         },
-        toRecipients: [{ emailAddress: { address: RECIPIENT_EMAIL } }],
+        toRecipients: RECIPIENT_EMAILS.map((addr) => ({ emailAddress: { address: addr } })),
         replyTo: [{ emailAddress: { address: data.email } }],
       },
       saveToSentItems: true,
