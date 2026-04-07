@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import imgArrow from '../assets/arrow.svg'
 import imgLogoMark from '../assets/logo.png'
 import imgWordmark from '../assets/wordmark.svg'
@@ -23,10 +24,10 @@ export default function Footer() {
                 <p className="text-white text-base leading-6 tracking-[-0.18px] font-medium lg:w-[416px]">
                   AI-powered workflows that ship, stick, and scale across your organization. From strategy to sustained impact.
                 </p>
-                <a href="/contact" className="flex items-center text-white text-base leading-6 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity w-[131px]">
+                <Link to="/contact" className="flex items-center text-white text-base leading-6 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity w-[131px]">
                   Get in touch
                   <img src={imgArrow} alt="" className="w-6 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -35,9 +36,9 @@ export default function Footer() {
               <p className="text-white text-2xl leading-9 tracking-[-0.47px] font-medium w-full">
                 Company
               </p>
-              <a href="/contact" className="text-white text-base leading-5 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity p-2.5">
+              <Link to="/contact" className="text-white text-base leading-5 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity p-2.5">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>
