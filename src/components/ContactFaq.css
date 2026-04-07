@@ -121,6 +121,7 @@
 }
 
 .faq-item__icon {
+
   width: 24px;
   height: 24px;
   flex-shrink: 0;
@@ -153,6 +154,8 @@
 
 .faq-item--open .faq-item__icon::after {
   transform: rotate(90deg);
+  background: #2132ed;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* ── Divider ── */
