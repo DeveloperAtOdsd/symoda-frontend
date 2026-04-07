@@ -264,10 +264,85 @@
   cursor: not-allowed;
 }
 
-.contact__error {
+/* ── Field validation ── */
+.contact__field--error .contact__input,
+.contact__field--error .contact__textarea,
+.contact__field--error .contact__select {
+  border-color: #dc2626;
+}
+
+.contact__field--error .contact__field-label {
   color: #dc2626;
-  font-size: 14px;
+}
+
+.contact__field-error {
+  display: block;
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+  letter-spacing: 0.2px;
+}
+
+/* ── Success message ── */
+.contact__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 32px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact__success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__success-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #171717;
   margin: 0;
+}
+
+.contact__success-text {
+  font-size: 16px;
+  line-height: 28px;
+  color: #2e2e2e;
+  margin: 0;
+}
+
+/* ── Error banner ── */
+.contact__error-banner {
+  padding: 16px 24px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact__error-banner p {
+  font-size: 14px;
+  color: #dc2626;
+  margin: 0;
+}
+
+.contact__error-banner a {
+  color: #2132ed;
+  text-decoration: underline;
 }
 
 /* ── Mobile ── */

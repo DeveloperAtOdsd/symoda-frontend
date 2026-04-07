@@ -5,7 +5,7 @@ import './ContactUsHero.css'
 
 export default function ContactUsHero() {
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const cal = await getCalApi()
       cal('ui', { theme: 'light', styles: { branding: { brandColor: '#2132ed' } } })
     })()
@@ -58,7 +58,7 @@ export default function ContactUsHero() {
             </div>
             <div className="contact-hero__actions">
               <button
-                data-cal-link="developer/30min"
+                data-cal-link="developeratodsd/30min"
                 data-cal-config='{"layout":"month_view"}'
                 className="btn btn--primary"
               >

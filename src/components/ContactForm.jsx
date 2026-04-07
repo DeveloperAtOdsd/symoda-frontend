@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './ContactForm.css'
 
-function TextField({ label, name, value, onChange, multiline = false, isSelect = false, options = [] }) {
-  const fieldClass = `contact__field${multiline ? ' contact__field--textarea' : ''}`
+function TextField({ label, name, value, onChange, error, required = false, multiline = false, isSelect = false, options = [] }) {
+  const fieldClass = `contact__field${multiline ? ' contact__field--textarea' : ''}${error ? ' contact__field--error' : ''}`
 
   if (isSelect) {
     return (
@@ -12,7 +12,6 @@ function TextField({ label, name, value, onChange, multiline = false, isSelect =
           name={name}
           value={value}
           onChange={onChange}
-          required
         >
           <option value="" disabled hidden></option>
           {options.map((opt, i) => (
@@ -34,8 +33,10 @@ function TextField({ label, name, value, onChange, multiline = false, isSelect =
           onChange={onChange}
           placeholder=" "
           rows={4}
+          required={required}
         />
         <label className="contact__field-label">{label}</label>
+        {error && <span className="contact__field-error">{error}</span>}
       </div>
     )
   }
@@ -49,8 +50,10 @@ function TextField({ label, name, value, onChange, multiline = false, isSelect =
         value={value}
         onChange={onChange}
         placeholder=" "
+        required={required}
       />
       <label className="contact__field-label">{label}</label>
+      {error && <span className="contact__field-error">{error}</span>}
     </div>
   )
 }
@@ -68,16 +71,51 @@ const initialForm = {
   otherContext: '',
 }
 
+const requiredFields = {
+  organisation: 'Organisation name is required',
+  name: 'Name & title is required',
+  email: 'Email is required',
+  phone: 'Phone is required',
+  challenge: 'Please describe your primary challenge',
+}
+
+function validateForm(form) {
+  const errors = {}
+  for (const [field, message] of Object.entries(requiredFields)) {
+    if (!form[field].trim()) errors[field] = message
+  }
+  if (form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+    errors.email = 'Please enter a valid email address'
+  }
+  return errors
+}
+
 export default function ContactForm() {
   const [form, setForm] = useState(initialForm)
+  const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+    if (errors[name]) {
+      setErrors((prev) => {
+        const next = { ...prev }
+        delete next[name]
+        return next
+      })
+    }
+    if (status === 'sent' || status === 'error') setStatus('idle')
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const validationErrors = validateForm(form)
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+    setErrors({})
     setStatus('sending')
 
     try {
@@ -130,11 +168,11 @@ export default function ContactForm() {
         <div className="contact__form">
           {/* Left column - text inputs */}
           <div className="contact__col">
-            <TextField label="Organisation name*" name="organisation" value={form.organisation} onChange={handleChange} />
-            <TextField label="Your name & title*" name="name" value={form.name} onChange={handleChange} />
-            <TextField label="Email*" name="email" value={form.email} onChange={handleChange} />
-            <TextField label="Phone*" name="phone" value={form.phone} onChange={handleChange} />
-            <TextField label="What's your primary challenge or opportunity?*" name="challenge" value={form.challenge} onChange={handleChange} multiline />
+            <TextField label="Organisation name*" name="organisation" value={form.organisation} onChange={handleChange} error={errors.organisation} required />
+            <TextField label="Your name & title*" name="name" value={form.name} onChange={handleChange} error={errors.name} required />
+            <TextField label="Email*" name="email" value={form.email} onChange={handleChange} error={errors.email} required />
+            <TextField label="Phone*" name="phone" value={form.phone} onChange={handleChange} error={errors.phone} required />
+            <TextField label="What's your primary challenge or opportunity?*" name="challenge" value={form.challenge} onChange={handleChange} error={errors.challenge} required multiline />
           </div>
 
           {/* Right column - dropdowns + textarea */}
@@ -196,14 +234,27 @@ export default function ContactForm() {
           </p>
           <button type="submit" className="contact__cta" disabled={status === 'sending'}>
             <span>
-              {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Sent!' : 'Submit enquiry'}
+              {status === 'sending' ? 'Sending...' : 'Submit enquiry'}
             </span>
             <span className="arrow">→</span>
           </button>
-          {status === 'error' && (
-            <p className="contact__error">Something went wrong. Please try again or email us directly.</p>
-          )}
         </div>
+
+        {status === 'sent' && (
+          <div className="contact__success">
+            <div className="contact__success-icon">&#10003;</div>
+            <h3 className="contact__success-title">Thank you for reaching out!</h3>
+            <p className="contact__success-text">
+              We've received your details and will get back to you within 1 business day.
+            </p>
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div className="contact__error-banner">
+            <p>Something went wrong. Please try again or email us directly at <a href="mailto:Wayne@symoda.com">Wayne@symoda.com</a></p>
+          </div>
+        )}
       </form>
     </section>
   )
