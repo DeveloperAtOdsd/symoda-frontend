@@ -30,7 +30,7 @@ const problems = [
 ]
 
 const CARD_TOP_BASE = 80
-const CARD_TOP_STEP = 40
+const CARD_TOP_STEP = 70
 
 export default function ProblemsSection() {
   const cardsRef = useRef([])
