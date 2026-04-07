@@ -1,29 +1,13 @@
 @import "tailwindcss";
 
-* {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
-  font-variant-numeric: slashed-zero;
-  font-feature-settings: 'zero';
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.slashed-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-feature-settings: 'zero' 1;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.animate-slide-up {
-  animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }

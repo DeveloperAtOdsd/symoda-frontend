@@ -1,0 +1,297 @@
+/* ── Contact Options Section ── */
+.contact-options {
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.contact-options__inner {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 80px 104px;
+}
+
+/* ── Left Column ── */
+.contact-options__left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 499px;
+  min-height: 702px;
+  flex-shrink: 0;
+}
+
+.contact-options__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.contact-options__label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-options__label-text {
+  font-weight: 600;
+  font-size: 12px;
+  color: #2132ed;
+  letter-spacing: 1.3px;
+  white-space: nowrap;
+}
+
+.contact-options__label-line {
+  width: 48px;
+  height: 1px;
+  background: #2132ed;
+  flex-shrink: 0;
+}
+
+.contact-options__heading {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -1.61px;
+  color: black;
+  margin: 0;
+  font-feature-settings: 'zero';
+}
+
+.contact-options__heading .font-light {
+  font-weight: 300;
+}
+
+.contact-options__heading .font-medium {
+  font-weight: 500;
+}
+
+.contact-options__description {
+  padding-top: 33px;
+  border-top: 1px solid rgba(12, 12, 12, 0.2);
+  width: 100%;
+}
+
+.contact-options__description p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* ── Right Column (Cards) ── */
+.contact-options__right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ── Option Card ── */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  padding: 20px;
+  background: white;
+  border: 1px solid rgba(17, 17, 17, 0.17);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.contact-card__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-card__label-text {
+  font-weight: 600;
+  font-size: 12px;
+  color: #2132ed;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.contact-card__label-line {
+  width: 32px;
+  height: 1px;
+  background: #2132ed;
+  flex-shrink: 0;
+}
+
+/* ── Card Content ── */
+.contact-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.contact-card__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  padding: 12px 24px;
+  border-left: 2px solid #2132ed;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-card__title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: -0.48px;
+  color: #171717;
+  margin: 0;
+}
+
+.contact-card__subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.89px;
+  color: black;
+  margin: 0;
+}
+
+.contact-card__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.contact-card__list {
+  list-style: disc;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.contact-card__list li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+}
+
+/* ── Card CTA Button ── */
+.contact-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 33px;
+  height: 62px;
+  background: #f0f1fe;
+  border: 1px solid #1400ff;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contact-card__cta:hover {
+  background: #e4e5fd;
+}
+
+.contact-card__cta-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2132ed;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+}
+
+.contact-card__cta-arrow {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2132ed;
+  letter-spacing: 0.16px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .contact-options__inner {
+    padding: 48px 20px;
+  }
+
+  .contact-options__inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .contact-options__left {
+    width: 100%;
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .contact-options__heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .contact-options__description {
+    padding-top: 20px;
+  }
+
+  .contact-options__description p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .contact-card {
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .contact-card__title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .contact-card__subtitle {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .contact-card__title-block {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+
+  .contact-card__text {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .contact-card__list li {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .contact-card__cta {
+    height: 48px;
+    padding: 12px 20px;
+  }
+
+  .contact-card__cta-text {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=DM+Sans:opsz@9..40&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Contact Us Hero ── */
+.contact-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
+}
+
+.contact-hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 72px;
+  min-height: 100vh;
+  padding: 32px 104px;
+}
+
+.contact-hero__section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+  height: 702px;
+  justify-content: center;
+}
+
+.contact-hero__top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.contact-hero__label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-hero__label-text {
+  font-weight: 600;
+  font-size: 12px;
+  color: #2132ed;
+  letter-spacing: 1.3px;
+  white-space: nowrap;
+}
+
+.contact-hero__label-line {
+  width: 48px;
+  height: 1px;
+  background: #2132ed;
+  flex-shrink: 0;
+}
+
+.contact-hero__heading {
+  font-size: 72px;
+  line-height: 86px;
+  letter-spacing: -1.61px;
+  color: black;
+  margin: 0;
+  font-weight: 600;
+  font-feature-settings: 'zero';
+}
+
+/* ── Bottom section ── */
+.contact-hero__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 49px;
+  border-top: 1px solid rgba(12, 12, 12, 0.2);
+  width: 100%;
+}
+
+.contact-hero__description {
+  max-width: 480px;
+  flex: 1 0 0;
+}
+
+.contact-hero__description p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.contact-hero__actions {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* ── Buttons ── */
+.contact-hero .btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 33px;
+  border-radius: 5px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.contact-hero .btn .arrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.16px;
+}
+
+.contact-hero .btn--primary {
+  background: #1400ff;
+  border: 1px solid #1400ff;
+  color: white;
+}
+
+.contact-hero .btn--outline {
+  background: transparent;
+  border: 1px solid rgba(12, 12, 12, 0.22);
+  color: #2e2e2e;
+}
+
+.contact-hero .btn--outline .arrow {
+  color: #0c0c0c;
+}
+
+/* ── Concentric Circles Visual ── */
+.contact-hero__visual {
+  position: absolute;
+  right: 104px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  z-index: 1;
+}
+
+.contact-hero__circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contact-hero__circle--outer {
+  width: 400px;
+  height: 400px;
+}
+
+.contact-hero__circle--middle {
+  width: 320px;
+  height: 320px;
+}
+
+.contact-hero__circle--inner {
+  width: 230px;
+  height: 230px;
+}
+
+.contact-hero__center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: #1a1aff;
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 8px rgba(26, 26, 255, 0.12),
+    0 0 0 20px rgba(26, 26, 255, 0.05);
+}
+
+/* ── Floating Stat Cards ── */
+.contact-hero__stat-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 13px 17px;
+  background: white;
+  border: 1px solid rgba(13, 13, 13, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(13, 13, 13, 0.08);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.contact-hero__stat-card--response {
+  top: -10%;
+  left: -20%;
+}
+
+.contact-hero__stat-card--discovery {
+  top: 35%;
+  left: -30%;
+}
+
+.contact-hero__stat-card--intro {
+  bottom: -5%;
+  right: -20%;
+}
+
+.contact-hero__stat-value {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 22px;
+  color: #0d0d0d;
+}
+
+.contact-hero__stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.44px;
+  color: #7a7a7a;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .contact-hero__inner {
+    padding: 24px 20px;
+    gap: 0;
+    min-height: auto;
+    padding-top: 120px;
+  }
+
+  .contact-hero__visual {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 40px;
+    z-index: 1;
+  }
+
+  .contact-hero__circle--outer {
+    width: 260px;
+    height: 260px;
+  }
+
+  .contact-hero__circle--middle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .contact-hero__circle--inner {
+    width: 140px;
+    height: 140px;
+  }
+
+  .contact-hero__center-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .contact-hero__stat-card {
+    padding: 10px 13px;
+  }
+
+  .contact-hero__stat-value {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .contact-hero__stat-label {
+    font-size: 9px;
+  }
+
+  .contact-hero__stat-card--response {
+    top: -8%;
+    left: 0;
+  }
+
+  .contact-hero__stat-card--discovery {
+    top: 42%;
+    left: -8%;
+  }
+
+  .contact-hero__stat-card--intro {
+    bottom: -8%;
+    right: -4%;
+  }
+
+  .contact-hero__section {
+    height: auto;
+    gap: 32px;
+  }
+
+  .contact-hero__top {
+    gap: 16px;
+  }
+
+  .contact-hero__label-text {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .contact-hero__heading {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .contact-hero__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-top: 32px;
+  }
+
+  .contact-hero__description {
+    max-width: 100%;
+  }
+
+  .contact-hero__description p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .contact-hero__actions {
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .contact-hero .btn {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  .contact-hero .btn .arrow {
+    font-size: 13px;
+  }
+}

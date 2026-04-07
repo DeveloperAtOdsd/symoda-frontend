@@ -1,0 +1,322 @@
+/* ── Symoda Accordion / How We Work ── */
+.accordion {
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.accordion__layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 80px 104px;
+}
+
+/* ── Left column ── */
+.accordion__left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 499px;
+  flex-shrink: 0;
+}
+
+.accordion__label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.accordion__label-text {
+  font-weight: 600;
+  font-size: 12px;
+  color: #2132ed;
+  letter-spacing: 1.3px;
+  white-space: nowrap;
+}
+
+.accordion__label-line {
+  width: 48px;
+  height: 1px;
+  background: #2132ed;
+  flex-shrink: 0;
+}
+
+.accordion__heading {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -1.61px;
+  color: black;
+  margin: 0;
+  font-feature-settings: 'zero';
+}
+
+.accordion__heading .font-light {
+  font-weight: 300;
+}
+
+.accordion__heading .font-medium {
+  font-weight: 500;
+}
+
+.accordion__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  padding-top: 33px;
+  border-top: 1px solid rgba(12, 12, 12, 0.2);
+  width: 100%;
+}
+
+.accordion__summary-title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: -0.48px;
+  color: #171717;
+  margin: 0;
+  font-feature-settings: 'zero';
+}
+
+.accordion__summary-sub {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+/* ── Right column / Accordion panels ── */
+.accordion__panels {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1 0 0;
+  min-width: 0;
+  justify-content: center;
+}
+
+/* ── Single panel ── */
+.accordion__panel {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.2);
+}
+
+.accordion__panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Panel header ── */
+.accordion__panel-header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.accordion__panel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.accordion__phase-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.accordion__phase-text {
+  font-weight: 700;
+  font-size: 12px;
+  color: #2132ed;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.accordion__phase-line {
+  width: 32px;
+  height: 1px;
+  background: #2132ed;
+  flex-shrink: 0;
+}
+
+.accordion__panel-title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: normal;
+  letter-spacing: -0.48px;
+  color: #171717;
+  margin: 0;
+}
+
+.accordion__panel-desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.accordion__panel-list {
+  margin: 0 0 16px;
+  padding-left: 24px;
+  list-style: decimal;
+}
+
+.accordion__panel-list li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2e2e2e;
+  letter-spacing: 0.1px;
+}
+
+/* ── Toggle icon ── */
+.accordion__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid rgba(17, 17, 17, 0.27);
+  background: white;
+}
+
+.accordion__icon--active {
+  background: #2132ed;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.accordion__icon svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.accordion__icon--active svg {
+  transform: rotate(45deg);
+}
+
+.accordion__icon--active svg line {
+  stroke: white;
+}
+
+/* ── Expandable content ── */
+.accordion__panel-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion__panel-content--open {
+  max-height: 500px;
+}
+
+/* ── Tags ── */
+.accordion__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.accordion__tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #b5bbf9;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.accordion__tag-text {
+  font-weight: 400;
+  font-size: 14.4px;
+  line-height: 21.75px;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: -0.525px;
+  white-space: nowrap;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .accordion__layout {
+    padding: 48px 24px;
+  }
+
+  .accordion__layout {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .accordion__left {
+    width: 100%;
+  }
+
+  .accordion__heading {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .accordion__summary-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .accordion__summary-sub {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .accordion__panels {
+    gap: 32px;
+  }
+
+  .accordion__panel-title {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  .accordion__panel-desc {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .accordion__panel-list li {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .accordion__tags {
+    gap: 10px;
+  }
+
+  .accordion__tag {
+    padding: 6px 14px;
+  }
+
+  .accordion__tag-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
