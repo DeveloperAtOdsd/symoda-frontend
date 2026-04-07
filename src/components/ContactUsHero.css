@@ -143,10 +143,10 @@
 .contact-hero__visual {
   position: absolute;
   right: 104px;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   z-index: 1;
 }
 
