@@ -65,7 +65,7 @@ export default function ContactUsHero() {
                 <span>Book a working session</span>
                 <span className="arrow">→</span>
               </button>
-              <a href="#send-details" className="btn btn--outline">
+              <a href="#contact-form" className="btn btn--outline">
                 <span>Send us details</span>
                 <span className="arrow">→</span>
               </a>

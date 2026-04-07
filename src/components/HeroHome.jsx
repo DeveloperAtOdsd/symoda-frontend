@@ -51,7 +51,7 @@ export default function HeroHome() {
                 <span>Book a working session</span>
                 <span className="arrow">→</span>
               </button>
-              <a href="#book-intro" className="btn btn--outline">
+              <a href="#contact-form" className="btn btn--outline">
                 <span>Book intro</span>
                 <span className="arrow">→</span>
               </a>
