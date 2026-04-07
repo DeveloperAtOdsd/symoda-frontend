@@ -47,7 +47,7 @@ export default function ContactForm() {
           <div className="contact__hero">
             <div className="contact__heading-group" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div className="contact__label">
-                <span className="contact__label-text">05 / AFTER YOU REACH</span>
+                <span className="contact__label-text">05 / Send Us Details</span>
                 <span className="contact__label-line" />
               </div>
               <h2 className="contact__heading">

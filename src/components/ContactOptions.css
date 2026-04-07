@@ -41,7 +41,7 @@
 
 .contact-options__inner {
   display: flex;
-  gap: 24px;
+  gap: 48px;
   align-items: flex-start;
   padding: 80px 104px;
 }
