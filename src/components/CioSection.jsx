@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { getCalApi } from '@calcom/embed-react'
 import cioStrategy from '../assets/cio-strategy.png'
 import cioVendor from '../assets/cio-vendor.png'
 import cioBudget from '../assets/cio-budget.png'
@@ -33,6 +35,13 @@ function MarqueeTrack() {
 }
 
 export default function CioSection() {
+  useEffect(() => {
+    ;(async () => {
+      const cal = await getCalApi()
+      cal('ui', { theme: 'light', styles: { branding: { brandColor: '#2132ed' } } })
+    })()
+  }, [])
+
   return (
     <section className="cio">
       {/* Top content */}
@@ -62,10 +71,14 @@ export default function CioSection() {
             tools, governance, and roadmaps; without the cost of a full-time
             hire
           </p>
-          <a href="#book-session" className="cio__cta">
+          <button
+            data-cal-link="developer/30min"
+            data-cal-config='{"layout":"month_view"}'
+            className="cio__cta"
+          >
             <span>Book a working session</span>
             <span className="arrow">→</span>
-          </a>
+          </button>
         </div>
       </div>
 

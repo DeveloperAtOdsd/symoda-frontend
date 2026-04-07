@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { getCalApi } from '@calcom/embed-react'
 import './ContactOptions.css'
 
 const CARD_TOP_BASE = 80
@@ -6,6 +7,13 @@ const CARD_TOP_STEP = 40
 
 export default function ContactOptions() {
   const cardsRef = useRef([])
+
+  useEffect(() => {
+    ; (async () => {
+      const cal = await getCalApi()
+      cal('ui', { theme: 'light', styles: { branding: { brandColor: '#2132ed' } } })
+    })()
+  }, [])
 
   useEffect(() => {
     const cards = cardsRef.current.filter(Boolean)
@@ -75,10 +83,14 @@ export default function ContactOptions() {
                 workflow and what automation could look like.
               </p>
             </div>
-            <a href="#book-30" className="contact-card__cta">
+            <button
+              data-cal-link="developeratodsd/30min"
+              data-cal-config='{"layout":"month_view"}'
+              className="contact-card__cta"
+            >
               <span className="contact-card__cta-text">Book 30-min call</span>
               <span className="contact-card__cta-arrow">→</span>
-            </a>
+            </button>
           </div>
 
           {/* Option 02 */}
@@ -106,10 +118,14 @@ export default function ContactOptions() {
                 <li>A framework for thinking about ROI and adoption</li>
               </ul>
             </div>
-            <a href="#book-60" className="contact-card__cta">
+            <button
+              data-cal-link="developeratodsd/ai-for-business-leaders"
+              data-cal-config='{"layout":"month_view"}'
+              className="contact-card__cta"
+            >
               <span className="contact-card__cta-text">Book 60-min session</span>
               <span className="contact-card__cta-arrow">→</span>
-            </a>
+            </button>
           </div>
 
           {/* Option 03 */}

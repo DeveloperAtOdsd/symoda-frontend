@@ -1,7 +1,16 @@
+import { useEffect } from 'react'
+import { getCalApi } from '@calcom/embed-react'
 import Gred from './Gred'
 import './HeroHome.css'
 
 export default function HeroHome() {
+  useEffect(() => {
+    ;(async () => {
+      const cal = await getCalApi()
+      cal('ui', { theme: 'light', styles: { branding: { brandColor: '#2132ed' } } })
+    })()
+  }, [])
+
   return (
     <section className="hero-home">
       <Gred />
@@ -34,10 +43,14 @@ export default function HeroHome() {
               <p>move faster, serve more, and grow exponentially.</p>
             </div>
             <div className="hero-section__actions">
-              <a href="#book-session" className="btn btn--primary">
+              <button
+                data-cal-link="developer/30min"
+                data-cal-config='{"layout":"month_view"}'
+                className="btn btn--primary"
+              >
                 <span>Book a working session</span>
                 <span className="arrow">→</span>
-              </a>
+              </button>
               <a href="#book-intro" className="btn btn--outline">
                 <span>Book intro</span>
                 <span className="arrow">→</span>

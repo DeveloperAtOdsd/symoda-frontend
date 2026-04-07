@@ -249,6 +249,7 @@
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
+  font: inherit;
 }
 
 .contact-card__cta:hover {
