@@ -3,6 +3,12 @@
   font-family: 'Work Sans', sans-serif;
 }
 
+.problems {
+  position: relative;
+  /* REQUIRED */
+  overflow: hidden;
+}
+
 .problems__layout {
   display: flex;
   gap: 24px;
