@@ -259,6 +259,17 @@
   font-weight: 400;
 }
 
+.contact__cta:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact__error {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 0;
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .contact__inner {
