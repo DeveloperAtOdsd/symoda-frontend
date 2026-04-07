@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import './ProblemsSection.css'
 
 const problems = [
@@ -28,7 +29,31 @@ const problems = [
   },
 ]
 
+const CARD_TOP_BASE = 80
+const CARD_TOP_STEP = 40
+
 export default function ProblemsSection() {
+  const cardsRef = useRef([])
+
+  useEffect(() => {
+    const cards = cardsRef.current.filter(Boolean)
+    if (!cards.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('problems__card--visible')
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    cards.forEach((card) => observer.observe(card))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="problems">
       <div className="container problems__layout">
@@ -49,12 +74,14 @@ export default function ProblemsSection() {
           </p>
         </div>
 
-        {/* Right column - Problem cards */}
+        {/* Right column - Stacking cards */}
         <div className="problems__cards">
-          {problems.map((problem) => (
+          {problems.map((problem, index) => (
             <div
               key={problem.number}
+              ref={(el) => (cardsRef.current[index] = el)}
               className={`problems__card${problem.hasShadow ? ' problems__card--shadow' : ''}`}
+              style={{ top: `${CARD_TOP_BASE + index * CARD_TOP_STEP}px` }}
             >
               <div className="problems__card-label">
                 <span className="problems__card-label-text">

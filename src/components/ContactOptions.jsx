@@ -1,6 +1,31 @@
+import { useEffect, useRef } from 'react'
 import './ContactOptions.css'
 
+const CARD_TOP_BASE = 80
+const CARD_TOP_STEP = 40
+
 export default function ContactOptions() {
+  const cardsRef = useRef([])
+
+  useEffect(() => {
+    const cards = cardsRef.current.filter(Boolean)
+    if (!cards.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('contact-card--visible')
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    cards.forEach((card) => observer.observe(card))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="contact-options">
       <div className="container contact-options__inner">
@@ -26,10 +51,14 @@ export default function ContactOptions() {
           </div>
         </div>
 
-        {/* Right Column – Option Cards */}
+        {/* Right Column – Stacking Option Cards */}
         <div className="contact-options__right">
           {/* Option 01 */}
-          <div className="contact-card">
+          <div
+            className="contact-card"
+            ref={(el) => (cardsRef.current[0] = el)}
+            style={{ top: `${CARD_TOP_BASE}px` }}
+          >
             <div className="contact-card__label">
               <span className="contact-card__label-text">OPTION 01</span>
               <span className="contact-card__label-line" />
@@ -53,7 +82,11 @@ export default function ContactOptions() {
           </div>
 
           {/* Option 02 */}
-          <div className="contact-card">
+          <div
+            className="contact-card"
+            ref={(el) => (cardsRef.current[1] = el)}
+            style={{ top: `${CARD_TOP_BASE + CARD_TOP_STEP}px` }}
+          >
             <div className="contact-card__label">
               <span className="contact-card__label-text">OPTION 02</span>
               <span className="contact-card__label-line" />
@@ -80,7 +113,11 @@ export default function ContactOptions() {
           </div>
 
           {/* Option 03 */}
-          <div className="contact-card">
+          <div
+            className="contact-card"
+            ref={(el) => (cardsRef.current[2] = el)}
+            style={{ top: `${CARD_TOP_BASE + CARD_TOP_STEP * 2}px` }}
+          >
             <div className="contact-card__label">
               <span className="contact-card__label-text">OPTION 03</span>
               <span className="contact-card__label-line" />
@@ -102,7 +139,11 @@ export default function ContactOptions() {
           </div>
 
           {/* Option 04 */}
-          <div className="contact-card">
+          <div
+            className="contact-card"
+            ref={(el) => (cardsRef.current[3] = el)}
+            style={{ top: `${CARD_TOP_BASE + CARD_TOP_STEP * 3}px` }}
+          >
             <div className="contact-card__label">
               <span className="contact-card__label-text">OPTION 04</span>
               <span className="contact-card__label-line" />
@@ -119,10 +160,7 @@ export default function ContactOptions() {
         </div>
       </div>
 
-      {/* 👇 ADD BLOB HERE (bottom-right) */}
-      <div
-        className="contact-faq__blob"
-      />
+      <div className="contact-faq__blob" />
     </section>
   )
 }
