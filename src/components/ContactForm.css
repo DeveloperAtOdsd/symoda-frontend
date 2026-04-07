@@ -233,9 +233,9 @@
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  width: 275px;
+  width: 200px;
   height: 54px;
-  padding: 16px 33px;
+  padding: 12px 24px;
   background: #1400ff;
   border: 1px solid #1400ff;
   border-radius: 5px;
