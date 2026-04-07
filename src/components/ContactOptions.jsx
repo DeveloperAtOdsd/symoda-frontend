@@ -3,20 +3,6 @@ import './ContactOptions.css'
 export default function ContactOptions() {
   return (
     <section className="contact-options">
-      {/* 👇 ADD BLOB HERE */}
-      <div
-        className="absolute rounded-full opacity-20 will-change-transform mix-blend-multiply"
-        style={{
-          width: '900px',
-          height: '900px',
-          top: '0',
-          left: '0',
-          transform: 'translate(-40%, -40%)',
-          background: 'linear-gradient(180deg, #34B8F9 0%, #1143F8 100%)',
-          filter: 'blur(92px)',
-          zIndex: 0, // 👈 important
-        }}
-      />
       <div className="container contact-options__inner">
         {/* Left Column */}
         <div className="contact-options__left">
