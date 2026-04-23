@@ -9,6 +9,10 @@
   gap: 24px;
   align-items: flex-start;
   padding: 80px 104px;
+  max-width: 1260px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ── Left column ── */

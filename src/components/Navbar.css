@@ -5,7 +5,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 64px);
-  max-width: calc(1440px - 64px);
+  max-width: calc(1260px - 64px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,7 +74,7 @@
   .navbar {
     top: 16px;
     width: calc(100% - 32px);
-    max-width: calc(1440px - 32px);
+    max-width: calc(1260px - 32px);
     padding: 12px 20px;
   }
 

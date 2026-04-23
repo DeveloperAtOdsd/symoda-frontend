@@ -6,7 +6,7 @@ import imgWordmark from '../assets/wordmark.svg'
 export default function Footer() {
   return (
     <footer style={{ background: 'linear-gradient(to top, #000000, #0f1ec3)' }}>
-      <div className="flex flex-col gap-6 lg:gap-[42px] pt-12 pb-6 lg:pb-8 px-4 lg:px-8 w-full max-w-[1440px] mx-auto">
+      <div className="flex flex-col gap-6 lg:gap-[42px] pt-12 pb-6 lg:pb-8 px-4 lg:px-8 w-full max-w-[1260px] mx-auto">
         {/* Main content area */}
         <div className="flex flex-col gap-6">
           {/* Logo + Description + Company — stacked on mobile, row on desktop */}
