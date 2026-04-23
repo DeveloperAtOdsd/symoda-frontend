@@ -233,7 +233,6 @@
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  width: 200px;
   height: 54px;
   padding: 12px 24px;
   background: #1400ff;
@@ -248,6 +247,7 @@
   cursor: pointer;
   box-sizing: border-box;
   flex-shrink: 0;
+  white-space: nowrap;
   transition: opacity 0.2s ease;
 }
 

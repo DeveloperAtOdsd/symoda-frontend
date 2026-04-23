@@ -234,7 +234,7 @@ export default function ContactForm() {
           </p>
           <button type="submit" className="contact__cta" disabled={status === 'sending'}>
             <span>
-              {status === 'sending' ? 'Sending...' : 'Submit enquiry'}
+              {status === 'sending' ? 'Sending...' : 'Book a working session'}
             </span>
             <span className="arrow">→</span>
           </button>

@@ -22,7 +22,7 @@ export default function Footer() {
 
               <div className="flex flex-col gap-8 pb-6">
                 <p className="text-white text-base leading-6 tracking-[-0.18px] font-medium lg:w-[416px]">
-                  AI-powered workflows that ship, stick, and scale across your organization. From strategy to sustained impact.
+                  Practical Technology & AI solutions that pay for themselves.
                 </p>
                 <Link to="/contact" className="flex items-center text-white text-base leading-6 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity w-[131px]">
                   Get in touch
@@ -33,12 +33,12 @@ export default function Footer() {
 
             {/* Right — Company */}
             <div className="flex flex-col gap-5 border-b border-white pb-6 pr-6 lg:flex-1 justify-end">
-              <p className="text-white text-2xl leading-9 tracking-[-0.47px] font-medium w-full">
+              {/* <p className="text-white text-2xl leading-9 tracking-[-0.47px] font-medium w-full">
                 Company
-              </p>
-              <Link to="/contact" className="text-white text-base leading-5 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity p-2.5">
+              </p> */}
+              {/* <Link to="/contact" className="text-white text-base leading-5 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity p-2.5">
                 Contact
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
