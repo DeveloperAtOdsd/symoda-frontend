@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './SymodaAccordion.css'
-
+import Gred from './Gred'
 const phases = [
   {
     id: 1,
@@ -73,6 +73,13 @@ export default function SymodaAccordion() {
 
   return (
     <section className="accordion">
+      <Gred
+        style={{
+
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%)',
+        }}
+      />
       <div className="container accordion__layout">
         {/* Left column */}
         <div className="accordion__left">

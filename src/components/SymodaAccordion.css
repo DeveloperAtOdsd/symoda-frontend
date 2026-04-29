@@ -1,7 +1,8 @@
-/* ── Symoda Accordion / How We Work ── */
 .accordion {
   width: 100%;
   font-family: 'Work Sans', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .accordion__layout {
@@ -13,6 +14,8 @@
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Left column ── */

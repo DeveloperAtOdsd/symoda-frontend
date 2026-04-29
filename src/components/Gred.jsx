@@ -3,7 +3,7 @@ import gsap from 'gsap'
 
 const imgNoise = 'http://localhost:3845/assets/66bff7bdfbbef7edaefa4a7570fbcde664049cbd.png'
 
-export default function Gred() {
+export default function Gred({ className = "", style = {} }) {
     const containerRef = useRef(null)
     const blob1Ref = useRef(null)
     const blob2Ref = useRef(null)
@@ -91,51 +91,54 @@ export default function Gred() {
 
             <div
                 ref={containerRef}
-                className="absolute top-0 left-0 right-0 bg-white overflow-hidden pointer-events-none"
+                className={`absolute top-0 left-0 right-0 bg-white overflow-hidden pointer-events-none ${className}`}
                 style={{
                     filter: "url(#goo)",
                     bottom: "-400px",
                     WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
                     maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+                    ...style,
                 }}
             >
-                {/*  Noise texture */}
-                <div
-                    className="absolute top-0 left-0 w-[612px] h-[370px] mix-blend-soft-light opacity-20"
-                    style={{
-                        backgroundImage: `url('${imgNoise}')`,
-                        backgroundSize: '612px 370px',
-                        backgroundPosition: 'top left',
-                    }}
-                />
+                <div className="relative w-full max-w-[1260px] mx-auto h-full">
+                    {/*  Noise texture */}
+                    <div
+                        className="absolute top-0 left-0 w-[612px] h-[370px] mix-blend-soft-light opacity-20"
+                        style={{
+                            backgroundImage: `url('${imgNoise}')`,
+                            backgroundSize: '612px 370px',
+                            backgroundPosition: 'top left',
+                        }}
+                    />
 
-                {/* Blob 1 */}
-                <div
-                    ref={blob1Ref}
-                    className="absolute rounded-full opacity-20 will-change-transform mix-blend-multiply"
-                    style={{
-                        width: '1003px',
-                        height: '1003px',
-                        top: '227px',
-                        left: '-196px',
-                        background: 'linear-gradient(180deg, #F93F08 0%, #1143F8 100%)',
-                        filter: 'blur(110px)',
-                    }}
-                />
+                    {/* Blob 1 */}
+                    <div
+                        ref={blob1Ref}
+                        className="absolute rounded-full opacity-20 will-change-transform mix-blend-multiply"
+                        style={{
+                            width: '1003px',
+                            height: '1003px',
+                            top: '227px',
+                            left: '-196px',
+                            background: 'linear-gradient(180deg, #F93F08 0%, #1143F8 100%)',
+                            filter: 'blur(110px)',
+                        }}
+                    />
 
-                {/*  Blob 2 */}
-                <div
-                    ref={blob2Ref}
-                    className="absolute rounded-full opacity-20 will-change-transform mix-blend-multiply"
-                    style={{
-                        width: '900px',
-                        height: '900px',
-                        top: '-302px',
-                        left: '807px',
-                        background: 'linear-gradient(180deg, #34B8F9 0%, #1143F8 100%)',
-                        filter: 'blur(92px)',
-                    }}
-                />
+                    {/*  Blob 2 */}
+                    <div
+                        ref={blob2Ref}
+                        className="absolute rounded-full opacity-20 will-change-transform mix-blend-multiply"
+                        style={{
+                            width: '900px',
+                            height: '900px',
+                            top: '-302px',
+                            left: '807px',
+                            background: 'linear-gradient(180deg, #34B8F9 0%, #1143F8 100%)',
+                            filter: 'blur(92px)',
+                        }}
+                    />
+                </div>
             </div>
         </>
     )

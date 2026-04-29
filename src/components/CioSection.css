@@ -6,6 +6,8 @@
   align-items: flex-start;
   font-family: 'Work Sans', sans-serif;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Top content area ── */
