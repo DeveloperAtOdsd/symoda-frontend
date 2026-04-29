@@ -49,11 +49,17 @@ export default function HeroHome() {
                 className="btn btn--primary"
               >
                 <span>Book a working session</span>
-                <span className="arrow">→</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.000500023 6.54398V5.27998H9.2645L4.5925 0.863976L5.4405 -2.38419e-05L11.2005 5.53598V6.23998L5.4405 11.792L4.5765 10.912L9.2165 6.54398H0.000500023Z" fill="white" />
+                </svg>
+
               </button>
               <a href="#contact-form" className="btn btn--outline">
                 <span>Book intro</span>
-                <span className="arrow">→</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.000500023 6.54398V5.27998H9.2645L4.5925 0.863976L5.4405 -2.38419e-05L11.2005 5.53598V6.23998L5.4405 11.792L4.5765 10.912L9.2165 6.54398H0.000500023Z" fill="#0C0C0C" />
+                </svg>
+
               </a>
             </div>
           </div>

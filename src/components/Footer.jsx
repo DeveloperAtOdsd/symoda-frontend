@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Logo Container */}
         <div className="relative shrink-0 flex flex-col items-center lg:items-start">
           <div className="relative h-[116px] w-[302px] shrink-0 self-start">
-            <img src={imgLogoMark} alt="" className="absolute top-0 left-[232px] w-[70px] h-[70px] object-contain" />
+            <img src={imgLogoMark} alt="" className="absolute top-4 left-[223px] w-[70px] h-[70px] object-contain" />
             <img src={imgWordmark} alt="Symoda Technology group" className="absolute top-[42px] left-0 w-[247px] h-[74px]" />
           </div>
         </div>

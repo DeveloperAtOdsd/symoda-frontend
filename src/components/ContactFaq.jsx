@@ -92,14 +92,14 @@ export default function ContactFaq() {
                   <p className="faq-item__question-text">{item.question}</p>
                   <span className="faq-item__icon" />
                 </div>
-                {isOpen && (
-                  <>
+                <div className="faq-item__content-wrapper">
+                  <div className="faq-item__content">
                     <div className="faq-item__divider" />
                     <div className="faq-item__answer">
                       <p>{item.answer}</p>
                     </div>
-                  </>
-                )}
+                  </div>
+                </div>
               </div>
             )
           })}

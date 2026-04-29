@@ -40,6 +40,8 @@
 }
 
 .contact-options__inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: 48px;
   align-items: flex-start;
