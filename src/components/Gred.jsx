@@ -91,8 +91,13 @@ export default function Gred() {
 
             <div
                 ref={containerRef}
-                className="absolute inset-0 bg-white overflow-hidden pointer-events-none"
-                style={{ filter: "url(#goo)" }}
+                className="absolute top-0 left-0 right-0 bg-white overflow-hidden pointer-events-none"
+                style={{
+                    filter: "url(#goo)",
+                    bottom: "-400px",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+                    maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+                }}
             >
                 {/*  Noise texture */}
                 <div
