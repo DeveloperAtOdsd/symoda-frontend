@@ -1,65 +1,41 @@
 import { Link } from 'react-router-dom'
-import imgArrow from '../assets/arrow.svg'
 import imgLogoMark from '../assets/logo.png'
 import imgWordmark from '../assets/wordmark.svg'
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'linear-gradient(to top, #000000, #0f1ec3)' }}>
-      <div className="flex flex-col gap-6 lg:gap-[42px] pt-12 pb-6 lg:pb-8 px-4 lg:px-8 w-full max-w-[1260px] mx-auto">
-        {/* Main content area */}
-        <div className="flex flex-col gap-6">
-          {/* Logo + Description + Company — stacked on mobile, row on desktop */}
-          <div className="flex flex-col lg:flex-row lg:gap-6 lg:items-end w-full">
-
-            {/* Left — Logo + Description + CTA */}
-            <div className="flex flex-col gap-5 border-b border-white pb-6 lg:flex-1 lg:pr-6">
-              {/* Logo */}
-              <div className="relative h-[116px] w-[247px]">
-                <img src={imgLogoMark} alt="" className="absolute top-4 left-[222px] w-[70px] h-[70px] object-contain" />
-                <img src={imgWordmark} alt="Symoda Technology group" className="absolute bottom-0 left-0 w-[247px] h-[74px]" />
-              </div>
-
-              <div className="flex flex-col gap-8 pb-6">
-                <p className="text-white text-base leading-6 tracking-[-0.18px] font-medium lg:w-[416px]">
-                  Practical Technology & AI solutions that pay for themselves.
-                </p>
-                <Link to="/contact" className="flex items-center text-white text-base leading-6 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity w-[131px]">
-                  Get in touch
-                  <img src={imgArrow} alt="" className="w-6 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right — Company */}
-            <div className="flex flex-col gap-5 border-b border-white pb-6 pr-6 lg:flex-1 justify-end">
-              {/* <p className="text-white text-2xl leading-9 tracking-[-0.47px] font-medium w-full">
-                Company
-              </p> */}
-              {/* <Link to="/contact" className="text-white text-base leading-5 tracking-[-0.18px] font-medium hover:opacity-80 transition-opacity p-2.5">
-                Contact
-              </Link> */}
-            </div>
+    <footer className="bg-gradient-to-t from-black to-[#0f1ec3] flex flex-col w-full relative">
+      <div className="flex flex-col gap-[24px] lg:gap-[42px] px-[24px] pt-[48px] pb-[24px] lg:px-[104px] lg:py-[48px] w-full max-w-[1440px] mx-auto">
+        {/* Logo Container */}
+        <div className="relative shrink-0 flex flex-col items-center lg:items-start">
+          <div className="relative h-[116px] w-[302px] shrink-0 self-start">
+            <img src={imgLogoMark} alt="" className="absolute top-0 left-[232px] w-[70px] h-[70px] object-contain" />
+            <img src={imgWordmark} alt="Symoda Technology group" className="absolute top-[42px] left-0 w-[247px] h-[74px]" />
           </div>
         </div>
 
-        {/* Bottom section */}
-        {/* Mobile: stacked vertically, centered (links → copyright) */}
-        {/* Desktop: single row (copyright left, links right) */}
-        <div className="flex flex-col lg:flex-row lg:items-center gap-6 w-full">
-          {/* Legal links — stacked on mobile, row on desktop */}
-          <div className="flex flex-col lg:flex-row gap-[21px] items-center lg:items-center lg:order-2">
-            <a href="#" className="text-[#a8a8a8] text-sm leading-5 tracking-[-0.09px] font-medium hover:text-white transition-colors px-3 py-1 text-center">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-[#a8a8a8] text-sm leading-5 tracking-[-0.09px] font-medium hover:text-white transition-colors px-3 py-1 text-center">
-              Terms of Service
-            </a>
-          </div>
-          {/* Copyright */}
-          <p className="flex-1 text-[#e6e6e6] text-sm leading-5 tracking-[-0.09px] font-medium text-center lg:text-left lg:order-1">
-            © 2026 Symoda Technology Group. All rights reserved.
+        {/* Text and Divider */}
+        <div className="border-b border-white pb-[24px] pr-0 lg:pr-[24px] w-full mt-[-4px] lg:mt-0">
+          <p className="font-['Work_Sans',_sans-serif] font-medium lg:font-normal text-[16px] text-white tracking-[-0.18px] lg:tracking-[0.1px] leading-[24px] lg:leading-[30px]">
+            Practical Technology & AI solutions that pay for themselves.
           </p>
+        </div>
+
+        {/* Bottom Links */}
+        <div className="flex flex-col-reverse lg:flex-row gap-[24px] items-center w-full justify-between">
+          <div className="flex flex-col w-full lg:flex-1">
+            <p className="font-['Work_Sans',_sans-serif] font-medium lg:font-normal text-[14px] lg:text-[16px] text-[#e6e6e6] lg:text-white tracking-[-0.09px] lg:tracking-[0.1px] leading-[20px] lg:leading-[28px] text-center lg:text-left">
+              © 2026 Symoda Technology Group. All rights reserved.
+            </p>
+          </div>
+          <div className="flex flex-col lg:flex-row gap-[21px] lg:gap-[24px] items-center justify-center shrink-0 w-full lg:w-auto">
+            <Link to="#" className="font-['Work_Sans',_sans-serif] font-medium text-[14px] text-[#a8a8a8] hover:text-white transition-colors tracking-[-0.09px] leading-[20px] text-center px-[12px] py-[4px] w-full lg:w-auto">
+              Privacy Policy
+            </Link>
+            <Link to="#" className="font-['Work_Sans',_sans-serif] font-medium text-[14px] text-[#a8a8a8] hover:text-white transition-colors tracking-[-0.09px] leading-[20px] text-center px-[12px] py-[4px] w-full lg:w-auto">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
