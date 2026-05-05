@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-/* ── Left column ── */
+/* ── Left column  ── */
 .problems__left {
   display: flex;
   flex-direction: column;
