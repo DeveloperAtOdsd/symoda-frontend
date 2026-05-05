@@ -14,7 +14,7 @@ export default function ContactUsHero() {
     <section className="relative w-full h-[100vh] lg:h-[130vh] max-h-[900px] font-['Work_Sans',_sans-serif] overflow-x-clip">
       <Gred />
 
-      <div className="relative flex flex-col items-center justify-end h-full px-[24px] lg:px-[104px] pb-[60px] lg:pb-[80px] w-full max-w-[1440px] mx-auto box-border z-10">
+      <div className="relative flex flex-col items-center justify-end h-full px-[24px] lg:px-[104px] pb-[60px] lg:pb-[80px] w-[100%] max-w-[1260px] mx-auto box-border z-10">
 
         {/* Hero Content */}
         <div className="flex flex-col gap-[32px] lg:gap-[48px] w-full">

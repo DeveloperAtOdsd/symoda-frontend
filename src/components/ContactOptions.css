@@ -148,7 +148,7 @@
   box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.06);
   opacity: 0;
   transform: translateY(40px);
-
+  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease;
 }
 
 .contact-card--visible {
@@ -362,3 +362,47 @@
     opacity: 0.12;
   }
 }
+
+/* ==================== COMPACT MODES ==================== */
+
+/* Card 2 Compact (when Card 3 stacks) */
+.contact-card:nth-child(2).contact-card--compact {
+  max-height: 455px;
+}
+
+.contact-card:nth-child(2).contact-card--compact .contact-card__content {
+  gap: 12px;
+}
+
+.contact-card:nth-child(2).contact-card--compact .contact-card__title {
+  font-size: 26px;
+  line-height: 34px;
+}
+
+.contact-card:nth-child(2).contact-card--compact .contact-card__text,
+.contact-card:nth-child(2).contact-card--compact .contact-card__list li {
+  font-size: 15px;
+  line-height: 26px;
+}
+
+/* Card 3 Compact (when Card 4 stacks) */
+.contact-card:nth-child(3).contact-card--compact-3 {
+  max-height: 380px;
+  /* Adjust this value */
+  transition: max-height 0.5s ease;
+}
+
+.contact-card:nth-child(3).contact-card--compact-3 .contact-card__content {
+  gap: 12px;
+}
+
+.contact-card:nth-child(3).contact-card--compact-3 .contact-card__title {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.contact-card:nth-child(3).contact-card--compact-3 .contact-card__text {
+  font-size: 15px;
+  line-height: 26px;
+}
+

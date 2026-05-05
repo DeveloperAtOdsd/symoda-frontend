@@ -24,10 +24,38 @@ export default function ContactOptions() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('contact-card--visible')
+
+            // Card 3 → makes Card 2 compact
+            if (entry.target === cards[2]) {
+              if (window.innerWidth > 768) {
+                cards[1]?.classList.add('contact-card--compact')
+              }
+            }
+
+            // Card 4 → makes Card 3 compact
+            if (entry.target === cards[3]) {
+              if (window.innerWidth > 768) {
+                cards[2]?.classList.add('contact-card--compact-3')
+              }
+            }
+          } else {
+            // Cleanup only when scrolling UP (element leaving towards the bottom)
+            // If boundingClientRect.top is > 0, it means it's below the top of the viewport
+            if (entry.boundingClientRect.top > 0) {
+              if (entry.target === cards[2]) {
+                cards[1]?.classList.remove('contact-card--compact')
+              }
+              if (entry.target === cards[3]) {
+                cards[2]?.classList.remove('contact-card--compact-3')
+              }
+            }
           }
         })
       },
-      { threshold: 0.15 }
+      {
+        threshold: [0.3, 0.7],
+        rootMargin: "-80px 0px -140px 0px"
+      }
     )
 
     cards.forEach((card) => observer.observe(card))
@@ -128,7 +156,7 @@ export default function ContactOptions() {
             </button>
           </div>
 
-          {/* Option 03 */}
+          {/* Option 03 - Will become compact when Card 4 stacks */}
           <div
             className="contact-card"
             ref={(el) => (cardsRef.current[2] = el)}
