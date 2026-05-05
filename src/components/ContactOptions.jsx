@@ -3,7 +3,7 @@ import { getCalApi } from '@calcom/embed-react'
 import './ContactOptions.css'
 
 const CARD_TOP_BASE = 80
-const CARD_TOP_STEP = 40
+const CARD_TOP_STEP = 60
 
 export default function ContactOptions() {
   const cardsRef = useRef([])
